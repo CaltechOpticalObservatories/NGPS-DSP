@@ -139,25 +139,25 @@ SET_SHUTTER_STATE
 ; Open the shutter from the timing board, executed as a command
 OPEN_SHUTTER
 	BSET    #ST_SHUT,X:<STATUS 	; Set status bit to mean shutter open
-	MOVE	#0,X0
+	MOVE	#>$10,X0
 	JSR	<SET_SHUTTER_STATE
 	JMP	<FINISH
 
 ; Close the shutter from the timing board, executed as a command
 CLOSE_SHUTTER
 	BCLR    #ST_SHUT,X:<STATUS 	; Clear status to mean shutter closed
-	MOVE	#>$10,X0
+	MOVE	#0,X0
 	JSR	<SET_SHUTTER_STATE
 	JMP	<FINISH
 
 ; Shutter subroutines
 OSHUT	BSET    #ST_SHUT,X:<STATUS 	; Set status bit to mean shutter open
-	MOVE	#0,X0
+	MOVE	#>$10,X0
 	JSR	<SET_SHUTTER_STATE
 	RTS
 
 CSHUT	BCLR    #ST_SHUT,X:<STATUS 	; Clear status to mean shutter closed
-	MOVE	#>$10,X0
+	MOVE	#0,X0
 	JSR	<SET_SHUTTER_STATE
 	RTS
 
