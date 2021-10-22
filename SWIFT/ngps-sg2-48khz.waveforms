@@ -578,6 +578,7 @@ SERIAL_IDLE_SPLIT
   DC  VIDEO+DCRST_DELAY+%0110001  ; ADCLatch,NonInv  ;mF to do ADC sampling before resetting
 END_SERIAL_IDLE_SPLIT
 
+
 ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
 SERIAL_IDLE_SPLIT_NO_POL
   DC  END_SERIAL_IDLE_SPLIT_NO_POL-SERIAL_IDLE_SPLIT_NO_POL-1

@@ -813,8 +813,7 @@ COMP_L1 MOVE    #'_L1',A
         CMP     Y0,A
         JNE     <COMP_L2
 
-
-        MOVE    #$F082,X0
+        MOVE    #$F000,X0
         MOVE    X0,Y:SXR
         MOVE    #PARALLEL_1,X0
         MOVE    X0,Y:PARALLEL
@@ -834,7 +833,7 @@ COMP_L2 MOVE    #'_L2',A
         CMP     Y0,A
         JNE     <COMP_2
 
-        MOVE    #$F000,X0
+        MOVE    #$F082,X0
         MOVE    X0,Y:SXL
         MOVE    #PARALLEL_2,X0
         MOVE    X0,Y:PARALLEL
@@ -854,9 +853,6 @@ COMP_2  MOVE    #'__2',A
         CMP     Y0,A
         JNE     <COMP_1
 
-        MOVE    #$F0C2,X0
-;        MOVE    #$F041,X0
-        MOVE    X0,Y:SXRL
         MOVE    #PARALLEL_2,X0
         MOVE    X0,Y:PARALLEL
         MOVE    #SERIAL_READ_SPLIT_SPECIAL__2,X0
@@ -875,8 +871,6 @@ COMP_1  MOVE    #'__1',A
         CMP     Y0,A
         JNE     <COMP_ALL
 
-        MOVE    #$F0C2,X0
-        MOVE    X0,Y:SXRL
         MOVE    #PARALLEL_1,X0
         MOVE    X0,Y:PARALLEL
         MOVE    #SERIAL_READ_SPLIT_SPECIAL__1,X0
@@ -891,12 +885,11 @@ COMP_1  MOVE    #'__1',A
         BCLR    #SPLIT_P,X:STATUS
         RTS
 
-COMP_ALL  MOVE    #'ALL',A
+COMP_ALL
+	MOVE    #'ALL',A
         CMP     Y0,A
         JNE     <COMP_TEMP
 
-        MOVE    #$F0C0,X0
-        MOVE    X0,Y:SXRL
         MOVE    #PARALLEL_SPLIT,X0
         MOVE    X0,Y:PARALLEL
         MOVE    #SERIAL_READ_SPLIT_SPECIAL_QUAD,X0
