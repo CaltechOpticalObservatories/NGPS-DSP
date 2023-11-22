@@ -1,4 +1,4 @@
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  tim.asm  Page 1
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  tim.asm  Page 1
 
 
 
@@ -64,7 +64,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  tim.asm  Page 1
 60        000010           TE        EQU     16                                ; Transmitter enable
 61     
 62                         ; Phase Locked Loop initialization
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timhdr.asm  Page 2
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timhdr.asm  Page 2
 
 
 
@@ -130,7 +130,7 @@ d
 121       000001           SSFEF     EQU     1                                 ; Switch state FIFO empty flag
 122    
 123                        ; Other equates
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timhdr.asm  Page 3
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timhdr.asm  Page 3
 
 
 
@@ -196,7 +196,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timhdr.asm  Pag
 183                                                00      No temperature readout
 184                                                01      Polynomial Diode calibration
 185                                                10      Linear temperature sensor calibration
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timhdr.asm  Page 4
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timhdr.asm  Page 4
 
 
 
@@ -262,7 +262,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timhdr.asm  Pag
 245                               COMMENT *
 246    
 247                        This file is used to generate boot DSP code for the 250 MHz fiber optic
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 5
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 5
 
 
 
@@ -328,7 +328,7 @@ e
 306       P:000051 P:000051 000000            NOP
 307       P:000052 P:000052 0D001A            JSR     CLR_ERR                           ; SCI receive error interrupt
 308       P:000053 P:000053 000000            NOP
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 6
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 6
 
 
 
@@ -394,7 +394,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Pa
 359       P:000080 P:000080 0203DF  COMMAND   MOVE              X:(R3+1),B              ; Get the command
 360       P:000081 P:000081 205B00            MOVE              (R3)+
 361       P:000082 P:000082 205B00            MOVE              (R3)+                   ; Point R3 to the first argument
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 7
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 7
 
 
 
@@ -460,7 +460,7 @@ k
 413       P:0000AF P:0000AF 0A8989  TST3      JCLR    #EF,X:HDR,CHK_FO
                             0000A9
 414    
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 8
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 8
 
 
 
@@ -526,7 +526,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Pa
 457       P:0000E9 P:0000E9 0A0020  SCI_END   BSET    #ST_RCV,X:<STATUS                 ; Its a utility board (SCI) word
 458       P:0000EA P:0000EA 0C00CC            JMP     <SET_CC
 459    
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 9
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 9
 
 
 
@@ -592,7 +592,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Pa
 510       P:00011A P:00011A 0ACF15  RDX       JCLR    #21,B,RDY                         ; Test address bit for X: memory
                             00011E
 511       P:00011C P:00011C 47E000            MOVE              X:(R0),Y1               ; Write to X data memory
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 10
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 10
 
 
 
@@ -658,7 +658,7 @@ ry
 561       P:000154 P:000154 000000            NOP                                       ; DO loop nesting restriction
 562                                 L1WRR
 563       P:000155 P:000155 013D22            BSET    #WRENA,X:PDRC                     ; WR_ENA* = 1 to disable EEPROM writing
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 11
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 11
 
 
 
@@ -724,7 +724,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Pa
 616       P:000181 P:000181 305A00  STARTUP   MOVE              #<TST_RCV,R0            ; Execution address when idle => when not
 617       P:000182 P:000182 601F00            MOVE              R0,X:<IDL_ADR           ;   processing commands or reading out
 618       P:000183 P:000183 44F400            MOVE              #50000,X0               ; Delay by 500 milliseconds
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 12
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 12
 
 
 
@@ -790,7 +790,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Pa
 665                                 ; Program the serial port ESSI0 = Port C for serial communication with
 666                                 ;   the utility board
 667       P:0001A5 P:0001A5 07F43F            MOVEP             #>0,X:PCRC              ; Software reset of ESSI0
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 13
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 13
 
 
 
@@ -856,7 +856,7 @@ ut)
 716                                                                                     ; CKP = 0 for rising clock edge transitions
 717                                                                                     ; TE0 = 0 to NOT enable transmitter #0 yet
 718                                                                                     ; MOD = 0 so its not networked mode
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 14
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 14
 
 
 
@@ -922,7 +922,7 @@ ler
 760       P:0001D9 P:0001D9 00FCB8            ANDI    #$FC,MR                           ; Unmask all interrupt levels
 761    
 762                                 ; Initialize the fiber optic serial receiver circuitry
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 15
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 15
 
 
 
@@ -988,7 +988,7 @@ rs
 806       P:00020A P:00020A 012F03            BCLR    #3,X:PCRD                         ; Turn the serial clock off
 807       P:00020B P:00020B 0C0223            JMP     <SKIP
 808    
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 16
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 16
 
 
 
@@ -1054,7 +1054,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Pa
 864       X:000000 X:000000         STATUS    DC      $1064                             ; Controller status bits
 865    
 866       000001                    FO_HDR    EQU     STATUS+1                          ; Fiber optic write bytes
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 17
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 17
 
 
 
@@ -1120,7 +1120,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Pa
 930                                 ;   the interrupt service routine SCI_RCV. Note that it is 32 words long,
 931                                 ;   hard coded, and the 33rd location contains the pointer to words that have
 932                                 ;   been processed by moving them from the SCI_TABLE to the COM_BUF.
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timboot.asm  Page 18
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timboot.asm  Page 18
 
 
 
@@ -1186,7 +1186,7 @@ form
 993    
 994                                 ; Overall loop - transfer and read NPR lines
 995                                 RDCCD
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  tim.asm  Page 19
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  tim.asm  Page 19
 
 
 
@@ -1252,7 +1252,7 @@ at the moment.
 1046                                          CLOCK
 1050      P:000282 P:000282 000000  L_PSKIP   NOP
 1051                                L_PSKP
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  tim.asm  Page 20
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  tim.asm  Page 20
 
 
 
@@ -1318,7 +1318,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  tim.asm  Page 2
 1111                                          CLOCK                                     ; Go clock out the CCD charge
 1115                                L_SKP1
 1116   
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  tim.asm  Page 21
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  tim.asm  Page 21
 
 
 
@@ -1384,7 +1384,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  tim.asm  Page 2
                             0002E9
 1178                                CHECK_HVEN
 1179      P:0002E9 P:0002E9 0A8983            JCLR    #HVEN,X:HDR,PWR_CHECK_OK
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 22
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 22
 
 
 
@@ -1450,7 +1450,7 @@ ord
 1230                                ; Turn on the high +36 volt power line and then delay
 1231      P:00030F P:00030F 0A8903            BCLR    #HVEN,X:HDR                       ; HVEN = Low => Turn on +36V
 1232      P:000310 P:000310 44F400            MOVE              #10000000,X0
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 23
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 23
 
 
 
@@ -1516,7 +1516,7 @@ d
 1284      P:000338 P:000338 56F400            MOVE              #$0C3000,A              ; Value of integrate speed and gain switches
                             0C3000
 1285      P:00033A P:00033A 20001B            CLR     B
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 24
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 24
 
 
 
@@ -1582,7 +1582,7 @@ es
 1336      P:000366 P:000366 0D0368  CLEAR     JSR     <CLR_CCD
 1337      P:000367 P:000367 0C008F            JMP     <FINISH
 1338   
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 25
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 25
 
 
 
@@ -1648,7 +1648,7 @@ ter command
 1396                                ; Note that this does not use the inherent Frame Store feature of this device,
 1397                                ; but instead treats one half or the other as frame store.  A Y:MEM flag is used
 1398                                ; to indicate its running. This happens so fast it's probably not necessary.
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 26
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 26
 
 
 
@@ -1714,7 +1714,7 @@ plete
 1448      P:0003CC P:0003CC 601F00            MOVE              R0,X:<IDL_ADR
 1449      P:0003CD P:0003CD 0D044E            JSR     <WAIT_TO_FINISH_CLOCKING
 1450   
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 27
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 27
 
 
 
@@ -1780,7 +1780,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 1508                                TEST_AD
 1509      P:0003D6 P:0003D6 57F000            MOVE              X:(RDAD+1),B
                             010001
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 28
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 28
 
 
 
@@ -1846,7 +1846,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 1562      P:000403 P:000403 0C0406            JMP     <RDC_E2
 1563      P:000404 P:000404 305A00  NO_IDL2   MOVE              #TST_RCV,R0
 1564      P:000405 P:000405 601F00            MOVE              R0,X:<IDL_ADR
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 29
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 29
 
 
 
@@ -1912,7 +1912,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 1619      P:000437 P:000437 216500            MOVE              B2,X1
 1620      P:000438 P:000438 0C1D91            ASL     #8,B,B
 1621      P:000439 P:000439 000000            NOP
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 30
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 30
 
 
 
@@ -1978,7 +1978,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 1673      P:000464 P:000464 240D00            MOVE              #$0D0000,X0
 1674      P:000465 P:000465 200042            OR      X0,A
 1675      P:000466 P:000466 000000            NOP
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 31
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 31
 
 
 
@@ -2044,7 +2044,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 1733      P:000489 P:000489 200046            AND     X0,A
 1734      P:00048A P:00048A 44F400            MOVE              #>7,X0
                             000007
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 32
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 32
 
 
 
@@ -2110,7 +2110,7 @@ f
 1789      P:0004C2 P:0004C2 012F03            BCLR    #3,X:PCRD                         ; Turn the serial clock off
 1790      P:0004C3 P:0004C3 0C008D            JMP     <ERROR
 1791   
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 33
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 33
 
 
 
@@ -2176,7 +2176,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 1842      P:0004F5 P:0004F5 000000            NOP
 1843      P:0004F6 P:0004F6 21CF00            MOVE              A,B
 1844      P:0004F7 P:0004F7 44F400            MOVE              #$1C0,X0
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 34
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 34
 
 
 
@@ -2242,7 +2242,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 1898      P:00052D P:00052D 44DB00            MOVE              X:(R3)+,X0
 1899      P:00052E P:00052E 000000            NOP
 1900      P:00052F P:00052F 000000            NOP
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 35
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 35
 
 
 
@@ -2308,7 +2308,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 1952      P:00055E P:00055E 000000            NOP
 1953                                L_BIN
 1954   
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 36
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 36
 
 
 
@@ -2374,7 +2374,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
                             000015
 2001      P:00058F P:00058F 44F400            MOVE              #PARALLEL_CLEAR_1,X0
                             000065
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 37
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 37
 
 
 
@@ -2440,7 +2440,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
                             00000F
 2039      P:0005C9 P:0005C9 44F400            MOVE              #SERIAL_IDLE_RIGHT,X0
                             0000CD
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 38
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 38
 
 
 
@@ -2506,7 +2506,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
                             00000F
 2077      P:000603 P:000603 44F400            MOVE              #SERIAL_IDLE_SPLIT,X0
                             0000F1
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 39
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 39
 
 
 
@@ -2572,7 +2572,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 2115      P:00063B P:00063B 4C7000            MOVE                          X0,Y:SERIAL_IDLE
                             000015
 2116      P:00063D P:00063D 44F400            MOVE              #PARALLEL_CLEAR_SPLIT,X0
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 40
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 40
 
 
 
@@ -2638,7 +2638,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 2155      P:000671 P:000671 4C7000            MOVE                          X0,Y:SERIAL_SKIP
                             00000F
 2156      P:000673 P:000673 44F400            MOVE              #SERIAL_IDLE_SPLIT,X0
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 41
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 41
 
 
 
@@ -2704,7 +2704,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
                             0000BC
 2196      P:0006A8 P:0006A8 4C7000            MOVE                          X0,Y:SERIAL_IDLE
                             000015
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 42
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 42
 
 
 
@@ -2770,7 +2770,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
                             000015
 2242      P:0006D7 P:0006D7 0C008F            JMP     <FINISH
 2243   
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 43
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 43
 
 
 
@@ -2836,7 +2836,7 @@ eady be the case
 2292      P:0006FF P:0006FF 5EF000  ER_T1     MOVE                          Y:VSUBN,A   ; Reset the Vsub value
                             0001CC
 2293      P:000701 P:000701 0D020C            JSR     <XMIT_A_WORD
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 44
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 44
 
 
 
@@ -2902,7 +2902,7 @@ e
 k
 2343      P:000727 P:000727 475B00            MOVE              Y1,X:(R3)+              ; Put the argument on the transmitter stack
 2344      P:000728 P:000728 570500            MOVE              B,X:<HEADER
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 45
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 45
 
 
 
@@ -2968,7 +2968,7 @@ eady be the case
 2395      P:000752 P:000752 000000            NOP
 2396   
 2397      P:000753 P:000753 60F400  EPUR_T1   MOVE              #ERHI_END,R0            ; Get the original clock values back.
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 46
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 46
 
 
 
@@ -3034,7 +3034,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 2444   
 2445                                CHANGE_NUMBER_PARALLEL_CLEARS
 2446      P:000783 P:000783 46DB00            MOVE              X:(R3)+,Y0
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 47
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 47
 
 
 
@@ -3100,7 +3100,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 2493                                SET_SYNC_MODE
 2494      P:0007AF P:0007AF 44DB00            MOVE              X:(R3)+,X0              ; =1 for SYNC yes, =0 for not
 2495      P:0007B0 P:0007B0 0AC400            JCLR    #0,X0,DONT_SYNC
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 48
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 48
 
 
 
@@ -3166,7 +3166,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 2548      P:0007D3 P:0007D3 06C6A7            REP     #1990                             ; Let it be low for almost as long
 2549      P:0007D4 P:0007D4 000000            NOP                                       ;  as the slave keeps it low
 2550      P:0007D5 P:0007D5 0A898A            JCLR    #EXT_IN0,X:HDR,MASTER_GOT_IT
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 49
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 49
 
 
 
@@ -3232,7 +3232,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 2603      P:000803 P:000803 0664A0            REP     #100
 2604      P:000804 P:000804 000000            NOP
 2605      P:000805 P:000805 0A890C            BCLR    #EXT_OUT0,X:HDR
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm  Page 50
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  timCCDmisc.asm  Page 50
 
 
 
@@ -3298,7 +3298,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  timCCDmisc.asm 
 2666      X:000058 X:000058                   DC      'SRE',START_READOUT
 2667      X:00005A X:00005A                   DC      'FRT',FRAME_TRANSFER
 2668   
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  tim.asm  Page 51
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  tim.asm  Page 51
 
 
 
@@ -3364,7 +3364,7 @@ ing
 2728                                 FIRST_CLOCKS
 2729      Y:00000C Y:00000C                   DC      0                                 ; Address of first clocks waveforms
 2730      Y:00000D Y:00000D         CLOCK_LINE DC     0                                 ; Clock one complete line of charge
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  tim.asm  Page 52
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  tim.asm  Page 52
 
 
 
@@ -3425,12 +3425,12 @@ pending
 2783                                                                                    ;   subimage clear
 2784   
 2785                                ; Include the waveform table for the designated type of CCD
-2786                                          INCLUDE "ngps-sg2-48khz.waveforms"        ; Readout and clocking waveform file
+2786                                          INCLUDE "engg/engg_48khz.waveforms.reverse" ; Readout and clocking waveform file
 2787                                ; vim: syntax=asm
 2788   
 2789                                ; Waveform tables and definitions for the LBNL CCD
 2790                                ; This is for a slow, low noise readout
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 53
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 53
 
 
 
@@ -3467,1334 +3467,1337 @@ Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.
 2821      0003FC                    NP_FS     EQU     1020
 2822      001068                    NS_CLR    EQU     4200
 2823   
-2824                                ; GenIII: if bit #23=1; 22-16 = # of 640 nanos cycles that bits #15-0 held at
-2825                                ;                THINK THIS ACTUALLY 320ns...
-2826                                ;         if bit #23=0; 22-16 = # of  40 nanos cycles that bits #15-0 held at
+2824                                ; GenIII: if bit #23=1; 22-16 = # of 320 nanos cycles that bits #15-0 held at
+2825                                ;         if bit #23=0; 22-16 = # of  40 nanos cycles that bits #15-0 held at
+2826   
 2827   
-2828   
-2829                                ;I_DELAY  EQU $990000 ; Integration period 25*160+80 = 4080 ns
-2830   
-2831                                ;
-2832                                ; Pixel time 20.56 us
-2833                                ; Full frame readout (4200x2040) = 176.2s
-2834                                ; Equiv speed: 48khz
-2835                                ;
-2836   
-2837   
+2828                                ;
+2829                                ; Pixel time 20.56 us
+2830                                ; Full frame readout (4200x2040) = 176.2s
+2831                                ; Equiv speed: 48khz
+2832                                ;
+2833   
+2834   
+2835   
+2836                                ; Delay numbers for clocking
+2837                                ; 180000 is 1 mus, 310000 is 2 mus, 4a0000 is 3 mus, 630000 is 4 mus
 2838   
-2839                                ; Delay numbers for clocking
-2840                                ; 180000 is 1 mus, 310000 is 2 mus, 4a0000 is 3 mus, 630000 is 4 mus
-2841   
-2842                                ;I_DELAY       EQU $480000 ; 72 * 40ns + 40ns = 2920ns
-2843                                ;I_DELAY       EQU $a40000 ; 36 * 320ns + 40ns = 11560ns
-2844      930000                    I_DELAY   EQU     $930000                           ; 18 * 320ns + 40ns = 5800ns
-2845   
-2846                                ; Delay numbers for clocking
-2847                                ; Extra 4*40ns (160ns) for commands in pattern
-2848      980000                    P_DELAY   EQU     $980000                           ; 24 * 320ns + 40ns = 7720ns
-2849   
-2850      070000                    S_DELAY   EQU     $070000                           ; Serial register transfer delay
-2851                                                                                    ; 7*40ns + 40ns = 320ns (six in pattern)
-2852      180000                    SW_DELAY  EQU     $180000                           ; Sum_well clock delay
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 54
+2839                                ;I_DELAY       EQU $480000 ; 72 * 40ns + 40ns = 2920ns
+2840                                ;I_DELAY       EQU $a40000 ; 36 * 320ns + 40ns = 11560ns
+2841      930000                    I_DELAY   EQU     $930000                           ; 18 * 320ns + 40ns = 5800ns
+2842   
+2843                                ; Delay numbers for clocking
+2844                                ; Extra 4*40ns (160ns) for commands in pattern
+2845      980000                    P_DELAY   EQU     $980000                           ; 24 * 320ns + 40ns = 7720ns
+2846   
+2847      070000                    S_DELAY   EQU     $070000                           ; Serial register transfer delay
+2848                                                                                    ; 7*40ns + 40ns = 320ns (six in pattern)
+2849      180000                    SW_DELAY  EQU     $180000                           ; Sum_well clock delay
+2850                                                                                    ; 24*40ns + 40ns = 1000ns
+2851                                 PRE_SET_DLY
+2852      8B0000                              EQU     $8B0000                           ; 11*320ns + 40ns = 3560ns
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 54
 
 
 
-2853                                                                                    ; 24*40ns + 40ns = 1000ns
-2854                                 PRE_SET_DLY
-2855      8B0000                              EQU     $8B0000                           ; 11*320ns + 40ns = 3560ns
-2856                                 POST_SET_DLY
-2857      2D0000                              EQU     $2D0000                           ; 45*40ns + 40ns = 1840ns
-2858                                 DCRST_DELAY
-2859      0B0000                              EQU     $0b0000                           ; 11*40ns + 40ns = 480ns
-2860   
-2861                                ; TODO: Is this a waste of clearing in split readout mode?  Calculate.
-2862                                ;NP_CLR  EQU     2048  ; 2040 parallel direction
-2863                                ;This doesn't do anything
-2864                                ;NP_CLR  EQU     2100  ; 2040 parallel direction
-2865                                ;NS_CLR  EQU     4200    ; 4128 in serial direction
-2866                                ;NS_CLR  EQU     4128    ; 4128 in serial direction
-2867      000064                    SH_DEL    EQU     100
-2868   
-2869                                ; CHANGE ABOVE TO GENIII TIMING BOARD DELAYS
+2853                                 POST_SET_DLY
+2854      2D0000                              EQU     $2D0000                           ; 45*40ns + 40ns = 1840ns
+2855                                 DCRST_DELAY
+2856      0B0000                              EQU     $0b0000                           ; 11*40ns + 40ns = 480ns
+2857   
+2858                                ; TODO: Is this a waste of clearing in split readout mode?  Calculate.
+2859                                ;NP_CLR  EQU     2048  ; 2040 parallel direction
+2860                                ;This doesn't do anything
+2861                                ;NP_CLR  EQU     2100  ; 2040 parallel direction
+2862                                ;NS_CLR  EQU     4200    ; 4128 in serial direction
+2863                                ;NS_CLR  EQU     4128    ; 4128 in serial direction
+2864      000064                    SH_DEL    EQU     100
+2865   
+2866                                ; CHANGE ABOVE TO GENIII TIMING BOARD DELAYS
+2867   
+2868                                ; Macros to help getting from volts to bits.
+2869                                ; The \ in front of NAME substitutes the value of NAME into the variable. (tx)
 2870   
-2871                                ; Macros to help getting from volts to bits.
-2872                                ; The \ in front of NAME substitutes the value of NAME into the variable. (tx)
-2873   
-2874                                VDEF      MACRO   NAME,BRDTYP,BRDNUM,DAC,ALO,AHI
-2875 m 
-2876 m                              LO_\NAME  EQU     ALO
-2877 m                              HI_\NAME  EQU     AHI
-2878 m                              DAC_\NAME EQU     DAC
-2879 m                               BRDNUM_\NAME
-2880 m                                        EQU     BRDNUM
-2881 m                                        IF      @SCP("BRDTYP",'VID')
+2871                                VDEF      MACRO   NAME,BRDTYP,BRDNUM,DAC,ALO,AHI
+2872 m 
+2873 m                              LO_\NAME  EQU     ALO
+2874 m                              HI_\NAME  EQU     AHI
+2875 m                              DAC_\NAME EQU     DAC
+2876 m                               BRDNUM_\NAME
+2877 m                                        EQU     BRDNUM
+2878 m                                        IF      @SCP("BRDTYP",'VID')
+2879 m                               BRDTYP_\NAME
+2880 m                                        EQU     3
+2881 m                                        ELSE
 2882 m                               BRDTYP_\NAME
-2883 m                                        EQU     3
-2884 m                                        ELSE
-2885 m                               BRDTYP_\NAME
-2886 m                                        EQU     0
-2887 m                                        ENDIF
-2888 m 
-2889 m                              ;        MSG     'Defining voltage ',"NAME",' type ',"BRDTYP",' board ',"BRDNUM",' dac ',"DAC",'
+2883 m                                        EQU     0
+2884 m                                        ENDIF
+2885 m 
+2886 m                              ;        MSG     'Defining voltage ',"NAME",' type ',"BRDTYP",' board ',"BRDNUM",' dac ',"DAC",'
  with limits ',"ALO",' ',"AHI"
-2890 m                                        ENDM
-2891   
-2892                                VOLTS     MACRO   NAME,F
-2893 m 
-2894 m                              DUMMY     SET     @CVI(@MIN(4095,@MAX(0,(F-LO_\NAME)/(HI_\NAME-LO_\NAME)*4096.)))
-2895 m                              DUMMY2    SET     @CVI((BRDNUM_\NAME<<20)|(BRDTYP_\NAME<<18)|(DAC_\NAME<<14)|DUMMY)
-2896 m                                        DC      DUMMY2
-2897 m                                        MSG     'Setting voltage ',"NAME ","F",'V ',DUMMY,DUMMY2
-2898 m                                        ENDM
-2899   
-2900                                ;*********************************************************************
-2901                                ;
-2902                                ; ; define bias board voltage symbols
-2903                                          VDEF    VDDL2,VID,2,0,0.0,-25.0
-2916                                          VDEF    VDDU2,VID,2,1,0.0,-25.0
-2929                                          VDEF    VDDL1,VID,2,2,0.0,-25.0
-2942                                          VDEF    VDDU1,VID,2,3,0.0,-25.0
-2955                                          VDEF    VRL2,VID,2,4,0.0,-25.0
-2968                                          VDEF    VRU2,VID,2,5,0.0,-25.0
-2981                                          VDEF    VRL1,VID,2,6,0.0,-25.0
-2994                                          VDEF    VRU1,VID,2,7,0.0,-25.0
-3007                                          VDEF    VOGL2,VID,2,8,0.0,5
-3020                                          VDEF    VOGU2,VID,2,9,0.0,5
-3033                                          VDEF    VOGL1,VID,2,10,0.0,5
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 55
+2887 m                                        ENDM
+2888   
+2889                                VOLTS     MACRO   NAME,F
+2890 m 
+2891 m                              DUMMY     SET     @CVI(@MIN(4095,@MAX(0,(F-LO_\NAME)/(HI_\NAME-LO_\NAME)*4096.)))
+2892 m                              DUMMY2    SET     @CVI((BRDNUM_\NAME<<20)|(BRDTYP_\NAME<<18)|(DAC_\NAME<<14)|DUMMY)
+2893 m                                        DC      DUMMY2
+2894 m                                        MSG     'Setting voltage ',"NAME ","F",'V ',DUMMY,DUMMY2
+2895 m                                        ENDM
+2896   
+2897                                ;*********************************************************************
+2898                                ;
+2899                                ; ; define bias board voltage symbols
+2900                                          VDEF    VDDL2,VID,2,0,0.0,-25.0
+2913                                          VDEF    VDDU2,VID,2,1,0.0,-25.0
+2926                                          VDEF    VDDL1,VID,2,2,0.0,-25.0
+2939                                          VDEF    VDDU1,VID,2,3,0.0,-25.0
+2952                                          VDEF    VRL2,VID,2,4,0.0,-25.0
+2965                                          VDEF    VRU2,VID,2,5,0.0,-25.0
+2978                                          VDEF    VRL1,VID,2,6,0.0,-25.0
+2991                                          VDEF    VRU1,VID,2,7,0.0,-25.0
+3004                                          VDEF    VOGL2,VID,2,8,0.0,5
+3017                                          VDEF    VOGU2,VID,2,9,0.0,5
+3030                                          VDEF    VOGL1,VID,2,10,0.0,5
+3043                                          VDEF    VOGU1,VID,2,11,0.0,5
+3056                                          VDEF    VSUB,VID,2,12,0.0,80.0
+3069                                          VDEF    RAMP,VID,2,13,0.0,10.0            ;  for ramping p.s.
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 55
 
 
 
-3046                                          VDEF    VOGU1,VID,2,11,0.0,5
-3059                                          VDEF    VSUB,VID,2,12,0.0,80.0
-3072                                          VDEF    RAMP,VID,2,13,0.0,10.0            ;  for ramping p.s.
-3085                                ;
-3086                                ; ; define clock board symbols bank0
-3087                                ;
-3088   
-3089   
-3090                                ; Output video offset parameters
-3091                                ;OFFSET0 EQU $2750
-3092                                ;OFFSET1 EQU $2500
-3093                                ;OFFSET2 EQU $2600
-3094                                ;OFFSET3 EQU $2470
-3095   
-3096                                ;OFFSET0 EQU $26f0
-3097                                ;OFFSET1 EQU $2600
-3098                                ;OFFSET2 EQU $2370
-3099                                ;OFFSET3 EQU $24f0
-3100   
-3101      001F00                    OFFSET0   EQU     $1f00
-3102      001F23                    OFFSET1   EQU     $1f23
-3103      001F00                    OFFSET2   EQU     $1f00
-3104      001F00                    OFFSET3   EQU     $1f00
-3105   
-3106                                ; CCD clock voltage
-3107      0.000000E+000             ZERO      EQU     0.0                               ; Unused pins
-3108      1.300000E+001             Vmax      EQU     +13.0                             ; Clock driver board rails
-3109   
-3110                                ;LBNL DEFINITIONS
-3111      5.000000E+000             V1_HI     EQU     5.0                               ; Vertical High
-3112      -3.000000E+000            V1_LO     EQU     -3.0                              ; Vertical Low
-3113      5.000000E+000             V2_HI     EQU     5.0                               ; Vertical High
-3114      -3.000000E+000            V2_LO     EQU     -3.0                              ; Vertical Low
-3115      5.000000E+000             V3_HI     EQU     5.0                               ; Vertical High
-3116      -3.000000E+000            V3_LO     EQU     -3.0                              ; Vertical Low
-3117   
-3118      5.000000E+000             FS1_HI    EQU     5.0                               ; Vertical High
-3119      -3.000000E+000            FS1_LO    EQU     -3.0                              ; Vertical Low
-3120      5.000000E+000             FS2_HI    EQU     5.0                               ; Vertical High
-3121      -3.000000E+000            FS2_LO    EQU     -3.0                              ; Vertical Low
-3122      5.000000E+000             FS3_HI    EQU     5.0                               ; Vertical High
-3123      -3.000000E+000            FS3_LO    EQU     -3.0                              ; Vertical Low
-3124   
-3125      5.000000E+000             T2_HI     EQU     5.0                               ; Transfer gate High
-3126      -3.000000E+000            T2_LO     EQU     -3.0                              ; Transfer gate Low
-3127      5.000000E+000             T1_HI     EQU     5.0                               ; Transfer gate High
-3128      -3.000000E+000            T1_LO     EQU     -3.0                              ; Transfer gate Low
-3129   
-3130      6.000000E+000             H1U1_L2_HI EQU    +6.0                              ; Horizontal High
-3131      -3.900000E+000            H1U1_L2_LO EQU    -3.9                              ; Horizontal Low
-3132      6.000000E+000             H2U1_L2_HI EQU    +6.0                              ; Horizontal High
-3133      -3.900000E+000            H2U1_L2_LO EQU    -3.9                              ; Horizontal Low
-3134      6.000000E+000             H3U1_L2_HI EQU    +6.0                              ; Horizontal High
-3135      -3.900000E+000            H3U1_L2_LO EQU    -3.9                              ; Horizontal Low
-3136      6.000000E+000             H1U2_L1_HI EQU    +6.0                              ; Horizontal High
-3137      -3.900000E+000            H1U2_L1_LO EQU    -3.9                              ; Horizontal Low
-3138      6.000000E+000             H2U2_L1_HI EQU    +6.0                              ; Horizontal High
-3139      -3.900000E+000            H2U2_L1_LO EQU    -3.9                              ; Horizontal Low
-3140      6.000000E+000             H3U2_L1_HI EQU    +6.0                              ; Horizontal High
-3141      -3.900000E+000            H3U2_L1_LO EQU    -3.9                              ; Horizontal Low
-3142   
-3143                                ;H1U1_L2_HI  EQU +0.0 ; Horizontal High
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 56
+3082                                ;
+3083                                ; ; define clock board symbols bank0
+3084                                ;
+3085   
+3086   
+3087                                ; Output video offset parameters
+3088                                ;OFFSET0 EQU $2750
+3089                                ;OFFSET1 EQU $2500
+3090                                ;OFFSET2 EQU $2600
+3091                                ;OFFSET3 EQU $2470
+3092   
+3093                                ;OFFSET0 EQU $26f0
+3094                                ;OFFSET1 EQU $2600
+3095                                ;OFFSET2 EQU $2370
+3096                                ;OFFSET3 EQU $24f0
+3097   
+3098                                ;OFFSET0 EQU $2000
+3099                                ;OFFSET1 EQU $1f00
+3100                                ;OFFSET2 EQU $1f00
+3101                                ;OFFSET3 EQU $1ece
+3102   
+3103                                ; changed OFFSET0 on 2011-12-01 Mte
+3104      001F79                    OFFSET0   EQU     $1f79
+3105      001F00                    OFFSET1   EQU     $1f00
+3106      001F00                    OFFSET2   EQU     $1f00
+3107      001ECE                    OFFSET3   EQU     $1ece
+3108   
+3109                                ; CCD clock voltage
+3110      0.000000E+000             ZERO      EQU     0.0                               ; Unused pins
+3111      1.300000E+001             Vmax      EQU     +13.0                             ; Clock driver board rails
+3112   
+3113                                ;LBNL DEFINITIONS
+3114      5.000000E+000             V1_HI     EQU     5.0                               ; Vertical High
+3115      -3.000000E+000            V1_LO     EQU     -3.0                              ; Vertical Low
+3116      5.000000E+000             V2_HI     EQU     5.0                               ; Vertical High
+3117      -3.000000E+000            V2_LO     EQU     -3.0                              ; Vertical Low
+3118      5.000000E+000             V3_HI     EQU     5.0                               ; Vertical High
+3119      -3.000000E+000            V3_LO     EQU     -3.0                              ; Vertical Low
+3120   
+3121      5.000000E+000             FS1_HI    EQU     5.0                               ; Vertical High
+3122      -3.000000E+000            FS1_LO    EQU     -3.0                              ; Vertical Low
+3123      5.000000E+000             FS2_HI    EQU     5.0                               ; Vertical High
+3124      -3.000000E+000            FS2_LO    EQU     -3.0                              ; Vertical Low
+3125      5.000000E+000             FS3_HI    EQU     5.0                               ; Vertical High
+3126      -3.000000E+000            FS3_LO    EQU     -3.0                              ; Vertical Low
+3127   
+3128      5.000000E+000             T2_HI     EQU     5.0                               ; Transfer gate High
+3129      -3.000000E+000            T2_LO     EQU     -3.0                              ; Transfer gate Low
+3130      5.000000E+000             T1_HI     EQU     5.0                               ; Transfer gate High
+3131      -3.000000E+000            T1_LO     EQU     -3.0                              ; Transfer gate Low
+3132   
+3133      6.000000E+000             H1U1_L2_HI EQU    +6.0                              ; Horizontal High
+3134      -3.900000E+000            H1U1_L2_LO EQU    -3.9                              ; Horizontal Low
+3135      6.000000E+000             H2U1_L2_HI EQU    +6.0                              ; Horizontal High
+3136      -3.900000E+000            H2U1_L2_LO EQU    -3.9                              ; Horizontal Low
+3137      6.000000E+000             H3U1_L2_HI EQU    +6.0                              ; Horizontal High
+3138      -3.900000E+000            H3U1_L2_LO EQU    -3.9                              ; Horizontal Low
+3139      6.000000E+000             H1U2_L1_HI EQU    +6.0                              ; Horizontal High
+3140      -3.900000E+000            H1U2_L1_LO EQU    -3.9                              ; Horizontal Low
+3141      6.000000E+000             H2U2_L1_HI EQU    +6.0                              ; Horizontal High
+3142      -3.900000E+000            H2U2_L1_LO EQU    -3.9                              ; Horizontal Low
+3143      6.000000E+000             H3U2_L1_HI EQU    +6.0                              ; Horizontal High
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 56
 
 
 
-3144                                ;H1U1_L2_LO  EQU -0.0 ; Horizontal Low
-3145                                ;H2U1_L2_HI  EQU +0.0 ; HoVR2rizontal High
-3146                                ;H2U1_L2_LO  EQU -0.0 ; Horizontal Low
-3147                                ;H3U1_L2_HI  EQU +0.0 ; Horizontal High
-3148                                ;H3U1_L2_LO  EQU -0.0 ; Horizontal Low
-3149                                ;H1U2_L1_HI  EQU +0.0 ; Horizontal High
-3150                                ;H1U2_L1_LO  EQU -0.0 ; Horizontal Low
-3151                                ;H2U2_L1_HI  EQU +0.0 ; Horizontal High
-3152                                ;H2U2_L1_LO  EQU -0.0 ; Horizontal Low
-3153                                ;H3U2_L1_HI  EQU +0.0 ; Horizontal High
-3154                                ;H3U2_L1_LO  EQU -0.0 ; Horizontal Low
-3155                                ;
-3156                                ;Put summing wells low for conduction channel
-3157      5.000000E+000             SWU_HI    EQU     +5.0                              ; Summing Well High
-3158      -5.000000E+000            SWU_LO    EQU     -5.0                              ; Summing Well Low
-3159      5.000000E+000             SWL_HI    EQU     +5.0                              ; Summing Well High
-3160      -5.000000E+000            SWL_LO    EQU     -5.0                              ; Summing Well Low
-3161   
-3162      -6.000000E+000            RU_HI     EQU     -6.0                              ; Reset ACTIVE wrong polarity....
-3163      -1.000000E-001            RU_LO     EQU     -0.1                              ; Reset INACTIVE
-3164      -6.000000E+000            RL_HI     EQU     -6.0                              ; Reset ACTIVE wrong polarity....
-3165      -1.000000E-001            RL_LO     EQU     -0.1                              ; Reset INACTIVE
-3166   
-3167   
-3168                                ; Bit defintions for bottom half of clock driver board, CLK2
-3169                                ; Clock FS ando vertical regions together
-3170                                ; 1,2,4,8,10,20,40,80,100,200,400,800
-3171                                ;
-3172                                ; Format is Vx_y[H|L] where x=phase and y=upper(2) or lower(1) half
-3173                                ; and H|L is level high/low
+3144      -3.900000E+000            H3U2_L1_LO EQU    -3.9                              ; Horizontal Low
+3145   
+3146                                ;H1U1_L2_HI  EQU +0.0 ; Horizontal High
+3147                                ;H1U1_L2_LO  EQU -0.0 ; Horizontal Low
+3148                                ;H2U1_L2_HI  EQU +0.0 ; HoVR2rizontal High
+3149                                ;H2U1_L2_LO  EQU -0.0 ; Horizontal Low
+3150                                ;H3U1_L2_HI  EQU +0.0 ; Horizontal High
+3151                                ;H3U1_L2_LO  EQU -0.0 ; Horizontal Low
+3152                                ;H1U2_L1_HI  EQU +0.0 ; Horizontal High
+3153                                ;H1U2_L1_LO  EQU -0.0 ; Horizontal Low
+3154                                ;H2U2_L1_HI  EQU +0.0 ; Horizontal High
+3155                                ;H2U2_L1_LO  EQU -0.0 ; Horizontal Low
+3156                                ;H3U2_L1_HI  EQU +0.0 ; Horizontal High
+3157                                ;H3U2_L1_LO  EQU -0.0 ; Horizontal Low
+3158                                ;
+3159                                ;Put summing wells low for conduction channel
+3160      5.000000E+000             SWU_HI    EQU     +5.0                              ; Summing Well High
+3161      -5.000000E+000            SWU_LO    EQU     -5.0                              ; Summing Well Low
+3162      5.000000E+000             SWL_HI    EQU     +5.0                              ; Summing Well High
+3163      -5.000000E+000            SWL_LO    EQU     -5.0                              ; Summing Well Low
+3164   
+3165      -6.000000E+000            RU_HI     EQU     -6.0                              ; Reset ACTIVE wrong polarity....
+3166      -1.000000E-001            RU_LO     EQU     -0.1                              ; Reset INACTIVE
+3167      -6.000000E+000            RL_HI     EQU     -6.0                              ; Reset ACTIVE wrong polarity....
+3168      -1.000000E-001            RL_LO     EQU     -0.1                              ; Reset INACTIVE
+3169   
+3170   
+3171                                ; Bit defintions for bottom half of clock driver board, CLK2
+3172                                ; Clock FS ando vertical regions together
+3173                                ; 1,2,4,8,10,20,40,80,100,200,400,800
 3174                                ;
-3175      000009                    V1_1H     EQU     1|8                               ; V1: Pin 1 -- FS1: pin 4
-3176      000000                    V1_1L     EQU     0
-3177   
-3178      000012                    V2_1H     EQU     2|$10                             ; V2: Pin 2 -- FS2: pin 5
-3179      000000                    V2_1L     EQU     0
+3175                                ; Format is Vx_y[H|L] where x=phase and y=upper(2) or lower(1) half
+3176                                ; and H|L is level high/low
+3177                                ;
+3178      000009                    V1_1H     EQU     1|8                               ; V1: Pin 1 -- FS1: pin 4
+3179      000000                    V1_1L     EQU     0
 3180   
-3181      000024                    V3_1H     EQU     4|$20                             ; V3: pin 3 -- FS3: pin 6
-3182      000000                    V3_1L     EQU     0
+3181      000012                    V2_1H     EQU     2|$10                             ; V2: Pin 2 -- FS2: pin 5
+3182      000000                    V2_1L     EQU     0
 3183   
-3184      000240                    V1_2H     EQU     $40|$200                          ; V1: pin 7 -- FS1: pin 10
-3185      000000                    V1_2L     EQU     0
+3184      000024                    V3_1H     EQU     4|$20                             ; V3: pin 3 -- FS3: pin 6
+3185      000000                    V3_1L     EQU     0
 3186   
-3187      000480                    V2_2H     EQU     $80|$400                          ; V2: pin 8 -- FS2: pin 11
-3188      000000                    V2_2L     EQU     0
+3187      000240                    V1_2H     EQU     $40|$200                          ; V1: pin 7 -- FS1: pin 10
+3188      000000                    V1_2L     EQU     0
 3189   
-3190      000900                    V3_2H     EQU     $100|$800                         ; V3: pin 9 -- FS3: pin 12
-3191      000000                    V3_2L     EQU     0
+3190      000480                    V2_2H     EQU     $80|$400                          ; V2: pin 8 -- FS2: pin 11
+3191      000000                    V2_2L     EQU     0
 3192   
-3193   
-3194                                ; frame store definitions for clearing out FS region separately.
-3195      000008                    FS1_1H    EQU     8
-3196      000000                    FS1_1L    EQU     0
-3197      000010                    FS2_1H    EQU     $10
-3198      000000                    FS2_1L    EQU     0
-3199      000020                    FS3_1H    EQU     $20
-3200      000000                    FS3_1L    EQU     0
-3201      000200                    FS1_2H    EQU     $200
-3202      000000                    FS1_2L    EQU     0
-3203      000400                    FS2_2H    EQU     $400
-3204      000000                    FS2_2L    EQU     0
-3205      000800                    FS3_2H    EQU     $800
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 57
+3193      000900                    V3_2H     EQU     $100|$800                         ; V3: pin 9 -- FS3: pin 12
+3194      000000                    V3_2L     EQU     0
+3195   
+3196   
+3197                                ; frame store definitions for clearing out FS region separately.
+3198      000008                    FS1_1H    EQU     8
+3199      000000                    FS1_1L    EQU     0
+3200      000010                    FS2_1H    EQU     $10
+3201      000000                    FS2_1L    EQU     0
+3202      000020                    FS3_1H    EQU     $20
+3203      000000                    FS3_1L    EQU     0
+3204      000200                    FS1_2H    EQU     $200
+3205      000000                    FS1_2L    EQU     0
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 57
 
 
 
-3206      000000                    FS3_2L    EQU     0
-3207   
-3208                                ; Top bank
-3209   
-3210      000001                    H1_1H     EQU     1                                 ; Horizontal 1 Upper Pin 13
-3211      000000                    H1_1L     EQU     0
+3206      000400                    FS2_2H    EQU     $400
+3207      000000                    FS2_2L    EQU     0
+3208      000800                    FS3_2H    EQU     $800
+3209      000000                    FS3_2L    EQU     0
+3210   
+3211                                ; Top bank
 3212   
-3213      000002                    H1_2H     EQU     2                                 ; Horizontal 2 Upper, Pin 14
-3214      000000                    H1_2L     EQU     0
+3213      000001                    H1_1H     EQU     1                                 ; Horizontal 1 Upper Pin 13
+3214      000000                    H1_1L     EQU     0
 3215   
-3216      000004                    H1_3H     EQU     4                                 ; Horizontal 3 Upper, Pin 15
-3217      000000                    H1_3L     EQU     0
+3216      000002                    H1_2H     EQU     2                                 ; Horizontal 2 Upper, Pin 14
+3217      000000                    H1_2L     EQU     0
 3218   
-3219      000008                    H2_1H     EQU     8                                 ; Horizontal 1 Lower, Pin 16
-3220      000000                    H2_1L     EQU     0
+3219      000004                    H1_3H     EQU     4                                 ; Horizontal 3 Upper, Pin 15
+3220      000000                    H1_3L     EQU     0
 3221   
-3222      000010                    H2_2H     EQU     $10                               ; Horizontal 2 Lower, Pin 17
-3223      000000                    H2_2L     EQU     0
+3222      000008                    H2_1H     EQU     8                                 ; Horizontal 1 Lower, Pin 16
+3223      000000                    H2_1L     EQU     0
 3224   
-3225      000020                    H2_3H     EQU     $20                               ; Horizontal 3 Lower, Pin 18
-3226      000000                    H2_3L     EQU     0
+3225      000010                    H2_2H     EQU     $10                               ; Horizontal 2 Lower, Pin 17
+3226      000000                    H2_2L     EQU     0
 3227   
-3228      000040                    SWLH      EQU     $40                               ; Summing Well Upper, Pin 19
-3229      000000                    SWLL      EQU     0
+3228      000020                    H2_3H     EQU     $20                               ; Horizontal 3 Lower, Pin 18
+3229      000000                    H2_3L     EQU     0
 3230   
-3231      000080                    SWUH      EQU     $80                               ; Summing Well Lower, Pin 33
-3232      000000                    SWUL      EQU     0
+3231      000040                    SWLH      EQU     $40                               ; Summing Well Upper, Pin 19
+3232      000000                    SWLL      EQU     0
 3233   
-3234      000100                    RLH       EQU     $100                              ; Reset Gate Upper, Pin 34
-3235      000000                    RLL       EQU     0
+3234      000080                    SWUH      EQU     $80                               ; Summing Well Lower, Pin 33
+3235      000000                    SWUL      EQU     0
 3236   
-3237      000200                    RUH       EQU     $200                              ; Reset Gate Lower, Pin 35
-3238      000000                    RUL       EQU     0
+3237      000100                    RLH       EQU     $100                              ; Reset Gate Upper, Pin 34
+3238      000000                    RLL       EQU     0
 3239   
-3240      000400                    T1        EQU     $400                              ; Transfer Gate Upper, Pin 36
-3241      000800                    T2        EQU     $800                              ; Transfer Gate Lower, Pin 37
+3240      000200                    RUH       EQU     $200                              ; Reset Gate Lower, Pin 35
+3241      000000                    RUL       EQU     0
 3242   
-3243                                ;Both summing wells;
-3244                                ;SWUH+SWLH = $80+$100
-3245                                ;This was wrong -- should be $40+$80.
-3246      000000                    WL        EQU     $00
-3247      0000C0                    WH        EQU     $c0
-3248   
-3249      000000                    RL        EQU     $000
-3250      000300                    RH        EQU     $300
+3243      000400                    T1        EQU     $400                              ; Transfer Gate Upper, Pin 36
+3244      000800                    T2        EQU     $800                              ; Transfer Gate Lower, Pin 37
+3245   
+3246                                ;Both summing wells;
+3247                                ;SWUH+SWLH = $80+$100
+3248                                ;This was wrong -- should be $40+$80.
+3249      000000                    WL        EQU     $00
+3250      0000C0                    WH        EQU     $c0
 3251   
-3252                                ;both transfer gates together
-3253      000000                    TL        EQU     $000
-3254      000C00                    TH        EQU     $c00
-3255   
-3256                                ; LBNL waveforms
-3257   
-3258                                ; Frame Store Clear bottom (1) half
-3259                                ; Runs the V1 clocks down, holds the V2 clocks fixed
-3260                                ;
-3261      Y:000033 Y:000033         FS_CLEAR_1 DC     END_FS_CLEAR_1-1
-3262      Y:000034 Y:000034                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3263      Y:000035 Y:000035                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
-3264      Y:000036 Y:000036                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
-3265      Y:000037 Y:000037                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2L|V3_2L
-3266      Y:000038 Y:000038                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2H|V2_2L|V3_2L
-3267      Y:000039 Y:000039                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2L|V3_2L
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 58
+3252      000000                    RL        EQU     $000
+3253      000300                    RH        EQU     $300
+3254   
+3255                                ;both transfer gates together
+3256      000000                    TL        EQU     $000
+3257      000C00                    TH        EQU     $c00
+3258   
+3259                                ; LBNL waveforms
+3260   
+3261                                ; Frame Store Clear bottom (1) half
+3262                                ; Runs the V1 clocks down, holds the V2 clocks fixed
+3263                                ;
+3264      Y:000033 Y:000033         FS_CLEAR_1 DC     END_FS_CLEAR_1-1
+3265      Y:000034 Y:000034                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3266      Y:000035 Y:000035                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
+3267      Y:000036 Y:000036                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 58
 
 
 
-3268      Y:00003A Y:00003A                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
-3269      Y:00003B Y:00003B                   DC      CLK3|P_DELAY|RL|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH
-3270      Y:00003C Y:00003C                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3268      Y:000037 Y:000037                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2L|V3_2L
+3269      Y:000038 Y:000038                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2H|V2_2L|V3_2L
+3270      Y:000039 Y:000039                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2L|V3_2L
+3271      Y:00003A Y:00003A                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
+3272      Y:00003B Y:00003B                   DC      CLK3|P_DELAY|RL|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH
+3273      Y:00003C Y:00003C                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3271                                END_FS_CLEAR_1
-3272   
-3273                                ; Frame Store Clear top (2) half
-3274                                ; Runs the V2 clocks up, holds the V1 clocks fixed  <-- THESE HAVE NOT BEEN TESTED YET!
-3275                                ;
-3276      Y:00003D Y:00003D         FS_CLEAR_2 DC     END_FS_CLEAR_2-1
-3277      Y:00003E Y:00003E                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3278      Y:00003F Y:00003F                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3279      Y:000040 Y:000040                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
-3280      Y:000041 Y:000041                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2H|V3_2L
-3281      Y:000042 Y:000042                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2H|V3_2L
-3282      Y:000043 Y:000043                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2H|V3_2H
-3283      Y:000044 Y:000044                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
-3284      Y:000045 Y:000045                   DC      CLK3|P_DELAY|RL|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH
-3285      Y:000046 Y:000046                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3274                                END_FS_CLEAR_1
+3275   
+3276                                ; Frame Store Clear top (2) half
+3277                                ; Runs the V2 clocks up, holds the V1 clocks fixed  <-- THESE HAVE NOT BEEN TESTED YET!
+3278                                ;
+3279      Y:00003D Y:00003D         FS_CLEAR_2 DC     END_FS_CLEAR_2-1
+3280      Y:00003E Y:00003E                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3281      Y:00003F Y:00003F                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3282      Y:000040 Y:000040                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
+3283      Y:000041 Y:000041                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2H|V3_2L
+3284      Y:000042 Y:000042                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2H|V3_2L
+3285      Y:000043 Y:000043                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2H|V3_2H
+3286      Y:000044 Y:000044                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
+3287      Y:000045 Y:000045                   DC      CLK3|P_DELAY|RL|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH
+3288      Y:000046 Y:000046                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3286                                END_FS_CLEAR_2
-3287   
-3288                                 PARALLEL_SPLIT
-3289      Y:000047 Y:000047                   DC      END_PARALLEL_SPLIT-PARALLEL_SPLIT-1
-3290      Y:000048 Y:000048                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3291      Y:000049 Y:000049                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3292      Y:00004A Y:00004A                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
-3293      Y:00004B Y:00004B                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2H|V3_2L
-3294      Y:00004C Y:00004C                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
-3295      Y:00004D Y:00004D                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2L|V2_2H|V3_2H
-3296      Y:00004E Y:00004E                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2L|V2_2L|V3_2H
-3297      Y:00004F Y:00004F                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
+3289                                END_FS_CLEAR_2
+3290   
+3291                                 PARALLEL_SPLIT
+3292      Y:000047 Y:000047                   DC      END_PARALLEL_SPLIT-PARALLEL_SPLIT-1
+3293      Y:000048 Y:000048                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3294      Y:000049 Y:000049                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3295      Y:00004A Y:00004A                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
+3296      Y:00004B Y:00004B                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2H|V3_2L
+3297      Y:00004C Y:00004C                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
+3298      Y:00004D Y:00004D                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2L|V2_2H|V3_2H
+3299      Y:00004E Y:00004E                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2L|V2_2L|V3_2H
+3300      Y:00004F Y:00004F                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
 ate
-3298      Y:000050 Y:000050                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3301      Y:000050 Y:000050                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3299   
-3300                                END_PARALLEL_SPLIT
-3301   
 3302   
-3303                                ;Shift towards register 2
-3304      Y:000051 Y:000051         PARALLEL_2 DC     END_PARALLEL_2-PARALLEL_2-1
-3305      Y:000052 Y:000052                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3306      Y:000053 Y:000053                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3307      Y:000054 Y:000054                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
-3308      Y:000055 Y:000055                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
-3309      Y:000056 Y:000056                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
-3310      Y:000057 Y:000057                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
-3311      Y:000058 Y:000058                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H ; shut TG
-3312      Y:000059 Y:000059                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
+3303                                END_PARALLEL_SPLIT
+3304   
+3305   
+3306                                ;Shift towards register 2
+3307      Y:000051 Y:000051         PARALLEL_2 DC     END_PARALLEL_2-PARALLEL_2-1
+3308      Y:000052 Y:000052                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3309      Y:000053 Y:000053                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3310      Y:000054 Y:000054                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
+3311      Y:000055 Y:000055                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
+3312      Y:000056 Y:000056                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
+3313      Y:000057 Y:000057                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
+3314      Y:000058 Y:000058                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H ; shut TG
+3315      Y:000059 Y:000059                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
 ate
-3313      Y:00005A Y:00005A                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3316      Y:00005A Y:00005A                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3314                                END_PARALLEL_2
-3315   
-3316                                ;Shift towards register 1
-3317                                ;charge stored under 2&3.  Issue with switching between which register to go to.
-3318      Y:00005B Y:00005B         PARALLEL_1 DC     END_PARALLEL_1-PARALLEL_1-1
-3319      Y:00005C Y:00005C                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3320      Y:00005D Y:00005D                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3321      Y:00005E Y:00005E                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
-3322      Y:00005F Y:00005F                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
-3323      Y:000060 Y:000060                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 59
+3317                                END_PARALLEL_2
+3318   
+3319                                ;Shift towards register 1
+3320                                ;charge stored under 2&3.  Issue with switching between which register to go to.
+3321      Y:00005B Y:00005B         PARALLEL_1 DC     END_PARALLEL_1-PARALLEL_1-1
+3322      Y:00005C Y:00005C                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3323      Y:00005D Y:00005D                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 59
 
 
 
-3324      Y:000061 Y:000061                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
-3325      Y:000062 Y:000062                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
-3326      Y:000063 Y:000063                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
+3324      Y:00005E Y:00005E                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
+3325      Y:00005F Y:00005F                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
+3326      Y:000060 Y:000060                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
+3327      Y:000061 Y:000061                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
+3328      Y:000062 Y:000062                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
+3329      Y:000063 Y:000063                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
 ate
-3327      Y:000064 Y:000064                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3330      Y:000064 Y:000064                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3328                                END_PARALLEL_1
-3329   
-3330   
-3331                                PARALLEL_CLEAR_1
-3332      Y:000065 Y:000065                   DC      END_PARALLEL_CLEAR_1-PARALLEL_CLEAR_1-1
-3333      Y:000066 Y:000066                   DC      CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3334   
-3335      Y:000067 Y:000067                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3336      Y:000068 Y:000068                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
-3337      Y:000069 Y:000069                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
-3338      Y:00006A Y:00006A                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
-3339      Y:00006B Y:00006B                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
-3340      Y:00006C Y:00006C                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
-3341   
-3342      Y:00006D Y:00006D                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
+3331                                END_PARALLEL_1
+3332   
+3333   
+3334                                PARALLEL_CLEAR_1
+3335      Y:000065 Y:000065                   DC      END_PARALLEL_CLEAR_1-PARALLEL_CLEAR_1-1
+3336      Y:000066 Y:000066                   DC      CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3337   
+3338      Y:000067 Y:000067                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3339      Y:000068 Y:000068                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
+3340      Y:000069 Y:000069                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
+3341      Y:00006A Y:00006A                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
+3342      Y:00006B Y:00006B                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
+3343      Y:00006C Y:00006C                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
+3344   
+3345      Y:00006D Y:00006D                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
 ate
-3343                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
+3346                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
  to machine state at end of CLEAR to stabilize baseline (04/04/07)
-3344      Y:00006E Y:00006E                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3347      Y:00006E Y:00006E                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3345                                END_PARALLEL_CLEAR_1
-3346   
-3347                                PARALLEL_CLEAR_2
-3348      Y:00006F Y:00006F                   DC      END_PARALLEL_CLEAR_2-PARALLEL_CLEAR_2-1
-3349      Y:000070 Y:000070                   DC      CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3350   
-3351      Y:000071 Y:000071                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3352      Y:000072 Y:000072                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
-3353      Y:000073 Y:000073                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
-3354      Y:000074 Y:000074                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
-3355      Y:000075 Y:000075                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
-3356      Y:000076 Y:000076                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
-3357      Y:000077 Y:000077                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
+3348                                END_PARALLEL_CLEAR_1
+3349   
+3350                                PARALLEL_CLEAR_2
+3351      Y:00006F Y:00006F                   DC      END_PARALLEL_CLEAR_2-PARALLEL_CLEAR_2-1
+3352      Y:000070 Y:000070                   DC      CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3353   
+3354      Y:000071 Y:000071                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3355      Y:000072 Y:000072                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
+3356      Y:000073 Y:000073                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
+3357      Y:000074 Y:000074                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
+3358      Y:000075 Y:000075                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
+3359      Y:000076 Y:000076                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
+3360      Y:000077 Y:000077                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
 ate
-3358   
-3359   
-3360                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
+3361   
+3362   
+3363                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
  to machine state at end of CLEAR to stabilize baseline (04/04/07)
-3361      Y:000078 Y:000078                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3364      Y:000078 Y:000078                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3362                                END_PARALLEL_CLEAR_2
-3363   
-3364                                ; this parallel split mixes two central rows on the CCD.
-3365                                PARALLEL_CLEAR_SPLIT
-3366      Y:000079 Y:000079                   DC      END_PARALLEL_CLEAR_SPLIT-PARALLEL_CLEAR_SPLIT-1
-3367      Y:00007A Y:00007A                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3368   
-3369      Y:00007B Y:00007B                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3370      Y:00007C Y:00007C                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
-3371      Y:00007D Y:00007D                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2H|V3_2L
-3372      Y:00007E Y:00007E                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
-3373      Y:00007F Y:00007F                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2L|V2_2H|V3_2H
-3374      Y:000080 Y:000080                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2L|V2_2L|V3_2H
-3375   
-3376      Y:000081 Y:000081                   DC      CLK3|P_DELAY|RL|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH
-3377                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 60
+3365                                END_PARALLEL_CLEAR_2
+3366   
+3367                                ; this parallel split mixes two central rows on the CCD.
+3368                                PARALLEL_CLEAR_SPLIT
+3369      Y:000079 Y:000079                   DC      END_PARALLEL_CLEAR_SPLIT-PARALLEL_CLEAR_SPLIT-1
+3370      Y:00007A Y:00007A                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3371   
+3372      Y:00007B Y:00007B                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3373      Y:00007C Y:00007C                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
+3374      Y:00007D Y:00007D                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2H|V3_2L
+3375      Y:00007E Y:00007E                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
+3376      Y:00007F Y:00007F                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2L|V2_2H|V3_2H
+3377      Y:000080 Y:000080                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2L|V2_2L|V3_2H
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 60
 
 
 
+3378   
+3379      Y:000081 Y:000081                   DC      CLK3|P_DELAY|RL|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH
+3380                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
  to machine state at end of CLEAR to stabilize baseline (04/04/07)
-3378      Y:000082 Y:000082                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3381      Y:000082 Y:000082                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3379                                END_PARALLEL_CLEAR_SPLIT
-3380   
-3381   
-3382                                ;Shift towards register 2 only the Vx_2 clocks
-3383                                 PARALLEL_FRAME_2
-3384      Y:000083 Y:000083                   DC      END_PARALLEL_FRAME_2-PARALLEL_FRAME_2-1
-3385      Y:000084 Y:000084                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3386      Y:000085 Y:000085                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3387      Y:000086 Y:000086                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
-3388      Y:000087 Y:000087                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2H|V3_2L
-3389      Y:000088 Y:000088                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2H|V3_2L
-3390      Y:000089 Y:000089                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2H|V3_2H
-3391      Y:00008A Y:00008A                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H ; shut TG
-3392      Y:00008B Y:00008B                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
+3382                                END_PARALLEL_CLEAR_SPLIT
+3383   
+3384   
+3385                                ;Shift towards register 2 only the Vx_2 clocks
+3386                                 PARALLEL_FRAME_2
+3387      Y:000083 Y:000083                   DC      END_PARALLEL_FRAME_2-PARALLEL_FRAME_2-1
+3388      Y:000084 Y:000084                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3389      Y:000085 Y:000085                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3390      Y:000086 Y:000086                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
+3391      Y:000087 Y:000087                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2H|V3_2L
+3392      Y:000088 Y:000088                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2H|V3_2L
+3393      Y:000089 Y:000089                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2H|V3_2H
+3394      Y:00008A Y:00008A                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H ; shut TG
+3395      Y:00008B Y:00008B                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
 ate
-3393      Y:00008C Y:00008C                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3396      Y:00008C Y:00008C                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3394                                END_PARALLEL_FRAME_2
-3395   
-3396                                ;Shift towards register 1
-3397                                ;charge stored under 2&3.  Issue with switching between which register to go to.
-3398                                 PARALLEL_FRAME_1
-3399      Y:00008D Y:00008D                   DC      END_PARALLEL_FRAME_1-PARALLEL_FRAME_1-1
-3400      Y:00008E Y:00008E                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3401      Y:00008F Y:00008F                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
-3402      Y:000090 Y:000090                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
-3403      Y:000091 Y:000091                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2L|V3_2L
-3404      Y:000092 Y:000092                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2H|V2_2L|V3_2L
-3405      Y:000093 Y:000093                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2L|V3_2L
-3406      Y:000094 Y:000094                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
-3407      Y:000095 Y:000095                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
+3397                                END_PARALLEL_FRAME_2
+3398   
+3399                                ;Shift towards register 1
+3400                                ;charge stored under 2&3.  Issue with switching between which register to go to.
+3401                                 PARALLEL_FRAME_1
+3402      Y:00008D Y:00008D                   DC      END_PARALLEL_FRAME_1-PARALLEL_FRAME_1-1
+3403      Y:00008E Y:00008E                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3404      Y:00008F Y:00008F                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
+3405      Y:000090 Y:000090                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
+3406      Y:000091 Y:000091                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2L|V3_2L
+3407      Y:000092 Y:000092                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2H|V2_2L|V3_2L
+3408      Y:000093 Y:000093                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2L|V3_2L
+3409      Y:000094 Y:000094                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
+3410      Y:000095 Y:000095                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
 ate
-3408      Y:000096 Y:000096                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3411      Y:000096 Y:000096                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3409                                END_PARALLEL_FRAME_1
-3410   
-3411                                PARALLEL_CLEAR_FRAME_1
-3412      Y:000097 Y:000097                   DC      END_PARALLEL_CLEAR_FRAME_1-PARALLEL_CLEAR_FRAME_1-1
-3413      Y:000098 Y:000098                   DC      CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3414      Y:000099 Y:000099                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3415      Y:00009A Y:00009A                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
-3416      Y:00009B Y:00009B                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
-3417      Y:00009C Y:00009C                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
-3418      Y:00009D Y:00009D                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
-3419      Y:00009E Y:00009E                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
-3420      Y:00009F Y:00009F                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
+3412                                END_PARALLEL_FRAME_1
+3413   
+3414                                PARALLEL_CLEAR_FRAME_1
+3415      Y:000097 Y:000097                   DC      END_PARALLEL_CLEAR_FRAME_1-PARALLEL_CLEAR_FRAME_1-1
+3416      Y:000098 Y:000098                   DC      CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3417      Y:000099 Y:000099                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3418      Y:00009A Y:00009A                   DC      CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
+3419      Y:00009B Y:00009B                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
+3420      Y:00009C Y:00009C                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
+3421      Y:00009D Y:00009D                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
+3422      Y:00009E Y:00009E                   DC      CLK2|$000000|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
+3423      Y:00009F Y:00009F                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
 ate
-3421                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
+3424                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
  to machine state at end of CLEAR to stabilize baseline (04/04/07)
-3422      Y:0000A0 Y:0000A0                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3425      Y:0000A0 Y:0000A0                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3423                                END_PARALLEL_CLEAR_FRAME_1
-3424   
-3425                                PARALLEL_CLEAR_FRAME_2
-3426      Y:0000A1 Y:0000A1                   DC      END_PARALLEL_CLEAR_FRAME_2-PARALLEL_CLEAR_FRAME_2-1
-3427      Y:0000A2 Y:0000A2                   DC      CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3428      Y:0000A3 Y:0000A3                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3429      Y:0000A4 Y:0000A4                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
-3430      Y:0000A5 Y:0000A5                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 61
+3426                                END_PARALLEL_CLEAR_FRAME_1
+3427   
+3428                                PARALLEL_CLEAR_FRAME_2
+3429      Y:0000A1 Y:0000A1                   DC      END_PARALLEL_CLEAR_FRAME_2-PARALLEL_CLEAR_FRAME_2-1
+3430      Y:0000A2 Y:0000A2                   DC      CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 61
 
 
 
-3431      Y:0000A6 Y:0000A6                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
-3432      Y:0000A7 Y:0000A7                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
-3433      Y:0000A8 Y:0000A8                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
-3434      Y:0000A9 Y:0000A9                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
+3431      Y:0000A3 Y:0000A3                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3432      Y:0000A4 Y:0000A4                   DC      CLK2|P_DELAY|V1_1H|V2_1L|V3_1L|V1_2H|V2_2L|V3_2L
+3433      Y:0000A5 Y:0000A5                   DC      CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2H|V2_2H|V3_2L
+3434      Y:0000A6 Y:0000A6                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
+3435      Y:0000A7 Y:0000A7                   DC      CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2L|V2_2H|V3_2H
+3436      Y:0000A8 Y:0000A8                   DC      CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
+3437      Y:0000A9 Y:0000A9                   DC      CLK3|P_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Shut the transfer g
 ate
-3435                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
+3438                                                                                    ; wfk -  Next line: Add DCRestore,StrtRstInt
  to machine state at end of CLEAR to stabilize baseline (04/04/07)
-3436      Y:0000AA Y:0000AA                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
+3439      Y:0000AA Y:0000AA                   DC      VIDEO+$000000+%0011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wf
 k add DCRestore,StrtRstInt
-3437                                END_PARALLEL_CLEAR_FRAME_2
-3438   
-3440                                ;PARALLEL_CLEAR_SPLIT
-3441                                ;  DC  END_PARALLEL_CLEAR_SPLIT-PARALLEL_CLEAR_SPLIT-1
-3442                                ;  DC  CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
-3443                                ;
-3444                                ;  DC  CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
-3445                                ;  DC  CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
-3446                                ;  DC  CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2H|V3_2L
-3447                                ;  DC  CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
-3448                                ;  DC  CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2L|V2_2H|V3_2H
-3449                                ;  DC  CLK2|P_DELAY|V1_1H|V2_1L|V3_1L|V1_2L|V2_2L|V3_2H
-3450                                ;  DC  CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
-3451                                ;  DC  CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
-3452                                ;
-3453                                ;  DC  CLK3|P_DELAY|RL|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH
-3454                                ;  ; wfk -  Next line: Add DCRestore,StrtRstInt to machine state at end of CLEAR to stabilize ba
+3440                                END_PARALLEL_CLEAR_FRAME_2
+3441   
+3443                                ;PARALLEL_CLEAR_SPLIT
+3444                                ;  DC  END_PARALLEL_CLEAR_SPLIT-PARALLEL_CLEAR_SPLIT-1
+3445                                ;  DC  CLK3|$000000|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TL ;SW->lo
+3446                                ;
+3447                                ;  DC  CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2H|V2_2L|V3_2H
+3448                                ;  DC  CLK2|P_DELAY|V1_1L|V2_1L|V3_1H|V1_2H|V2_2L|V3_2L
+3449                                ;  DC  CLK2|P_DELAY|V1_1L|V2_1H|V3_1H|V1_2H|V2_2H|V3_2L
+3450                                ;  DC  CLK2|P_DELAY|V1_1L|V2_1H|V3_1L|V1_2L|V2_2H|V3_2L
+3451                                ;  DC  CLK2|P_DELAY|V1_1H|V2_1H|V3_1L|V1_2L|V2_2H|V3_2H
+3452                                ;  DC  CLK2|P_DELAY|V1_1H|V2_1L|V3_1L|V1_2L|V2_2L|V3_2H
+3453                                ;  DC  CLK2|P_DELAY|V1_1H|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
+3454                                ;  DC  CLK2|$000000|V1_1L|V2_1L|V3_1H|V1_2L|V2_2L|V3_2H
+3455                                ;
+3456                                ;  DC  CLK3|P_DELAY|RL|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH
+3457                                ;  ; wfk -  Next line: Add DCRestore,StrtRstInt to machine state at end of CLEAR to stabilize ba
 seline (04/04/07)
-3455                                ;  DC  VIDEO+$000000+%1111000  ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wfk add DCRestore,StrtR
+3458                                ;  DC  VIDEO+$000000+%1111000  ; ADCLatch,NonInv,DCRestore,StrtRstInt. - wfk add DCRestore,StrtR
 stInt
-3456                                ;END_PARALLEL_CLEAR_SPLIT
-3457   
-3458                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
-3459                                SERIAL_IDLE_LEFT                                    ; Clock serial charge from both L and R ends
-3460      Y:0000AB Y:0000AB                   DC      END_SERIAL_IDLE_LEFT-SERIAL_IDLE_LEFT-1
-3461      Y:0000AC Y:0000AC                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3462                                ; L2 idle version
-3463                                ; 2->3->1->2->3
-3464      Y:0000AD Y:0000AD                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
+3459                                ;END_PARALLEL_CLEAR_SPLIT
+3460   
+3461                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
+3462                                SERIAL_IDLE_LEFT                                    ; Clock serial charge from both L and R ends
+3463      Y:0000AB Y:0000AB                   DC      END_SERIAL_IDLE_LEFT-SERIAL_IDLE_LEFT-1
+3464      Y:0000AC Y:0000AC                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3465                                ; L2 idle version
+3466                                ; 2->3->1->2->3
+3467      Y:0000AD Y:0000AD                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3465      Y:0000AE Y:0000AE                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
-3466      Y:0000AF Y:0000AF                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
-3467      Y:0000B0 Y:0000B0                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3468      Y:0000B1 Y:0000B1                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
-3469      Y:0000B2 Y:0000B2                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3470      Y:0000B3 Y:0000B3                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3471   
-3472   
-3473      Y:0000B4 Y:0000B4                   DC      CLK3|$0000000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for trans
+3468      Y:0000AE Y:0000AE                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
+3469      Y:0000AF Y:0000AF                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
+3470      Y:0000B0 Y:0000B0                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3471      Y:0000B1 Y:0000B1                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
+3472      Y:0000B2 Y:0000B2                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3473      Y:0000B3 Y:0000B3                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3474   
+3475   
+3476      Y:0000B4 Y:0000B4                   DC      CLK3|$0000000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for trans
 mit delay
-3474      Y:0000B5 Y:0000B5                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3475      Y:0000B6 Y:0000B6                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3476      Y:0000B7 Y:0000B7                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3477      Y:0000B8 Y:0000B8                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
-3478      Y:0000B9 Y:0000B9                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
-3479      Y:0000BA Y:0000BA                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3480      Y:0000BB Y:0000BB                   DC      VIDEO+DCRST_DELAY+%0010001        ;  Now sit around for at least 520ns while t
+3477      Y:0000B5 Y:0000B5                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3478      Y:0000B6 Y:0000B6                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3479      Y:0000B7 Y:0000B7                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3480      Y:0000B8 Y:0000B8                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
+3481      Y:0000B9 Y:0000B9                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
+3482      Y:0000BA Y:0000BA                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3483      Y:0000BB Y:0000BB                   DC      VIDEO+DCRST_DELAY+%0010001        ;  Now sit around for at least 520ns while t
 he conversion happens
-3481                                END_SERIAL_IDLE_LEFT
-3482   
-3483   
-3484                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
-3485                                SERIAL_IDLE_LEFT_NO_POL                             ; Clock serial charge from both L and R ends
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 62
+3484                                END_SERIAL_IDLE_LEFT
+3485   
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 62
 
 
 
-3486      Y:0000BC Y:0000BC                   DC      END_SERIAL_IDLE_LEFT_NO_POL-SERIAL_IDLE_LEFT_NO_POL-1
-3487      Y:0000BD Y:0000BD                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3488   
-3489                                ; L2 idle version
-3490                                ; 2->3->1->2->3
-3491      Y:0000BE Y:0000BE                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
+3486   
+3487                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
+3488                                SERIAL_IDLE_LEFT_NO_POL                             ; Clock serial charge from both L and R ends
+3489      Y:0000BC Y:0000BC                   DC      END_SERIAL_IDLE_LEFT_NO_POL-SERIAL_IDLE_LEFT_NO_POL-1
+3490      Y:0000BD Y:0000BD                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3491   
+3492                                ; L2 idle version
+3493                                ; 2->3->1->2->3
+3494      Y:0000BE Y:0000BE                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3492      Y:0000BF Y:0000BF                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
-3493      Y:0000C0 Y:0000C0                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
-3494      Y:0000C1 Y:0000C1                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
-3495      Y:0000C2 Y:0000C2                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
-3496      Y:0000C3 Y:0000C3                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
-3497   
-3498      Y:0000C4 Y:0000C4                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3499   
+3495      Y:0000BF Y:0000BF                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
+3496      Y:0000C0 Y:0000C0                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
+3497      Y:0000C1 Y:0000C1                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
+3498      Y:0000C2 Y:0000C2                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
+3499      Y:0000C3 Y:0000C3                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
 3500   
-3501      Y:0000C5 Y:0000C5                   DC      CLK3|$0000000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for trans
+3501      Y:0000C4 Y:0000C4                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3502   
+3503   
+3504      Y:0000C5 Y:0000C5                   DC      CLK3|$0000000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for trans
 mit delay
-3502      Y:0000C6 Y:0000C6                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3503      Y:0000C7 Y:0000C7                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3504      Y:0000C8 Y:0000C8                   DC      VIDEO+$000000+%0011001            ; Stop Integrate and sel inverting int.
-3505      Y:0000C9 Y:0000C9                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi -- charge d
+3505      Y:0000C6 Y:0000C6                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3506      Y:0000C7 Y:0000C7                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3507      Y:0000C8 Y:0000C8                   DC      VIDEO+$000000+%0011001            ; Stop Integrate and sel inverting int.
+3508      Y:0000C9 Y:0000C9                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi -- charge d
 ump
-3506   
-3507                                                                                    ;SW going low here suggests that no charge w
+3509   
+3510                                                                                    ;SW going low here suggests that no charge w
 ill leak over OG barrier onto sense node.
-3508      Y:0000CA Y:0000CA                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
-3509      Y:0000CB Y:0000CB                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3510      Y:0000CC Y:0000CC                   DC      VIDEO+DCRST_DELAY+%0011001        ; ,NonInv  ;mF to do ADC sampling before res
+3511      Y:0000CA Y:0000CA                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
+3512      Y:0000CB Y:0000CB                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3513      Y:0000CC Y:0000CC                   DC      VIDEO+DCRST_DELAY+%0011001        ; ,NonInv  ;mF to do ADC sampling before res
 etting
-3511   
-3512                                ;  DC  CLK3|POST_SET_DLY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL ;SW->lo
-3513                                END_SERIAL_IDLE_LEFT_NO_POL
 3514   
-3515                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
-3516                                SERIAL_IDLE_RIGHT                                   ; Clock serial charge from both L and R ends
-3517      Y:0000CD Y:0000CD                   DC      END_SERIAL_IDLE_RIGHT-SERIAL_IDLE_RIGHT-1
-3518      Y:0000CE Y:0000CE                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3519   
-3520                                ; L2 read version
-3521                                ; 2->3->1->2->3
-3522      Y:0000CF Y:0000CF                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h2->lo,SW->lo,Reset
+3515                                ;  DC  CLK3|POST_SET_DLY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL ;SW->lo
+3516                                END_SERIAL_IDLE_LEFT_NO_POL
+3517   
+3518                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
+3519                                SERIAL_IDLE_RIGHT                                   ; Clock serial charge from both L and R ends
+3520      Y:0000CD Y:0000CD                   DC      END_SERIAL_IDLE_RIGHT-SERIAL_IDLE_RIGHT-1
+3521      Y:0000CE Y:0000CE                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3522   
+3523                                ; L2 read version
+3524                                ; 2->3->1->2->3
+3525      Y:0000CF Y:0000CF                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h2->lo,SW->lo,Reset
 _On
-3523      Y:0000D0 Y:0000D0                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3524      Y:0000D1 Y:0000D1                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->hi
-3525      Y:0000D2 Y:0000D2                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->l
-3526      Y:0000D3 Y:0000D3                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->hi
-3527      Y:0000D4 Y:0000D4                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->lo
-3528      Y:0000D5 Y:0000D5                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->hi, Reset_O
+3526      Y:0000D0 Y:0000D0                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3527      Y:0000D1 Y:0000D1                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->hi
+3528      Y:0000D2 Y:0000D2                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->l
+3529      Y:0000D3 Y:0000D3                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->hi
+3530      Y:0000D4 Y:0000D4                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->lo
+3531      Y:0000D5 Y:0000D5                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->hi, Reset_O
 ff|Delay
-3529   
-3530   
-3531      Y:0000D6 Y:0000D6                   DC      CLK3|$0000000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for trans
+3532   
+3533   
+3534      Y:0000D6 Y:0000D6                   DC      CLK3|$0000000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for trans
 mit delay
-3532      Y:0000D7 Y:0000D7                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3533      Y:0000D8 Y:0000D8                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3534      Y:0000D9 Y:0000D9                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3535      Y:0000DA Y:0000DA                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi -- charge d
+3535      Y:0000D7 Y:0000D7                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3536      Y:0000D8 Y:0000D8                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3537      Y:0000D9 Y:0000D9                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3538      Y:0000DA Y:0000DA                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi -- charge d
 ump
-3536   
-3537                                                                                    ;SW going low here suggests that no charge w
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 63
+
+
+
+3539   
+3540                                                                                    ;SW going low here suggests that no charge w
 ill leak over OG barrier onto sense node.
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 63
-
-
-
-3538      Y:0000DB Y:0000DB                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
-3539      Y:0000DC Y:0000DC                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3540      Y:0000DD Y:0000DD                   DC      VIDEO+$000000+%0110001            ; StopIntegrator
-3541      Y:0000DE Y:0000DE                   DC      VIDEO+DCRST_DELAY+%0110001        ; ADCLatch,NonInv  ;mF to do ADC sampling be
+3541      Y:0000DB Y:0000DB                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
+3542      Y:0000DC Y:0000DC                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3543      Y:0000DD Y:0000DD                   DC      VIDEO+$000000+%0110001            ; StopIntegrator
+3544      Y:0000DE Y:0000DE                   DC      VIDEO+DCRST_DELAY+%0110001        ; ADCLatch,NonInv  ;mF to do ADC sampling be
 fore resetting
-3542   
-3543                                ;  DC  CLK3|POST_SET_DLY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL ;SW->lo
-3544   
-3545                                END_SERIAL_IDLE_RIGHT
-3546   
+3545   
+3546                                ;  DC  CLK3|POST_SET_DLY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL ;SW->lo
 3547   
-3548                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
-3549                                SERIAL_IDLE_RIGHT_NO_POL                            ; Clock serial charge from both L and R ends
-3550      Y:0000DF Y:0000DF                   DC      END_SERIAL_IDLE_RIGHT_NO_POL-SERIAL_IDLE_RIGHT_NO_POL-1
-3551      Y:0000E0 Y:0000E0                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3552   
-3553                                ; L2 read version
-3554                                ; 2->3->1->2->3
-3555      Y:0000E1 Y:0000E1                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h2->lo,SW->lo,Reset
+3548                                END_SERIAL_IDLE_RIGHT
+3549   
+3550   
+3551                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
+3552                                SERIAL_IDLE_RIGHT_NO_POL                            ; Clock serial charge from both L and R ends
+3553      Y:0000DF Y:0000DF                   DC      END_SERIAL_IDLE_RIGHT_NO_POL-SERIAL_IDLE_RIGHT_NO_POL-1
+3554      Y:0000E0 Y:0000E0                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3555   
+3556                                ; L2 read version
+3557                                ; 2->3->1->2->3
+3558      Y:0000E1 Y:0000E1                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h2->lo,SW->lo,Reset
 _On
-3556      Y:0000E2 Y:0000E2                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3557      Y:0000E3 Y:0000E3                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->hi
-3558      Y:0000E4 Y:0000E4                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->l
-3559      Y:0000E5 Y:0000E5                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->hi
-3560      Y:0000E6 Y:0000E6                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->lo
-3561      Y:0000E7 Y:0000E7                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->hi, Reset_O
+3559      Y:0000E2 Y:0000E2                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3560      Y:0000E3 Y:0000E3                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->hi
+3561      Y:0000E4 Y:0000E4                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->l
+3562      Y:0000E5 Y:0000E5                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->hi
+3563      Y:0000E6 Y:0000E6                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->lo
+3564      Y:0000E7 Y:0000E7                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->hi, Reset_O
 ff|Delay
-3562   
-3563   
-3564      Y:0000E8 Y:0000E8                   DC      CLK3|$0000000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for trans
+3565   
+3566   
+3567      Y:0000E8 Y:0000E8                   DC      CLK3|$0000000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for trans
 mit delay
-3565      Y:0000E9 Y:0000E9                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3566      Y:0000EA Y:0000EA                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3567      Y:0000EB Y:0000EB                   DC      VIDEO+$000000+%0011001            ; Stop Integrate and sel inverting int.
-3568      Y:0000EC Y:0000EC                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi -- charge d
+3568      Y:0000E9 Y:0000E9                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3569      Y:0000EA Y:0000EA                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3570      Y:0000EB Y:0000EB                   DC      VIDEO+$000000+%0011001            ; Stop Integrate and sel inverting int.
+3571      Y:0000EC Y:0000EC                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi -- charge d
 ump
-3569   
-3570                                                                                    ;SW going low here suggests that no charge w
+3572   
+3573                                                                                    ;SW going low here suggests that no charge w
 ill leak over OG barrier onto sense node.
-3571      Y:0000ED Y:0000ED                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
-3572      Y:0000EE Y:0000EE                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3573      Y:0000EF Y:0000EF                   DC      VIDEO+$000000+%0011001            ; StopIntegrator
-3574      Y:0000F0 Y:0000F0                   DC      VIDEO+DCRST_DELAY+%0111001        ; ADCLatch,NonInv  ;mF to do ADC sampling be
+3574      Y:0000ED Y:0000ED                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
+3575      Y:0000EE Y:0000EE                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3576      Y:0000EF Y:0000EF                   DC      VIDEO+$000000+%0011001            ; StopIntegrator
+3577      Y:0000F0 Y:0000F0                   DC      VIDEO+DCRST_DELAY+%0111001        ; ADCLatch,NonInv  ;mF to do ADC sampling be
 fore resetting
-3575   
-3576                                ;  DC  CLK3|POST_SET_DLY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL ;SW->lo
-3577   
-3578                                END_SERIAL_IDLE_RIGHT_NO_POL
-3579   
-3580                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
-3581                                SERIAL_IDLE_SPLIT
-3582      Y:0000F1 Y:0000F1                   DC      END_SERIAL_IDLE_SPLIT-SERIAL_IDLE_SPLIT-1
-3583      Y:0000F2 Y:0000F2                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3584   
-3585                                ; split read version:
-3586      Y:0000F3 Y:0000F3                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
-_On
+3578   
+3579                                ;  DC  CLK3|POST_SET_DLY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL ;SW->lo
+3580   
+3581                                END_SERIAL_IDLE_RIGHT_NO_POL
+3582   
+3583                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
+3584                                SERIAL_IDLE_SPLIT
+3585      Y:0000F1 Y:0000F1                   DC      END_SERIAL_IDLE_SPLIT-SERIAL_IDLE_SPLIT-1
+3586      Y:0000F2 Y:0000F2                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
 3587   
-3588                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
-3589                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
-3590                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3591                                ;  DC  CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 64
+3588                                ; split read version:
+3589      Y:0000F3 Y:0000F3                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
+_On
+3590   
+3591                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 64
 
 
 
-3592                                ;  DC  CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3593   
-3594      Y:0000F4 Y:0000F4                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
-3595      Y:0000F5 Y:0000F5                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
-3596      Y:0000F6 Y:0000F6                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
-3597      Y:0000F7 Y:0000F7                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
-3598      Y:0000F8 Y:0000F8                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
-3599   
-3600   
-3601      Y:0000F9 Y:0000F9                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3592                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
+3593                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3594                                ;  DC  CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
+3595                                ;  DC  CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3596   
+3597      Y:0000F4 Y:0000F4                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
+3598      Y:0000F5 Y:0000F5                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
+3599      Y:0000F6 Y:0000F6                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
+3600      Y:0000F7 Y:0000F7                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
+3601      Y:0000F8 Y:0000F8                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
 3602   
-3603      Y:0000FA Y:0000FA                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for transmit 
+3603   
+3604      Y:0000F9 Y:0000F9                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3605   
+3606      Y:0000FA Y:0000FA                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for transmit 
 delay
-3604      Y:0000FB Y:0000FB                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3605      Y:0000FC Y:0000FC                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3606      Y:0000FD Y:0000FD                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3607      Y:0000FE Y:0000FE                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
-3608      Y:0000FF Y:0000FF                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
-3609      Y:000100 Y:000100                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3610      Y:000101 Y:000101                   DC      VIDEO+$000000+%0010001            ; StopIntegrator
-3611      Y:000102 Y:000102                   DC      VIDEO+DCRST_DELAY+%0110001        ; ADCLatch,NonInv  ;mF to do ADC sampling be
+3607      Y:0000FB Y:0000FB                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3608      Y:0000FC Y:0000FC                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3609      Y:0000FD Y:0000FD                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3610      Y:0000FE Y:0000FE                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
+3611      Y:0000FF Y:0000FF                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
+3612      Y:000100 Y:000100                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3613      Y:000101 Y:000101                   DC      VIDEO+$000000+%0010001            ; StopIntegrator
+3614      Y:000102 Y:000102                   DC      VIDEO+DCRST_DELAY+%0110001        ; ADCLatch,NonInv  ;mF to do ADC sampling be
 fore resetting
-3612                                END_SERIAL_IDLE_SPLIT
-3613   
-3614   
-3615                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
-3616                                SERIAL_IDLE_SPLIT_NO_POL
-3617      Y:000103 Y:000103                   DC      END_SERIAL_IDLE_SPLIT_NO_POL-SERIAL_IDLE_SPLIT_NO_POL-1
-3618      Y:000104 Y:000104                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3619   
-3620                                ; split read version:
-3621      Y:000105 Y:000105                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
+3615                                END_SERIAL_IDLE_SPLIT
+3616   
+3617   
+3618                                ; ARC47:  |xfer|A/D|integ|polarity|not used|not used|rst| (1 => switch open)
+3619                                SERIAL_IDLE_SPLIT_NO_POL
+3620      Y:000103 Y:000103                   DC      END_SERIAL_IDLE_SPLIT_NO_POL-SERIAL_IDLE_SPLIT_NO_POL-1
+3621      Y:000104 Y:000104                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3622   
+3623                                ; split read version:
+3624      Y:000105 Y:000105                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3622      Y:000106 Y:000106                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
-3623      Y:000107 Y:000107                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
-3624      Y:000108 Y:000108                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3625      Y:000109 Y:000109                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
-3626      Y:00010A Y:00010A                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3627      Y:00010B Y:00010B                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3628   
-3629      Y:00010C Y:00010C                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for transmit 
+3625      Y:000106 Y:000106                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
+3626      Y:000107 Y:000107                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
+3627      Y:000108 Y:000108                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3628      Y:000109 Y:000109                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
+3629      Y:00010A Y:00010A                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3630      Y:00010B Y:00010B                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3631   
+3632      Y:00010C Y:00010C                   DC      CLK3|$000000|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;dummy for transmit 
 delay
-3630      Y:00010D Y:00010D                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3631      Y:00010E Y:00010E                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3632      Y:00010F Y:00010F                   DC      VIDEO+$000000+%0011001            ; Stop Integrate and sel inverting int.
-3633      Y:000110 Y:000110                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
-3634      Y:000111 Y:000111                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
-3635      Y:000112 Y:000112                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3636      Y:000113 Y:000113                   DC      VIDEO+$000000+%0011001            ; StopIntegrator
-3637      Y:000114 Y:000114                   DC      VIDEO+DCRST_DELAY+%0111001        ; ADCLatch,NonInv  ;mF to do ADC sampling be
+3633      Y:00010D Y:00010D                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3634      Y:00010E Y:00010E                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3635      Y:00010F Y:00010F                   DC      VIDEO+$000000+%0011001            ; Stop Integrate and sel inverting int.
+3636      Y:000110 Y:000110                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
+3637      Y:000111 Y:000111                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
+3638      Y:000112 Y:000112                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3639      Y:000113 Y:000113                   DC      VIDEO+$000000+%0011001            ; StopIntegrator
+3640      Y:000114 Y:000114                   DC      VIDEO+DCRST_DELAY+%0111001        ; ADCLatch,NonInv  ;mF to do ADC sampling be
 fore resetting
-3638                                END_SERIAL_IDLE_SPLIT_NO_POL
-3639   
-3640   
-3641                                ;start binning waveforms
-3642                                CCD_RESET                                           ;Used for binning only
-3643      Y:000115 Y:000115                   DC      END_CCD_RESET-CCD_RESET-1
-3644      Y:000116 Y:000116                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3645                                END_CCD_RESET
-3646   
-3647                                SERIAL_CLOCK_L                                      ;"NORMAL" clocking
-3648      Y:000117 Y:000117                   DC      END_SERIAL_CLOCK_L-SERIAL_CLOCK_L-1
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 65
+3641                                END_SERIAL_IDLE_SPLIT_NO_POL
+3642   
+3643   
+3644                                ;start binning waveforms
+3645                                CCD_RESET                                           ;Used for binning only
+3646      Y:000115 Y:000115                   DC      END_CCD_RESET-CCD_RESET-1
+3647      Y:000116 Y:000116                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3648                                END_CCD_RESET
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 65
 
 
 
-3649      Y:000118 Y:000118                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3650      Y:000119 Y:000119                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
+3649   
+3650                                SERIAL_CLOCK_L                                      ;"NORMAL" clocking
+3651      Y:000117 Y:000117                   DC      END_SERIAL_CLOCK_L-SERIAL_CLOCK_L-1
+3652      Y:000118 Y:000118                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3653      Y:000119 Y:000119                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3651      Y:00011A Y:00011A                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
-3652      Y:00011B Y:00011B                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
-3653      Y:00011C Y:00011C                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3654      Y:00011D Y:00011D                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
-3655      Y:00011E Y:00011E                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3656      Y:00011F Y:00011F                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3657                                END_SERIAL_CLOCK_L
-3658   
-3659                                SERIAL_CLOCK_R                                      ;"REVERSE" clocking
-3660      Y:000120 Y:000120                   DC      END_SERIAL_CLOCK_R-SERIAL_CLOCK_R-1
-3661      Y:000121 Y:000121                   DC      VIDEO+$000000+%1011000            ; NonInv,DCRestore,StrtRstInt.
-3662      Y:000122 Y:000122                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
+3654      Y:00011A Y:00011A                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
+3655      Y:00011B Y:00011B                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
+3656      Y:00011C Y:00011C                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3657      Y:00011D Y:00011D                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
+3658      Y:00011E Y:00011E                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3659      Y:00011F Y:00011F                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3660                                END_SERIAL_CLOCK_L
+3661   
+3662                                SERIAL_CLOCK_R                                      ;"REVERSE" clocking
+3663      Y:000120 Y:000120                   DC      END_SERIAL_CLOCK_R-SERIAL_CLOCK_R-1
+3664      Y:000121 Y:000121                   DC      VIDEO+$000000+%1011000            ; NonInv,DCRestore,StrtRstInt.
+3665      Y:000122 Y:000122                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3663      Y:000123 Y:000123                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h2->hi
-3664      Y:000124 Y:000124                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h1->lo
-3665      Y:000125 Y:000125                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3666      Y:000126 Y:000126                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h2->lo
-3667      Y:000127 Y:000127                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h1->hi
-3668      Y:000128 Y:000128                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3669                                END_SERIAL_CLOCK_R
-3670   
-3671                                SERIAL_CLOCK_SPLIT                                  ;"SPLIT" clocking
-3672      Y:000129 Y:000129                   DC      END_SERIAL_CLOCK_SPLIT-SERIAL_CLOCK_SPLIT-1
-3673      Y:00012A Y:00012A                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3674      Y:00012B Y:00012B                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
+3666      Y:000123 Y:000123                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h2->hi
+3667      Y:000124 Y:000124                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h1->lo
+3668      Y:000125 Y:000125                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3669      Y:000126 Y:000126                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h2->lo
+3670      Y:000127 Y:000127                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h1->hi
+3671      Y:000128 Y:000128                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3672                                END_SERIAL_CLOCK_R
+3673   
+3674                                SERIAL_CLOCK_SPLIT                                  ;"SPLIT" clocking
+3675      Y:000129 Y:000129                   DC      END_SERIAL_CLOCK_SPLIT-SERIAL_CLOCK_SPLIT-1
+3676      Y:00012A Y:00012A                   DC      VIDEO+$000000+%1011000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3677      Y:00012B Y:00012B                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3675      Y:00012C Y:00012C                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
-3676      Y:00012D Y:00012D                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
-3677      Y:00012E Y:00012E                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3678      Y:00012F Y:00012F                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
-3679      Y:000130 Y:000130                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3680      Y:000131 Y:000131                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3681                                END_SERIAL_CLOCK_SPLIT
-3682   
-3683   
-3684                                VIDEO_PROCESS
-3685      Y:000132 Y:000132                   DC      END_VIDEO_PROCESS-VIDEO_PROCESS-1
-3686                                ;SXMIT  DC  $00F000     ; Transmit A/D data to host
-3687      Y:000133 Y:000133                   DC      VIDEO+$000000+%1011000            ; StopDCRestore and StopResetIntegrator
-3688      Y:000134 Y:000134                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3689      Y:000135 Y:000135                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3690      Y:000136 Y:000136                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
-3691      Y:000137 Y:000137                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
-3692      Y:000138 Y:000138                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3693      Y:000139 Y:000139                   DC      VIDEO+$000000+%0010001            ; StopResetIntegrator
-3694      Y:00013A Y:00013A                   DC      VIDEO+DCRST_DELAY+%0110001        ; ADCLatch,NonInv  ;mF to do ADC sampeling b
+3678      Y:00012C Y:00012C                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
+3679      Y:00012D Y:00012D                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
+3680      Y:00012E Y:00012E                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3681      Y:00012F Y:00012F                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
+3682      Y:000130 Y:000130                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3683      Y:000131 Y:000131                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3684                                END_SERIAL_CLOCK_SPLIT
+3685   
+3686   
+3687                                VIDEO_PROCESS
+3688      Y:000132 Y:000132                   DC      END_VIDEO_PROCESS-VIDEO_PROCESS-1
+3689                                ;SXMIT  DC  $00F000     ; Transmit A/D data to host
+3690      Y:000133 Y:000133                   DC      VIDEO+$000000+%1011000            ; StopDCRestore and StopResetIntegrator
+3691      Y:000134 Y:000134                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3692      Y:000135 Y:000135                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3693      Y:000136 Y:000136                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
+3694      Y:000137 Y:000137                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
+3695      Y:000138 Y:000138                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3696      Y:000139 Y:000139                   DC      VIDEO+$000000+%0010001            ; StopResetIntegrator
+3697      Y:00013A Y:00013A                   DC      VIDEO+DCRST_DELAY+%0110001        ; ADCLatch,NonInv  ;mF to do ADC sampeling b
 evore resetting
-3695                                END_VIDEO_PROCESS
-3696                                ;end binning waveforms
-3697   
-3698   
-3699                                ; Video processor bit definition
-3700                                ;      xfer, A/D, integ, Pol+, Pol-, DCrestore, rst   (1 => switch open)
+3698                                END_VIDEO_PROCESS
+3699                                ;end binning waveforms
+3700   
 3701   
-3702                                ; These are the three reading tables. Make sure they're all the same length
-3703                                ; 2->3->1->2
-3704                                SERIAL_READ_LEFT
-3705      Y:00013B Y:00013B                   DC      END_SERIAL_READ_LEFT-SERIAL_READ_LEFT-1
-3706      Y:00013C Y:00013C                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 66
+3702                                ; Video processor bit definition
+3703                                ;      xfer, A/D, integ, Pol+, Pol-, DCrestore, rst   (1 => switch open)
+3704   
+3705                                ; These are the three reading tables. Make sure they're all the same length
+3706                                ; 2->3->1->2
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 66
 
 
 
-3707      Y:00013D Y:00013D                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
+3707                                SERIAL_READ_LEFT
+3708      Y:00013B Y:00013B                   DC      END_SERIAL_READ_LEFT-SERIAL_READ_LEFT-1
+3709      Y:00013C Y:00013C                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3710      Y:00013D Y:00013D                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3708      Y:00013E Y:00013E                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
-3709      Y:00013F Y:00013F                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
-3710      Y:000140 Y:000140                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3711      Y:000141 Y:000141                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
-3712      Y:000142 Y:000142                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3713      Y:000143 Y:000143                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3714      Y:000144 Y:000144         SXL       DC      $00F000                           ;Transmit a/d data to host
-3715      Y:000145 Y:000145                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3716      Y:000146 Y:000146                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3717      Y:000147 Y:000147                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3718      Y:000148 Y:000148                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
-3719      Y:000149 Y:000149                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
-3720      Y:00014A Y:00014A                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3721      Y:00014B Y:00014B                   DC      VIDEO+DCRST_DELAY+%0010001        ;  Now sit around for at least 520ns while t
+3711      Y:00013E Y:00013E                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
+3712      Y:00013F Y:00013F                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
+3713      Y:000140 Y:000140                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3714      Y:000141 Y:000141                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
+3715      Y:000142 Y:000142                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3716      Y:000143 Y:000143                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3717      Y:000144 Y:000144         SXL       DC      $00F000                           ;Transmit a/d data to host
+3718      Y:000145 Y:000145                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3719      Y:000146 Y:000146                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3720      Y:000147 Y:000147                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3721      Y:000148 Y:000148                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
+3722      Y:000149 Y:000149                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
+3723      Y:00014A Y:00014A                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3724      Y:00014B Y:00014B                   DC      VIDEO+DCRST_DELAY+%0010001        ;  Now sit around for at least 520ns while t
 he conversion happens
-3722      Y:00014C Y:00014C                   DC      VIDEO+$40000+%0010001             ;  Now sit around for at least 520ns while t
+3725      Y:00014C Y:00014C                   DC      VIDEO+$30000+%0010001             ;  Now sit around for at least 520ns while t
 he conversion happens
-3723                                END_SERIAL_READ_LEFT
-3724   
-3725                                SERIAL_READ_SPLIT
-3726      Y:00014D Y:00014D                   DC      END_SERIAL_READ_SPLIT-SERIAL_READ_SPLIT-1
-3727      Y:00014E Y:00014E                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3728      Y:00014F Y:00014F                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;h3->lo,SW->lo,Reset
+3726                                END_SERIAL_READ_LEFT
+3727   
+3728                                SERIAL_READ_SPLIT
+3729      Y:00014D Y:00014D                   DC      END_SERIAL_READ_SPLIT-SERIAL_READ_SPLIT-1
+3730      Y:00014E Y:00014E                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3731      Y:00014F Y:00014F                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3729   
-3730      Y:000150 Y:000150                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
-3731      Y:000151 Y:000151                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
-3732      Y:000152 Y:000152                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
-3733      Y:000153 Y:000153                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
-3734      Y:000154 Y:000154                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
-3735   
-3736                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
-3737                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
-3738                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3739                                ;  DC  CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
-3740                                ;  DC  CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3741   
-3742   
-3743      Y:000155 Y:000155                   DC      CLK3|PRE_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
-3744      Y:000156 Y:000156         SXRL      DC      $00F0C2                           ;Transmit a/d data to host
-3745      Y:000157 Y:000157                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3746      Y:000158 Y:000158                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3747      Y:000159 Y:000159                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3748      Y:00015A Y:00015A                   DC      CLK3|SW_DELAY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WH|TH ;SW->hi
-3749      Y:00015B Y:00015B                   DC      CLK3|POST_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;SW->lo
-3750      Y:00015C Y:00015C                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3751      Y:00015D Y:00015D                   DC      VIDEO+DCRST_DELAY+%0010001        ; Sit around whilst sampling.
-3752      Y:00015E Y:00015E                   DC      VIDEO+$50000+%0010001             ;  Now sit around for at least 520ns while t
+3732   
+3733      Y:000150 Y:000150                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
+3734      Y:000151 Y:000151                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
+3735      Y:000152 Y:000152                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
+3736      Y:000153 Y:000153                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
+3737      Y:000154 Y:000154                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
+3738   
+3739                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
+3740                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
+3741                                ;  DC  CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3742                                ;  DC  CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
+3743                                ;  DC  CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3744   
+3745   
+3746      Y:000155 Y:000155                   DC      CLK3|PRE_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
+3747      Y:000156 Y:000156         SXRL      DC      $00F0C2                           ;Transmit a/d data to host
+3748      Y:000157 Y:000157                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3749      Y:000158 Y:000158                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3750      Y:000159 Y:000159                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3751      Y:00015A Y:00015A                   DC      CLK3|SW_DELAY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WH|TH ;SW->hi
+3752      Y:00015B Y:00015B                   DC      CLK3|POST_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;SW->lo
+3753      Y:00015C Y:00015C                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3754      Y:00015D Y:00015D                   DC      VIDEO+DCRST_DELAY+%0010001        ; Sit around whilst sampling.
+3755      Y:00015E Y:00015E                   DC      VIDEO+$30000+%0010001             ;  Now sit around for at least 520ns while t
 he conversion happens
-3753                                END_SERIAL_READ_SPLIT
-3754   
-3755   
-3756                                ; SERIAL_READ_SPLIT_SPECIAL_QUAD
-3757                                ; for QUAD "ALL"
-3758                                ; transmits L1 | U1 | U2 | L2
-3759                                SERIAL_READ_SPLIT_SPECIAL_QUAD
-3760      Y:00015F Y:00015F                   DC      END_SERIAL_READ_SPLIT_SPECIAL_QUAD-SERIAL_READ_SPLIT_SPECIAL_QUAD-1
-3761      Y:000160 Y:000160                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3762      Y:000161 Y:000161                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;h3->lo,SW->lo,Reset
+3756                                END_SERIAL_READ_SPLIT
+3757   
+3758   
+3759                                ; SERIAL_READ_SPLIT_SPECIAL_QUAD
+3760                                ; for QUAD "ALL"
+3761                                ; transmits L1 | U1 | U2 | L2
+3762                                SERIAL_READ_SPLIT_SPECIAL_QUAD
+3763      Y:00015F Y:00015F                   DC      END_SERIAL_READ_SPLIT_SPECIAL_QUAD-SERIAL_READ_SPLIT_SPECIAL_QUAD-1
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 67
+
+
+
+3764      Y:000160 Y:000160                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3765      Y:000161 Y:000161                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 67
-
-
-
-3763   
-3764      Y:000162 Y:000162                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
-3765      Y:000163 Y:000163                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
-3766      Y:000164 Y:000164                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
-3767      Y:000165 Y:000165                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
-3768      Y:000166 Y:000166                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
-3769   
-3770      Y:000167 Y:000167                   DC      CLK3|PRE_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
-3771      Y:000168 Y:000168                   DC      $00F000                           ; Transmit A/D 0 data to host (L1)
-3772      Y:000169 Y:000169                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
-3773      Y:00016A Y:00016A                   DC      $00F0C3                           ; Transmit A/D 3 data to host (U1)
-3774      Y:00016B Y:00016B                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
-3775      Y:00016C Y:00016C                   DC      $00F041                           ; Transmit A/D 1 data to host (U2)
-3776      Y:00016D Y:00016D                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
-3777      Y:00016E Y:00016E                   DC      $00F082                           ; Transmit A/D 2 data to host (L2)
-3778      Y:00016F Y:00016F                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3779      Y:000170 Y:000170                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3780      Y:000171 Y:000171                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3781      Y:000172 Y:000172                   DC      CLK3|SW_DELAY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WH|TH ;SW->hi
-3782      Y:000173 Y:000173                   DC      CLK3|POST_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;SW->lo
-3783      Y:000174 Y:000174                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3784      Y:000175 Y:000175                   DC      VIDEO+DCRST_DELAY+%0010001        ; Sit around whilst sampling.
-3785      Y:000176 Y:000176                   DC      VIDEO+$50000+%0010001             ;  Now sit around for at least 520ns while t
+3766   
+3767      Y:000162 Y:000162                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
+3768      Y:000163 Y:000163                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
+3769      Y:000164 Y:000164                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
+3770      Y:000165 Y:000165                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
+3771      Y:000166 Y:000166                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
+3772   
+3773      Y:000167 Y:000167                   DC      CLK3|PRE_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
+3774      Y:000168 Y:000168                   DC      $00F000                           ; Transmit A/D 0 data to host (L1)
+3775      Y:000169 Y:000169                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
+3776      Y:00016A Y:00016A                   DC      $00F0C3                           ; Transmit A/D 3 data to host (U1)
+3777      Y:00016B Y:00016B                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
+3778      Y:00016C Y:00016C                   DC      $00F041                           ; Transmit A/D 1 data to host (U2)
+3779      Y:00016D Y:00016D                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
+3780      Y:00016E Y:00016E                   DC      $00F082                           ; Transmit A/D 2 data to host (L2)
+3781      Y:00016F Y:00016F                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3782      Y:000170 Y:000170                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3783      Y:000171 Y:000171                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3784      Y:000172 Y:000172                   DC      CLK3|SW_DELAY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WH|TH ;SW->hi
+3785      Y:000173 Y:000173                   DC      CLK3|POST_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;SW->lo
+3786      Y:000174 Y:000174                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3787      Y:000175 Y:000175                   DC      VIDEO+DCRST_DELAY+%0010001        ; Sit around whilst sampling.
+3788      Y:000176 Y:000176                   DC      VIDEO+$50000+%0010001             ;  Now sit around for at least 520ns while t
 he conversion happens
-3786                                END_SERIAL_READ_SPLIT_SPECIAL_QUAD
-3787   
-3788   
-3789                                ; SERIAL_READ_SPLIT_SPECIAL__2
-3790                                ; for SPLIT2 "__2"
-3791                                ; transmits L2 | U2
-3792                                SERIAL_READ_SPLIT_SPECIAL__2
-3793      Y:000177 Y:000177                   DC      END_SERIAL_READ_SPLIT_SPECIAL__2-SERIAL_READ_SPLIT_SPECIAL__2-1
-3794      Y:000178 Y:000178                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3795      Y:000179 Y:000179                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;h3->lo,SW->lo,Reset
+3789                                END_SERIAL_READ_SPLIT_SPECIAL_QUAD
+3790   
+3791   
+3792                                ; SERIAL_READ_SPLIT_SPECIAL__2
+3793                                ; for SPLIT2 "__2"
+3794                                ; transmits L2 | U2
+3795                                SERIAL_READ_SPLIT_SPECIAL__2
+3796      Y:000177 Y:000177                   DC      END_SERIAL_READ_SPLIT_SPECIAL__2-SERIAL_READ_SPLIT_SPECIAL__2-1
+3797      Y:000178 Y:000178                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3798      Y:000179 Y:000179                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3796   
-3797      Y:00017A Y:00017A                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
-3798      Y:00017B Y:00017B                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
-3799      Y:00017C Y:00017C                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
-3800      Y:00017D Y:00017D                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
-3801      Y:00017E Y:00017E                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
-3802   
-3803      Y:00017F Y:00017F                   DC      CLK3|PRE_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
-3804      Y:000180 Y:000180                   DC      $00F082                           ; Transmit A/D 2 data to host (L2)
-3805      Y:000181 Y:000181                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
-3806      Y:000182 Y:000182                   DC      $00F041                           ; Transmit A/D 1 data to host (U2)
-3807      Y:000183 Y:000183                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3808      Y:000184 Y:000184                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3809      Y:000185 Y:000185                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3810      Y:000186 Y:000186                   DC      CLK3|SW_DELAY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WH|TH ;SW->hi
-3811      Y:000187 Y:000187                   DC      CLK3|POST_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;SW->lo
-3812      Y:000188 Y:000188                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3813      Y:000189 Y:000189                   DC      VIDEO+DCRST_DELAY+%0010001        ; Sit around whilst sampling.
-3814      Y:00018A Y:00018A                   DC      VIDEO+$50000+%0010001             ;  Now sit around for at least 520ns while t
+3799   
+3800      Y:00017A Y:00017A                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
+3801      Y:00017B Y:00017B                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
+3802      Y:00017C Y:00017C                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
+3803      Y:00017D Y:00017D                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
+3804      Y:00017E Y:00017E                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
+3805   
+3806      Y:00017F Y:00017F                   DC      CLK3|PRE_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
+3807      Y:000180 Y:000180                   DC      $00F082                           ; Transmit A/D 2 data to host (L2)
+3808      Y:000181 Y:000181                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
+3809      Y:000182 Y:000182                   DC      $00F041                           ; Transmit A/D 1 data to host (U2)
+3810      Y:000183 Y:000183                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3811      Y:000184 Y:000184                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3812      Y:000185 Y:000185                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3813      Y:000186 Y:000186                   DC      CLK3|SW_DELAY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WH|TH ;SW->hi
+3814      Y:000187 Y:000187                   DC      CLK3|POST_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;SW->lo
+3815      Y:000188 Y:000188                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3816      Y:000189 Y:000189                   DC      VIDEO+DCRST_DELAY+%0010001        ; Sit around whilst sampling.
+3817      Y:00018A Y:00018A                   DC      VIDEO+$50000+%0010001             ;  Now sit around for at least 520ns while t
 he conversion happens
-3815                                END_SERIAL_READ_SPLIT_SPECIAL__2
-3816   
-3817   
-3818                                ; SERIAL_READ_SPLIT_SPECIAL__1
-3819                                ; for SPLIT1 "__1"
-3820                                ; transmits L1 | U1
-3821                                SERIAL_READ_SPLIT_SPECIAL__1
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 68
+3818                                END_SERIAL_READ_SPLIT_SPECIAL__2
+3819   
+3820   
+3821                                ; SERIAL_READ_SPLIT_SPECIAL__1
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 68
 
 
 
-3822      Y:00018B Y:00018B                   DC      END_SERIAL_READ_SPLIT_SPECIAL__1-SERIAL_READ_SPLIT_SPECIAL__1-1
-3823      Y:00018C Y:00018C                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
-3824      Y:00018D Y:00018D                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;h3->lo,SW->lo,Reset
+3822                                ; for SPLIT1 "__1"
+3823                                ; transmits L1 | U1
+3824                                SERIAL_READ_SPLIT_SPECIAL__1
+3825      Y:00018B Y:00018B                   DC      END_SERIAL_READ_SPLIT_SPECIAL__1-SERIAL_READ_SPLIT_SPECIAL__1-1
+3826      Y:00018C Y:00018C                   DC      VIDEO+$000000+%1111000            ; ADCLatch,NonInv,DCRestore,StrtRstInt.
+3827      Y:00018D Y:00018D                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3825   
-3826      Y:00018E Y:00018E                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
-3827      Y:00018F Y:00018F                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
-3828      Y:000190 Y:000190                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
-3829      Y:000191 Y:000191                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
-3830      Y:000192 Y:000192                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
-3831   
-3832      Y:000193 Y:000193                   DC      CLK3|PRE_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
-3833      Y:000194 Y:000194                   DC      $00F000                           ; Transmit A/D 0 data to host (L1)
-3834      Y:000195 Y:000195                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
-3835      Y:000196 Y:000196                   DC      $00F0C3                           ; Transmit A/D 3 data to host (U1)
-3836      Y:000197 Y:000197                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3837      Y:000198 Y:000198                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3838      Y:000199 Y:000199                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3839      Y:00019A Y:00019A                   DC      CLK3|SW_DELAY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WH|TH ;SW->hi
-3840      Y:00019B Y:00019B                   DC      CLK3|POST_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;SW->lo
-3841      Y:00019C Y:00019C                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3842      Y:00019D Y:00019D                   DC      VIDEO+DCRST_DELAY+%0010001        ; Sit around whilst sampling.
-3843      Y:00019E Y:00019E                   DC      VIDEO+$50000+%0010001             ;  Now sit around for at least 520ns while t
+3828   
+3829      Y:00018E Y:00018E                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2L|H1_3H|H2_1H|H2_2L|H2_3L|WL|TH ;h2->hi
+3830      Y:00018F Y:00018F                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3H|H2_1H|H2_2H|H2_3L|WL|TH ;h1->lo
+3831      Y:000190 Y:000190                   DC      CLK3|S_DELAY|RH|H1_1L|H1_2H|H1_3L|H2_1L|H2_2H|H2_3L|WL|TH ;h3->hi
+3832      Y:000191 Y:000191                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2H|H1_3L|H2_1L|H2_2H|H2_3H|WL|TH ;h2->lo
+3833      Y:000192 Y:000192                   DC      CLK3|S_DELAY|RH|H1_1H|H1_2L|H1_3L|H2_1L|H2_2L|H2_3H|WL|TH ;h1->hi
+3834   
+3835      Y:000193 Y:000193                   DC      CLK3|PRE_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
+3836      Y:000194 Y:000194                   DC      $00F000                           ; Transmit A/D 0 data to host (L1)
+3837      Y:000195 Y:000195                   DC      CLK3|$20000|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;Reset_Off|Delay
+3838      Y:000196 Y:000196                   DC      $00F0C3                           ; Transmit A/D 3 data to host (U1)
+3839      Y:000197 Y:000197                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3840      Y:000198 Y:000198                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3841      Y:000199 Y:000199                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3842      Y:00019A Y:00019A                   DC      CLK3|SW_DELAY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WH|TH ;SW->hi
+3843      Y:00019B Y:00019B                   DC      CLK3|POST_SET_DLY|RL|H1_1H|H1_2L|H1_3H|H2_1H|H2_2L|H2_3H|WL|TH ;SW->lo
+3844      Y:00019C Y:00019C                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3845      Y:00019D Y:00019D                   DC      VIDEO+DCRST_DELAY+%0010001        ; Sit around whilst sampling.
+3846      Y:00019E Y:00019E                   DC      VIDEO+$50000+%0010001             ;  Now sit around for at least 520ns while t
 he conversion happens
-3844                                END_SERIAL_READ_SPLIT_SPECIAL__1
-3845   
-3846   
-3847                                ; 2->1->3->2
-3848                                SERIAL_READ_RIGHT
-3849      Y:00019F Y:00019F                   DC      END_SERIAL_READ_RIGHT-SERIAL_READ_RIGHT-1
-3850      Y:0001A0 Y:0001A0                   DC      VIDEO+$000000+%1111000            ; NonInv,DCRestore,StrtRstInt.
-3851      Y:0001A1 Y:0001A1                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
+3847                                END_SERIAL_READ_SPLIT_SPECIAL__1
+3848   
+3849   
+3850                                ; 2->1->3->2
+3851                                SERIAL_READ_RIGHT
+3852      Y:00019F Y:00019F                   DC      END_SERIAL_READ_RIGHT-SERIAL_READ_RIGHT-1
+3853      Y:0001A0 Y:0001A0                   DC      VIDEO+$000000+%1111000            ; NonInv,DCRestore,StrtRstInt.
+3854      Y:0001A1 Y:0001A1                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;h3->lo,SW->lo,Reset
 _On
-3852      Y:0001A2 Y:0001A2                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h2->hi
-3853      Y:0001A3 Y:0001A3                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h1->lo
-3854      Y:0001A4 Y:0001A4                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3855      Y:0001A5 Y:0001A5                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h2->lo
-3856      Y:0001A6 Y:0001A6                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h1->hi
-3857      Y:0001A7 Y:0001A7                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3858      Y:0001A8 Y:0001A8         SXR       DC      $00F041                           ;Transmit a/d data to host
-3859      Y:0001A9 Y:0001A9                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
-3860      Y:0001AA Y:0001AA                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
-3861      Y:0001AB Y:0001AB                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
-3862      Y:0001AC Y:0001AC                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
-3863      Y:0001AD Y:0001AD                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
-3864      Y:0001AE Y:0001AE                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
-3865      Y:0001AF Y:0001AF                   DC      VIDEO+DCRST_DELAY+%0010001        ; Wait for sampling
-3866      Y:0001B0 Y:0001B0                   DC      VIDEO+$30000+%0010001             ;
-3867                                END_SERIAL_READ_RIGHT
-3868   
-3869   
-3870                                ; These are the three skipping tables. Make sure they're all the same length
-3871                                SERIAL_SKIP_LEFT                                    ; Serial clocking waveform for skipping left
-3872      Y:0001B1 Y:0001B1                   DC      END_SERIAL_SKIP_LEFT-SERIAL_SKIP_LEFT-1
-3873      Y:0001B2 Y:0001B2                   DC      VIDEO+$000000+%1011000            ; Change nearly everything
-3874      Y:0001B3 Y:0001B3                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h2->hi
-3875      Y:0001B4 Y:0001B4                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h1->lo
-3876      Y:0001B5 Y:0001B5                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3877      Y:0001B6 Y:0001B6                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h2->lo
-3878      Y:0001B7 Y:0001B7                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h1->hi
-3879      Y:0001B8 Y:0001B8                   DC      CLK3|S_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3880      Y:0001B9 Y:0001B9                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 69
+3855      Y:0001A2 Y:0001A2                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h2->hi
+3856      Y:0001A3 Y:0001A3                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h1->lo
+3857      Y:0001A4 Y:0001A4                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3858      Y:0001A5 Y:0001A5                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h2->lo
+3859      Y:0001A6 Y:0001A6                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h1->hi
+3860      Y:0001A7 Y:0001A7                   DC      CLK3|PRE_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3861      Y:0001A8 Y:0001A8         SXR       DC      $00F041                           ;Transmit a/d data to host
+3862      Y:0001A9 Y:0001A9                   DC      VIDEO+$000000+%0011001            ; StopDCRestore and StopResetIntegrator
+3863      Y:0001AA Y:0001AA                   DC      VIDEO+I_DELAY+%0001001            ; Integrate for I_DELAY microsec
+3864      Y:0001AB Y:0001AB                   DC      VIDEO+$000000+%0010001            ; Stop Integrate and sel inverting int.
+3865      Y:0001AC Y:0001AC                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
+3866      Y:0001AD Y:0001AD                   DC      CLK3|POST_SET_DLY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;SW->lo
+3867      Y:0001AE Y:0001AE                   DC      VIDEO+I_DELAY+%0000001            ; Integrate for I_DELAY microsec
+3868      Y:0001AF Y:0001AF                   DC      VIDEO+DCRST_DELAY+%0010001        ; Wait for sampling
+3869      Y:0001B0 Y:0001B0                   DC      VIDEO+$30000+%0010001             ;
+3870                                END_SERIAL_READ_RIGHT
+3871   
+3872   
+3873                                ; These are the three skipping tables. Make sure they're all the same length
+3874                                SERIAL_SKIP_LEFT                                    ; Serial clocking waveform for skipping left
+3875      Y:0001B1 Y:0001B1                   DC      END_SERIAL_SKIP_LEFT-SERIAL_SKIP_LEFT-1
+3876      Y:0001B2 Y:0001B2                   DC      VIDEO+$000000+%1011000            ; Change nearly everything
+3877      Y:0001B3 Y:0001B3                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h2->hi
+3878      Y:0001B4 Y:0001B4                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h1->lo
+3879      Y:0001B5 Y:0001B5                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3880      Y:0001B6 Y:0001B6                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h2->lo
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 69
 
 
 
-3881                                END_SERIAL_SKIP_LEFT
-3882   
-3883                                SERIAL_SKIP_RIGHT                                   ; Serial clocking waveform for skipping righ
+3881      Y:0001B7 Y:0001B7                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h1->hi
+3882      Y:0001B8 Y:0001B8                   DC      CLK3|S_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3883      Y:0001B9 Y:0001B9                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
+3884                                END_SERIAL_SKIP_LEFT
+3885   
+3886                                SERIAL_SKIP_RIGHT                                   ; Serial clocking waveform for skipping righ
 t
-3884      Y:0001BA Y:0001BA                   DC      END_SERIAL_SKIP_RIGHT-SERIAL_SKIP_RIGHT-1
-3885      Y:0001BB Y:0001BB                   DC      VIDEO+$000000+%1011000            ; Change nearly everything
-3886      Y:0001BC Y:0001BC                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
-3887      Y:0001BD Y:0001BD                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
-3888      Y:0001BE Y:0001BE                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3889      Y:0001BF Y:0001BF                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
-3890      Y:0001C0 Y:0001C0                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
-3891      Y:0001C1 Y:0001C1                   DC      CLK3|S_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3892      Y:0001C2 Y:0001C2                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
-3893                                END_SERIAL_SKIP_RIGHT
-3894   
-3895                                SERIAL_SKIP_SPLIT                                   ; Serial clocking waveform for skipping both
+3887      Y:0001BA Y:0001BA                   DC      END_SERIAL_SKIP_RIGHT-SERIAL_SKIP_RIGHT-1
+3888      Y:0001BB Y:0001BB                   DC      VIDEO+$000000+%1011000            ; Change nearly everything
+3889      Y:0001BC Y:0001BC                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1H|H1_2L|H1_3L|WL|TH ;h2->hi
+3890      Y:0001BD Y:0001BD                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1H|H1_2H|H1_3L|WL|TH ;h1->lo
+3891      Y:0001BE Y:0001BE                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3892      Y:0001BF Y:0001BF                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1L|H1_2H|H1_3H|WL|TH ;h2->lo
+3893      Y:0001C0 Y:0001C0                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1L|H1_2L|H1_3H|WL|TH ;h1->hi
+3894      Y:0001C1 Y:0001C1                   DC      CLK3|S_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3895      Y:0001C2 Y:0001C2                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
+3896                                END_SERIAL_SKIP_RIGHT
+3897   
+3898                                SERIAL_SKIP_SPLIT                                   ; Serial clocking waveform for skipping both
  ends
-3896      Y:0001C3 Y:0001C3                   DC      END_SERIAL_SKIP_SPLIT-SERIAL_SKIP_SPLIT-1
-3897      Y:0001C4 Y:0001C4                   DC      VIDEO+$000000+%1011000            ; Change nearly everything
-3898      Y:0001C5 Y:0001C5                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h2->hi
-3899      Y:0001C6 Y:0001C6                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h1->lo
-3900      Y:0001C7 Y:0001C7                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
-3901      Y:0001C8 Y:0001C8                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h2->lo
-3902      Y:0001C9 Y:0001C9                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h1->hi
-3903      Y:0001CA Y:0001CA                   DC      CLK3|S_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
-3904      Y:0001CB Y:0001CB                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
-3905                                END_SERIAL_SKIP_SPLIT
-3906   
-3908                                ; ORG Y:$1C0,Y:$1C0   ; Download address
-3910                                VSUBN
-3911                                          VOLTS   VSUB,45.0                         ; Vsub  0.0 140 V, pin #
-**** 3916 [ngps-sg2-48khz.waveforms 947]: Setting voltage VSUB 45.0V 23043082496
-3917      Y:0001CD Y:0001CD         ERHI      DC      ERHI_END-ERHI-1
-3918                                          VOLTS   VSUB,0                            ; Vsub  0.0 140 V, pin #
-**** 3923 [ngps-sg2-48khz.waveforms 949]: Setting voltage VSUB 0V 03080192
-3924                                ; VOLTS V1_HI,9   ; Vertical High
-3925                                ; VOLTS V1_LO,9   ; Vertical Low
-3926                                ; VOLTS V2_HI,9   ; Vertical High
-3927                                ; VOLTS V2_LO,9   ; Vertical Low
-3928                                ; VOLTS V3_HI,9   ; Vertical High
-3929                                ; VOLTS V3_LO,9   ; Vertical Low
-3930                                ; VOLTS FS1_HI,9    ; Vertical High
-3931                                ; VOLTS FS1_LO,9    ; Vertical Low
-3932                                ; VOLTS FS2_HI,9    ; Vertical High
-3933                                ; VOLTS FS2_LO,9    ; Vertical Low
-3934                                ; VOLTS FS3_HI,9    ; Vertical High
-3935                                ; VOLTS FS3_LO,9    ; Vertical Low
-3936      Y:0001CF Y:0001CF                   DC      $200100+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #1, Vertical Clock 1
-3937      Y:0001D0 Y:0001D0                   DC      $200200+@CVI((9+Vmax)/(2*Vmax)*255)
-3938      Y:0001D1 Y:0001D1                   DC      $200400+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #2, Vertical Clock 2
-3939      Y:0001D2 Y:0001D2                   DC      $200800+@CVI((9+Vmax)/(2*Vmax)*255)
-3940      Y:0001D3 Y:0001D3                   DC      $202000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #3, Vertical Clock 3
-3941      Y:0001D4 Y:0001D4                   DC      $204000+@CVI((9+Vmax)/(2*Vmax)*255)
-3942      Y:0001D5 Y:0001D5                   DC      $208000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #4, Frame Store 1
-3943      Y:0001D6 Y:0001D6                   DC      $210000+@CVI((9+Vmax)/(2*Vmax)*255)
-3944      Y:0001D7 Y:0001D7                   DC      $220100+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #5, Frame Store 2
-3945      Y:0001D8 Y:0001D8                   DC      $220200+@CVI((9+Vmax)/(2*Vmax)*255)
-3946      Y:0001D9 Y:0001D9                   DC      $220400+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #6, Frame Store 3
-3947      Y:0001DA Y:0001DA                   DC      $220800+@CVI((9+Vmax)/(2*Vmax)*255)
-3948      Y:0001DB Y:0001DB                   DC      $222000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #7, Transfer Gate 2
-3949      Y:0001DC Y:0001DC                   DC      $224000+@CVI((9+Vmax)/(2*Vmax)*255)
-3950      Y:0001DD Y:0001DD                   DC      $228000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #8, Transger Gate 1
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 70
+3899      Y:0001C3 Y:0001C3                   DC      END_SERIAL_SKIP_SPLIT-SERIAL_SKIP_SPLIT-1
+3900      Y:0001C4 Y:0001C4                   DC      VIDEO+$000000+%1011000            ; Change nearly everything
+3901      Y:0001C5 Y:0001C5                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2L|H2_3L|H1_1L|H1_2L|H1_3H|WL|TH ;h2->hi
+3902      Y:0001C6 Y:0001C6                   DC      CLK3|S_DELAY|RH|H2_1H|H2_2H|H2_3L|H1_1L|H1_2H|H1_3H|WL|TH ;h1->lo
+3903      Y:0001C7 Y:0001C7                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3L|H1_1L|H1_2H|H1_3L|WL|TH ;h3->hi
+3904      Y:0001C8 Y:0001C8                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2H|H2_3H|H1_1H|H1_2H|H1_3L|WL|TH ;h2->lo
+3905      Y:0001C9 Y:0001C9                   DC      CLK3|S_DELAY|RH|H2_1L|H2_2L|H2_3H|H1_1H|H1_2L|H1_3L|WL|TH ;h1->hi
+3906      Y:0001CA Y:0001CA                   DC      CLK3|S_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WL|TH ;Reset_Off|Delay
+3907      Y:0001CB Y:0001CB                   DC      CLK3|SW_DELAY|RL|H2_1H|H2_2L|H2_3H|H1_1H|H1_2L|H1_3H|WH|TH ;SW->hi
+3908                                END_SERIAL_SKIP_SPLIT
+3909   
+3911                                ; ORG Y:$1C0,Y:$1C0   ; Download address
+3913                                VSUBN
+3914                                          VOLTS   VSUB,25.0                         ; Vsub  0.0 140 V, pin #
+**** 3919 [engg/engg_48khz.waveforms.reverse 950]: Setting voltage VSUB 25.0V 12803081472
+3920      Y:0001CD Y:0001CD         ERHI      DC      ERHI_END-ERHI-1
+3921                                          VOLTS   VSUB,0                            ; Vsub  0.0 140 V, pin #
+**** 3926 [engg/engg_48khz.waveforms.reverse 952]: Setting voltage VSUB 0V 03080192
+3927                                ; VOLTS V1_HI,9   ; Vertical High
+3928                                ; VOLTS V1_LO,9   ; Vertical Low
+3929                                ; VOLTS V2_HI,9   ; Vertical High
+3930                                ; VOLTS V2_LO,9   ; Vertical Low
+3931                                ; VOLTS V3_HI,9   ; Vertical High
+3932                                ; VOLTS V3_LO,9   ; Vertical Low
+3933                                ; VOLTS FS1_HI,9    ; Vertical High
+3934                                ; VOLTS FS1_LO,9    ; Vertical Low
+3935                                ; VOLTS FS2_HI,9    ; Vertical High
+3936                                ; VOLTS FS2_LO,9    ; Vertical Low
+3937                                ; VOLTS FS3_HI,9    ; Vertical High
+3938                                ; VOLTS FS3_LO,9    ; Vertical Low
+3939      Y:0001CF Y:0001CF                   DC      $200100+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #1, Vertical Clock 1
+3940      Y:0001D0 Y:0001D0                   DC      $200200+@CVI((9+Vmax)/(2*Vmax)*255)
+3941      Y:0001D1 Y:0001D1                   DC      $200400+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #2, Vertical Clock 2
+3942      Y:0001D2 Y:0001D2                   DC      $200800+@CVI((9+Vmax)/(2*Vmax)*255)
+3943      Y:0001D3 Y:0001D3                   DC      $202000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #3, Vertical Clock 3
+3944      Y:0001D4 Y:0001D4                   DC      $204000+@CVI((9+Vmax)/(2*Vmax)*255)
+3945      Y:0001D5 Y:0001D5                   DC      $208000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #4, Frame Store 1
+3946      Y:0001D6 Y:0001D6                   DC      $210000+@CVI((9+Vmax)/(2*Vmax)*255)
+3947      Y:0001D7 Y:0001D7                   DC      $220100+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #5, Frame Store 2
+3948      Y:0001D8 Y:0001D8                   DC      $220200+@CVI((9+Vmax)/(2*Vmax)*255)
+3949      Y:0001D9 Y:0001D9                   DC      $220400+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #6, Frame Store 3
+3950      Y:0001DA Y:0001DA                   DC      $220800+@CVI((9+Vmax)/(2*Vmax)*255)
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 70
 
 
 
-3951      Y:0001DE Y:0001DE                   DC      $230000+@CVI((9+Vmax)/(2*Vmax)*255)
-3952      Y:0001DF Y:0001DF                   DC      $240100+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #9, Unused
-3953      Y:0001E0 Y:0001E0                   DC      $240200+@CVI((9+Vmax)/(2*Vmax)*255)
-3954      Y:0001E1 Y:0001E1                   DC      $240400+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #10, Unused
-3955      Y:0001E2 Y:0001E2                   DC      $240800+@CVI((9+Vmax)/(2*Vmax)*255)
-3956      Y:0001E3 Y:0001E3                   DC      $242000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #11, Unused
-3957      Y:0001E4 Y:0001E4                   DC      $244000+@CVI((9+Vmax)/(2*Vmax)*255)
-3958      Y:0001E5 Y:0001E5                   DC      $248000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #12, Unused
-3959      Y:0001E6 Y:0001E6                   DC      $250000+@CVI((9+Vmax)/(2*Vmax)*255)
-3960      Y:0001E7 Y:0001E7         ERHI_END  DC      EPUR-ERHI_END-1
-3961                                ; VOLTS V1_HI,5.0 ; Vertical High
-3962                                ; VOLTS V1_LO,-3.0  ; Vertical Low
-3963                                ; VOLTS V2_HI,5.0 ; Vertical High
-3964                                ; VOLTS V2_LO,-3.0  ; Vertical Low
-3965                                ; VOLTS V3_HI,5.0 ; Vertical High
-3966                                ; VOLTS V3_LO,-3.0  ; Vertical Low
-3967                                ; VOLTS FS1_HI,5.0  ; Vertical High
-3968                                ; VOLTS FS1_LO,-3.0 ; Vertical Low
-3969                                ; VOLTS FS2_HI,5.0  ; Vertical High
-3970                                ; VOLTS FS2_LO,-3.0 ; Vertical Low
-3971                                ; VOLTS FS3_HI,5.0  ; Vertical High
-3972                                ; VOLTS FS3_LO,-3.0 ; Vertical Low
-3973                                ;Return to normal voltages
-3974      Y:0001E8 Y:0001E8                   DC      $200100+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #1, Vertical Clock 1
-3975      Y:0001E9 Y:0001E9                   DC      $200200+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
-3976      Y:0001EA Y:0001EA                   DC      $200400+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #2, Vertical Clock 2
-3977      Y:0001EB Y:0001EB                   DC      $200800+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
-3978      Y:0001EC Y:0001EC                   DC      $202000+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #3, Vertical Clock 3
-3979      Y:0001ED Y:0001ED                   DC      $204000+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
-3980      Y:0001EE Y:0001EE                   DC      $208000+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #4, Frame Store 1
-3981      Y:0001EF Y:0001EF                   DC      $210000+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
-3982      Y:0001F0 Y:0001F0                   DC      $220100+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #5, Frame Store 2
-3983      Y:0001F1 Y:0001F1                   DC      $220200+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
-3984      Y:0001F2 Y:0001F2                   DC      $220400+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #6, Frame Store 3
-3985      Y:0001F3 Y:0001F3                   DC      $220800+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
-3986      Y:0001F4 Y:0001F4                   DC      $222000+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #7, Transfer Gate 2
-3987      Y:0001F5 Y:0001F5                   DC      $224000+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
-3988      Y:0001F6 Y:0001F6                   DC      $228000+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #8, Transger Gate 1
-3989      Y:0001F7 Y:0001F7                   DC      $230000+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
-3990      Y:0001F8 Y:0001F8                   DC      $240100+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #9, Unused
-3991      Y:0001F9 Y:0001F9                   DC      $240200+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
-3992      Y:0001FA Y:0001FA                   DC      $240400+@CVI((FS1_HI+Vmax)/(2*Vmax)*255) ; Pin #10, Unused
-3993      Y:0001FB Y:0001FB                   DC      $240800+@CVI((FS1_LO+Vmax)/(2*Vmax)*255)
-3994      Y:0001FC Y:0001FC                   DC      $242000+@CVI((FS2_HI+Vmax)/(2*Vmax)*255) ; Pin #11, Unused
-3995      Y:0001FD Y:0001FD                   DC      $244000+@CVI((FS2_LO+Vmax)/(2*Vmax)*255)
-3996      Y:0001FE Y:0001FE                   DC      $248000+@CVI((FS3_HI+Vmax)/(2*Vmax)*255) ; Pin #12, Unused
-3997      Y:0001FF Y:0001FF                   DC      $250000+@CVI((FS3_LO+Vmax)/(2*Vmax)*255)
-3998   
-3999      Y:000200 Y:000200                   DC      $2A0100+@CVI((RL_HI+Vmax)/(2*Vmax)*255) ; Pin #34, Reset Gate Upper
-4000      Y:000201 Y:000201                   DC      $2A0200+@CVI((RL_LO+Vmax)/(2*Vmax)*255)
-4001      Y:000202 Y:000202                   DC      $2A0400+@CVI((RU_HI+Vmax)/(2*Vmax)*255) ; Pin #35, Reset Gate Lower
-4002      Y:000203 Y:000203                   DC      $2A0800+@CVI((RU_LO+Vmax)/(2*Vmax)*255)
-4003   
-4004      Y:000204 Y:000204         EPUR      DC      EPUR_END-EPUR-1
-4005      Y:000205 Y:000205                   DC      $200100+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #1, Vertical Clock 1
-4006      Y:000206 Y:000206                   DC      $200200+@CVI((-9+Vmax)/(2*Vmax)*255)
-4007      Y:000207 Y:000207                   DC      $200400+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #2, Vertical Clock 2
-4008      Y:000208 Y:000208                   DC      $200800+@CVI((-9+Vmax)/(2*Vmax)*255)
-4009      Y:000209 Y:000209                   DC      $202000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #3, Vertical Clock 3
-4010      Y:00020A Y:00020A                   DC      $204000+@CVI((-9+Vmax)/(2*Vmax)*255)
-4011      Y:00020B Y:00020B                   DC      $208000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #4, Frame Store 1
-4012      Y:00020C Y:00020C                   DC      $210000+@CVI((-9+Vmax)/(2*Vmax)*255)
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 71
+3951      Y:0001DB Y:0001DB                   DC      $222000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #7, Transfer Gate 2
+3952      Y:0001DC Y:0001DC                   DC      $224000+@CVI((9+Vmax)/(2*Vmax)*255)
+3953      Y:0001DD Y:0001DD                   DC      $228000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #8, Transger Gate 1
+3954      Y:0001DE Y:0001DE                   DC      $230000+@CVI((9+Vmax)/(2*Vmax)*255)
+3955      Y:0001DF Y:0001DF                   DC      $240100+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #9, Unused
+3956      Y:0001E0 Y:0001E0                   DC      $240200+@CVI((9+Vmax)/(2*Vmax)*255)
+3957      Y:0001E1 Y:0001E1                   DC      $240400+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #10, Unused
+3958      Y:0001E2 Y:0001E2                   DC      $240800+@CVI((9+Vmax)/(2*Vmax)*255)
+3959      Y:0001E3 Y:0001E3                   DC      $242000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #11, Unused
+3960      Y:0001E4 Y:0001E4                   DC      $244000+@CVI((9+Vmax)/(2*Vmax)*255)
+3961      Y:0001E5 Y:0001E5                   DC      $248000+@CVI((9+Vmax)/(2*Vmax)*255) ; Pin #12, Unused
+3962      Y:0001E6 Y:0001E6                   DC      $250000+@CVI((9+Vmax)/(2*Vmax)*255)
+3963      Y:0001E7 Y:0001E7         ERHI_END  DC      EPUR-ERHI_END-1
+3964                                ; VOLTS V1_HI,5.0 ; Vertical High
+3965                                ; VOLTS V1_LO,-3.0  ; Vertical Low
+3966                                ; VOLTS V2_HI,5.0 ; Vertical High
+3967                                ; VOLTS V2_LO,-3.0  ; Vertical Low
+3968                                ; VOLTS V3_HI,5.0 ; Vertical High
+3969                                ; VOLTS V3_LO,-3.0  ; Vertical Low
+3970                                ; VOLTS FS1_HI,5.0  ; Vertical High
+3971                                ; VOLTS FS1_LO,-3.0 ; Vertical Low
+3972                                ; VOLTS FS2_HI,5.0  ; Vertical High
+3973                                ; VOLTS FS2_LO,-3.0 ; Vertical Low
+3974                                ; VOLTS FS3_HI,5.0  ; Vertical High
+3975                                ; VOLTS FS3_LO,-3.0 ; Vertical Low
+3976                                ;Return to normal voltages
+3977      Y:0001E8 Y:0001E8                   DC      $200100+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #1, Vertical Clock 1
+3978      Y:0001E9 Y:0001E9                   DC      $200200+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
+3979      Y:0001EA Y:0001EA                   DC      $200400+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #2, Vertical Clock 2
+3980      Y:0001EB Y:0001EB                   DC      $200800+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
+3981      Y:0001EC Y:0001EC                   DC      $202000+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #3, Vertical Clock 3
+3982      Y:0001ED Y:0001ED                   DC      $204000+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
+3983      Y:0001EE Y:0001EE                   DC      $208000+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #4, Frame Store 1
+3984      Y:0001EF Y:0001EF                   DC      $210000+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
+3985      Y:0001F0 Y:0001F0                   DC      $220100+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #5, Frame Store 2
+3986      Y:0001F1 Y:0001F1                   DC      $220200+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
+3987      Y:0001F2 Y:0001F2                   DC      $220400+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #6, Frame Store 3
+3988      Y:0001F3 Y:0001F3                   DC      $220800+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
+3989      Y:0001F4 Y:0001F4                   DC      $222000+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #7, Transfer Gate 2
+3990      Y:0001F5 Y:0001F5                   DC      $224000+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
+3991      Y:0001F6 Y:0001F6                   DC      $228000+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #8, Transger Gate 1
+3992      Y:0001F7 Y:0001F7                   DC      $230000+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
+3993      Y:0001F8 Y:0001F8                   DC      $240100+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #9, Unused
+3994      Y:0001F9 Y:0001F9                   DC      $240200+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
+3995      Y:0001FA Y:0001FA                   DC      $240400+@CVI((FS1_HI+Vmax)/(2*Vmax)*255) ; Pin #10, Unused
+3996      Y:0001FB Y:0001FB                   DC      $240800+@CVI((FS1_LO+Vmax)/(2*Vmax)*255)
+3997      Y:0001FC Y:0001FC                   DC      $242000+@CVI((FS2_HI+Vmax)/(2*Vmax)*255) ; Pin #11, Unused
+3998      Y:0001FD Y:0001FD                   DC      $244000+@CVI((FS2_LO+Vmax)/(2*Vmax)*255)
+3999      Y:0001FE Y:0001FE                   DC      $248000+@CVI((FS3_HI+Vmax)/(2*Vmax)*255) ; Pin #12, Unused
+4000      Y:0001FF Y:0001FF                   DC      $250000+@CVI((FS3_LO+Vmax)/(2*Vmax)*255)
+4001   
+4002      Y:000200 Y:000200                   DC      $2A0100+@CVI((RL_HI+Vmax)/(2*Vmax)*255) ; Pin #34, Reset Gate Upper
+4003      Y:000201 Y:000201                   DC      $2A0200+@CVI((RL_LO+Vmax)/(2*Vmax)*255)
+4004      Y:000202 Y:000202                   DC      $2A0400+@CVI((RU_HI+Vmax)/(2*Vmax)*255) ; Pin #35, Reset Gate Lower
+4005      Y:000203 Y:000203                   DC      $2A0800+@CVI((RU_LO+Vmax)/(2*Vmax)*255)
+4006   
+4007      Y:000204 Y:000204         EPUR      DC      EPUR_END-EPUR-1
+4008      Y:000205 Y:000205                   DC      $200100+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #1, Vertical Clock 1
+4009      Y:000206 Y:000206                   DC      $200200+@CVI((-9+Vmax)/(2*Vmax)*255)
+4010      Y:000207 Y:000207                   DC      $200400+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #2, Vertical Clock 2
+4011      Y:000208 Y:000208                   DC      $200800+@CVI((-9+Vmax)/(2*Vmax)*255)
+4012      Y:000209 Y:000209                   DC      $202000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #3, Vertical Clock 3
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 71
 
 
 
-4013      Y:00020D Y:00020D                   DC      $220100+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #5, Frame Store 2
-4014      Y:00020E Y:00020E                   DC      $220200+@CVI((-9+Vmax)/(2*Vmax)*255)
-4015      Y:00020F Y:00020F                   DC      $220400+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #6, Frame Store 3
-4016      Y:000210 Y:000210                   DC      $220800+@CVI((-9+Vmax)/(2*Vmax)*255)
-4017      Y:000211 Y:000211                   DC      $222000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #7, Transfer Gate 2
-4018      Y:000212 Y:000212                   DC      $224000+@CVI((-9+Vmax)/(2*Vmax)*255)
-4019      Y:000213 Y:000213                   DC      $228000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #8, Transger Gate 1
-4020      Y:000214 Y:000214                   DC      $230000+@CVI((-9+Vmax)/(2*Vmax)*255)
-4021      Y:000215 Y:000215                   DC      $240100+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #9, Unused
-4022      Y:000216 Y:000216                   DC      $240200+@CVI((-9+Vmax)/(2*Vmax)*255)
-4023      Y:000217 Y:000217                   DC      $240400+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #10, Unused
-4024      Y:000218 Y:000218                   DC      $240800+@CVI((-9+Vmax)/(2*Vmax)*255)
-4025      Y:000219 Y:000219                   DC      $242000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #11, Unused
-4026      Y:00021A Y:00021A                   DC      $244000+@CVI((-9+Vmax)/(2*Vmax)*255)
-4027      Y:00021B Y:00021B                   DC      $248000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #12, Unused
-4028      Y:00021C Y:00021C                   DC      $250000+@CVI((-9+Vmax)/(2*Vmax)*255)
-4029   
-4030      Y:00021D Y:00021D                   DC      $2A0100+@CVI((-6+Vmax)/(2*Vmax)*255) ; Pin #34, Reset Gate Upper
-4031      Y:00021E Y:00021E                   DC      $2A0200+@CVI((-6+Vmax)/(2*Vmax)*255)
-4032      Y:00021F Y:00021F                   DC      $2A0400+@CVI((-6+Vmax)/(2*Vmax)*255) ; Pin #35, Reset Gate Lower
-4033      Y:000220 Y:000220                   DC      $2A0800+@CVI((-6+Vmax)/(2*Vmax)*255)
-4034   
-4035                                EPUR_END
-4036   
-4037                                ; Code for ARC32 = universal clock driver board
-4038      Y:000221 Y:000221         DACS      DC      END_DACS-DACS-1
-4039      Y:000222 Y:000222                   DC      $2A0080                           ; DAC = unbuffered mode
-4040   
-4041      Y:000223 Y:000223                   DC      $200100+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #1, Vertical Clock 1
-4042      Y:000224 Y:000224                   DC      $200200+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
-4043      Y:000225 Y:000225                   DC      $200400+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #2, Vertical Clock 2
-4044      Y:000226 Y:000226                   DC      $200800+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
-4045      Y:000227 Y:000227                   DC      $202000+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #3, Vertical Clock 3
-4046      Y:000228 Y:000228                   DC      $204000+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
-4047      Y:000229 Y:000229                   DC      $208000+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #4, Frame Store 1
-4048      Y:00022A Y:00022A                   DC      $210000+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
-4049      Y:00022B Y:00022B                   DC      $220100+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #5, Frame Store 2
-4050      Y:00022C Y:00022C                   DC      $220200+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
-4051      Y:00022D Y:00022D                   DC      $220400+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #6, Frame Store 3
-4052      Y:00022E Y:00022E                   DC      $220800+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
-4053      Y:00022F Y:00022F                   DC      $222000+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #7, Transfer Gate 2
-4054      Y:000230 Y:000230                   DC      $224000+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
-4055      Y:000231 Y:000231                   DC      $228000+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #8, Transger Gate 1
-4056      Y:000232 Y:000232                   DC      $230000+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
-4057   
-4058      Y:000233 Y:000233                   DC      $240100+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #9, Unused
-4059      Y:000234 Y:000234                   DC      $240200+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
-4060      Y:000235 Y:000235                   DC      $240400+@CVI((FS1_HI+Vmax)/(2*Vmax)*255) ; Pin #10, Unused
-4061      Y:000236 Y:000236                   DC      $240800+@CVI((FS1_LO+Vmax)/(2*Vmax)*255)
-4062      Y:000237 Y:000237                   DC      $242000+@CVI((FS2_HI+Vmax)/(2*Vmax)*255) ; Pin #11, Unused
-4063      Y:000238 Y:000238                   DC      $244000+@CVI((FS2_LO+Vmax)/(2*Vmax)*255)
-4064      Y:000239 Y:000239                   DC      $248000+@CVI((FS3_HI+Vmax)/(2*Vmax)*255) ; Pin #12, Unused
-4065      Y:00023A Y:00023A                   DC      $250000+@CVI((FS3_LO+Vmax)/(2*Vmax)*255)
-4066   
-4067      Y:00023B Y:00023B                   DC      $260100+@CVI((H1U2_L1_HI+Vmax)/(2*Vmax)*255) ; Pin #13, Horizontal 1 Upper
-4068      Y:00023C Y:00023C                   DC      $260200+@CVI((H1U2_L1_LO+Vmax)/(2*Vmax)*255)
-4069      Y:00023D Y:00023D                   DC      $260400+@CVI((H2U2_L1_HI+Vmax)/(2*Vmax)*255) ; Pin #14, Horizontal 2 Upper
-4070      Y:00023E Y:00023E                   DC      $260800+@CVI((H2U2_L1_LO+Vmax)/(2*Vmax)*255)
-4071      Y:00023F Y:00023F                   DC      $262000+@CVI((H3U2_L1_HI+Vmax)/(2*Vmax)*255) ; Pin #15, Horizontal 3 Upper
-4072      Y:000240 Y:000240                   DC      $264000+@CVI((H3U2_L1_LO+Vmax)/(2*Vmax)*255)
-4073      Y:000241 Y:000241                   DC      $268000+@CVI((H1U1_L2_HI+Vmax)/(2*Vmax)*255) ; Pin #16, Horizontal 1 Lower
-4074      Y:000242 Y:000242                   DC      $270000+@CVI((H1U1_L2_LO+Vmax)/(2*Vmax)*255)
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 72
+4013      Y:00020A Y:00020A                   DC      $204000+@CVI((-9+Vmax)/(2*Vmax)*255)
+4014      Y:00020B Y:00020B                   DC      $208000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #4, Frame Store 1
+4015      Y:00020C Y:00020C                   DC      $210000+@CVI((-9+Vmax)/(2*Vmax)*255)
+4016      Y:00020D Y:00020D                   DC      $220100+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #5, Frame Store 2
+4017      Y:00020E Y:00020E                   DC      $220200+@CVI((-9+Vmax)/(2*Vmax)*255)
+4018      Y:00020F Y:00020F                   DC      $220400+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #6, Frame Store 3
+4019      Y:000210 Y:000210                   DC      $220800+@CVI((-9+Vmax)/(2*Vmax)*255)
+4020      Y:000211 Y:000211                   DC      $222000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #7, Transfer Gate 2
+4021      Y:000212 Y:000212                   DC      $224000+@CVI((-9+Vmax)/(2*Vmax)*255)
+4022      Y:000213 Y:000213                   DC      $228000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #8, Transger Gate 1
+4023      Y:000214 Y:000214                   DC      $230000+@CVI((-9+Vmax)/(2*Vmax)*255)
+4024      Y:000215 Y:000215                   DC      $240100+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #9, Unused
+4025      Y:000216 Y:000216                   DC      $240200+@CVI((-9+Vmax)/(2*Vmax)*255)
+4026      Y:000217 Y:000217                   DC      $240400+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #10, Unused
+4027      Y:000218 Y:000218                   DC      $240800+@CVI((-9+Vmax)/(2*Vmax)*255)
+4028      Y:000219 Y:000219                   DC      $242000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #11, Unused
+4029      Y:00021A Y:00021A                   DC      $244000+@CVI((-9+Vmax)/(2*Vmax)*255)
+4030      Y:00021B Y:00021B                   DC      $248000+@CVI((-9+Vmax)/(2*Vmax)*255) ; Pin #12, Unused
+4031      Y:00021C Y:00021C                   DC      $250000+@CVI((-9+Vmax)/(2*Vmax)*255)
+4032   
+4033      Y:00021D Y:00021D                   DC      $2A0100+@CVI((-6+Vmax)/(2*Vmax)*255) ; Pin #34, Reset Gate Upper
+4034      Y:00021E Y:00021E                   DC      $2A0200+@CVI((-6+Vmax)/(2*Vmax)*255)
+4035      Y:00021F Y:00021F                   DC      $2A0400+@CVI((-6+Vmax)/(2*Vmax)*255) ; Pin #35, Reset Gate Lower
+4036      Y:000220 Y:000220                   DC      $2A0800+@CVI((-6+Vmax)/(2*Vmax)*255)
+4037   
+4038                                EPUR_END
+4039   
+4040                                ; Code for ARC32 = universal clock driver board
+4041      Y:000221 Y:000221         DACS      DC      END_DACS-DACS-1
+4042      Y:000222 Y:000222                   DC      $2A0080                           ; DAC = unbuffered mode
+4043   
+4044      Y:000223 Y:000223                   DC      $200100+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #1, Vertical Clock 1
+4045      Y:000224 Y:000224                   DC      $200200+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
+4046      Y:000225 Y:000225                   DC      $200400+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #2, Vertical Clock 2
+4047      Y:000226 Y:000226                   DC      $200800+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
+4048      Y:000227 Y:000227                   DC      $202000+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #3, Vertical Clock 3
+4049      Y:000228 Y:000228                   DC      $204000+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
+4050      Y:000229 Y:000229                   DC      $208000+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #4, Frame Store 1
+4051      Y:00022A Y:00022A                   DC      $210000+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
+4052      Y:00022B Y:00022B                   DC      $220100+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #5, Frame Store 2
+4053      Y:00022C Y:00022C                   DC      $220200+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
+4054      Y:00022D Y:00022D                   DC      $220400+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #6, Frame Store 3
+4055      Y:00022E Y:00022E                   DC      $220800+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
+4056      Y:00022F Y:00022F                   DC      $222000+@CVI((V1_HI+Vmax)/(2*Vmax)*255) ; Pin #7, Transfer Gate 2
+4057      Y:000230 Y:000230                   DC      $224000+@CVI((V1_LO+Vmax)/(2*Vmax)*255)
+4058      Y:000231 Y:000231                   DC      $228000+@CVI((V2_HI+Vmax)/(2*Vmax)*255) ; Pin #8, Transger Gate 1
+4059      Y:000232 Y:000232                   DC      $230000+@CVI((V2_LO+Vmax)/(2*Vmax)*255)
+4060   
+4061      Y:000233 Y:000233                   DC      $240100+@CVI((V3_HI+Vmax)/(2*Vmax)*255) ; Pin #9, Unused
+4062      Y:000234 Y:000234                   DC      $240200+@CVI((V3_LO+Vmax)/(2*Vmax)*255)
+4063      Y:000235 Y:000235                   DC      $240400+@CVI((FS1_HI+Vmax)/(2*Vmax)*255) ; Pin #10, Unused
+4064      Y:000236 Y:000236                   DC      $240800+@CVI((FS1_LO+Vmax)/(2*Vmax)*255)
+4065      Y:000237 Y:000237                   DC      $242000+@CVI((FS2_HI+Vmax)/(2*Vmax)*255) ; Pin #11, Unused
+4066      Y:000238 Y:000238                   DC      $244000+@CVI((FS2_LO+Vmax)/(2*Vmax)*255)
+4067      Y:000239 Y:000239                   DC      $248000+@CVI((FS3_HI+Vmax)/(2*Vmax)*255) ; Pin #12, Unused
+4068      Y:00023A Y:00023A                   DC      $250000+@CVI((FS3_LO+Vmax)/(2*Vmax)*255)
+4069   
+4070      Y:00023B Y:00023B                   DC      $260100+@CVI((H1U2_L1_HI+Vmax)/(2*Vmax)*255) ; Pin #13, Horizontal 1 Upper
+4071      Y:00023C Y:00023C                   DC      $260200+@CVI((H1U2_L1_LO+Vmax)/(2*Vmax)*255)
+4072      Y:00023D Y:00023D                   DC      $260400+@CVI((H2U2_L1_HI+Vmax)/(2*Vmax)*255) ; Pin #14, Horizontal 2 Upper
+4073      Y:00023E Y:00023E                   DC      $260800+@CVI((H2U2_L1_LO+Vmax)/(2*Vmax)*255)
+4074      Y:00023F Y:00023F                   DC      $262000+@CVI((H3U2_L1_HI+Vmax)/(2*Vmax)*255) ; Pin #15, Horizontal 3 Upper
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 72
 
 
 
-4075      Y:000243 Y:000243                   DC      $280100+@CVI((H2U1_L2_HI+Vmax)/(2*Vmax)*255) ; Pin #17, Horizontal 2 Lower
-4076      Y:000244 Y:000244                   DC      $280200+@CVI((H2U1_L2_LO+Vmax)/(2*Vmax)*255)
-4077      Y:000245 Y:000245                   DC      $280400+@CVI((H3U1_L2_HI+Vmax)/(2*Vmax)*255) ; Pin #18, Horizontal 3 Lower
-4078      Y:000246 Y:000246                   DC      $280800+@CVI((H3U1_L2_LO+Vmax)/(2*Vmax)*255)
-4079      Y:000247 Y:000247                   DC      $282000+@CVI((SWL_HI+Vmax)/(2*Vmax)*255) ; Pin #19, Summing Well Upper
-4080      Y:000248 Y:000248                   DC      $284000+@CVI((SWL_LO+Vmax)/(2*Vmax)*255)
-4081      Y:000249 Y:000249                   DC      $288000+@CVI((SWU_HI+Vmax)/(2*Vmax)*255) ; Pin #33, Summing Well Lower
-4082      Y:00024A Y:00024A                   DC      $290000+@CVI((SWU_LO+Vmax)/(2*Vmax)*255)
-4083      Y:00024B Y:00024B                   DC      $2A0100+@CVI((RL_HI+Vmax)/(2*Vmax)*255) ; Pin #34, Reset Gate Upper
-4084      Y:00024C Y:00024C                   DC      $2A0200+@CVI((RL_LO+Vmax)/(2*Vmax)*255)
-4085      Y:00024D Y:00024D                   DC      $2A0400+@CVI((RU_HI+Vmax)/(2*Vmax)*255) ; Pin #35, Reset Gate Lower
-4086      Y:00024E Y:00024E                   DC      $2A0800+@CVI((RU_LO+Vmax)/(2*Vmax)*255)
-4087      Y:00024F Y:00024F                   DC      $2A2000+@CVI((T1_HI+Vmax)/(2*Vmax)*255) ; Pin #36, Unused
-4088      Y:000250 Y:000250                   DC      $2A4000+@CVI((T1_LO+Vmax)/(2*Vmax)*255)
-4089      Y:000251 Y:000251                   DC      $2A8000+@CVI((T2_HI+Vmax)/(2*Vmax)*255) ; Pin #37, Unused
-4090      Y:000252 Y:000252                   DC      $2B0000+@CVI((T2_LO+Vmax)/(2*Vmax)*255)
-4091   
-4092   
-4093                                ; DC bias voltages for the LBL CCD chip
-4094                                          VOLTS   VSUB,45.0                         ; Vsub  0.0 140 V
-**** 4099 [ngps-sg2-48khz.waveforms 1120]: Setting voltage VSUB 45.0V 23043082496
-4100                                          VOLTS   RAMP,5.0                          ; Vsub  AVG RAMP RATE
-**** 4105 [ngps-sg2-48khz.waveforms 1121]: Setting voltage RAMP 5.0V 20483098624
-4106                                          VOLTS   VDDL2,-22.0                       ; Vdd  -5.1 -25V
-**** 4111 [ngps-sg2-48khz.waveforms 1122]: Setting voltage VDDL2 -22.0V 36042887188
-4112                                          VOLTS   VDDU2,-22.0                       ; Vdd  -5.1 -25V
-**** 4117 [ngps-sg2-48khz.waveforms 1123]: Setting voltage VDDU2 -22.0V 36042903572
-4118                                          VOLTS   VDDL1,-22.0                       ; Vdd  -5.1 -25V
-**** 4123 [ngps-sg2-48khz.waveforms 1124]: Setting voltage VDDL1 -22.0V 36042919956
-4124                                          VOLTS   VDDU1,-22.0                       ; Vdd  -5.1 -25V
-**** 4129 [ngps-sg2-48khz.waveforms 1125]: Setting voltage VDDU1 -22.0V 36042936340
-4130                                          VOLTS   VRL2,-12.5                        ; Vr   -5.1 -25V
-**** 4135 [ngps-sg2-48khz.waveforms 1126]: Setting voltage VRL2 -12.5V 20482951168
-4136                                          VOLTS   VRU2,-12.5                        ; Vr   -5.1 -25V
-**** 4141 [ngps-sg2-48khz.waveforms 1127]: Setting voltage VRU2 -12.5V 20482967552
-4142                                          VOLTS   VRL1,-12.5                        ; Vr   -5.1 -25V
-**** 4147 [ngps-sg2-48khz.waveforms 1128]: Setting voltage VRL1 -12.5V 20482983936
-4148                                          VOLTS   VRU1,-12.5                        ; Vr   -5.1 -25V
-**** 4153 [ngps-sg2-48khz.waveforms 1129]: Setting voltage VRU1 -12.5V 20483000320
-4154                                          VOLTS   VOGL2,4.00                        ; Vopg  -10  10 V
-**** 4159 [ngps-sg2-48khz.waveforms 1130]: Setting voltage VOGL2 4.00V 32763017932
-4160                                          VOLTS   VOGU2,2.50                        ; Vopg  -10  10 V
-**** 4165 [ngps-sg2-48khz.waveforms 1131]: Setting voltage VOGU2 2.50V 20483033088
-4166                                          VOLTS   VOGL1,2.50                        ; Vopg  -10  10 V
-**** 4171 [ngps-sg2-48khz.waveforms 1132]: Setting voltage VOGL1 2.50V 20483049472
-4172                                          VOLTS   VOGU1,2.50                        ; Vopg  -10  10 V
-**** 4177 [ngps-sg2-48khz.waveforms 1133]: Setting voltage VOGU1 2.50V 20483065856
-4178   
-4179   
-4180                                 GAIN_SETTING
-4181      Y:000261 Y:000261                   DC      VID0+$0D000E                      ; Gain of 0.25 (from 0 to $F,one of 16 possi
-ble values)
+4075      Y:000240 Y:000240                   DC      $264000+@CVI((H3U2_L1_LO+Vmax)/(2*Vmax)*255)
+4076      Y:000241 Y:000241                   DC      $268000+@CVI((H1U1_L2_HI+Vmax)/(2*Vmax)*255) ; Pin #16, Horizontal 1 Lower
+4077      Y:000242 Y:000242                   DC      $270000+@CVI((H1U1_L2_LO+Vmax)/(2*Vmax)*255)
+4078      Y:000243 Y:000243                   DC      $280100+@CVI((H2U1_L2_HI+Vmax)/(2*Vmax)*255) ; Pin #17, Horizontal 2 Lower
+4079      Y:000244 Y:000244                   DC      $280200+@CVI((H2U1_L2_LO+Vmax)/(2*Vmax)*255)
+4080      Y:000245 Y:000245                   DC      $280400+@CVI((H3U1_L2_HI+Vmax)/(2*Vmax)*255) ; Pin #18, Horizontal 3 Lower
+4081      Y:000246 Y:000246                   DC      $280800+@CVI((H3U1_L2_LO+Vmax)/(2*Vmax)*255)
+4082      Y:000247 Y:000247                   DC      $282000+@CVI((SWL_HI+Vmax)/(2*Vmax)*255) ; Pin #19, Summing Well Upper
+4083      Y:000248 Y:000248                   DC      $284000+@CVI((SWL_LO+Vmax)/(2*Vmax)*255)
+4084      Y:000249 Y:000249                   DC      $288000+@CVI((SWU_HI+Vmax)/(2*Vmax)*255) ; Pin #33, Summing Well Lower
+4085      Y:00024A Y:00024A                   DC      $290000+@CVI((SWU_LO+Vmax)/(2*Vmax)*255)
+4086      Y:00024B Y:00024B                   DC      $2A0100+@CVI((RL_HI+Vmax)/(2*Vmax)*255) ; Pin #34, Reset Gate Upper
+4087      Y:00024C Y:00024C                   DC      $2A0200+@CVI((RL_LO+Vmax)/(2*Vmax)*255)
+4088      Y:00024D Y:00024D                   DC      $2A0400+@CVI((RU_HI+Vmax)/(2*Vmax)*255) ; Pin #35, Reset Gate Lower
+4089      Y:00024E Y:00024E                   DC      $2A0800+@CVI((RU_LO+Vmax)/(2*Vmax)*255)
+4090      Y:00024F Y:00024F                   DC      $2A2000+@CVI((T1_HI+Vmax)/(2*Vmax)*255) ; Pin #36, Unused
+4091      Y:000250 Y:000250                   DC      $2A4000+@CVI((T1_LO+Vmax)/(2*Vmax)*255)
+4092      Y:000251 Y:000251                   DC      $2A8000+@CVI((T2_HI+Vmax)/(2*Vmax)*255) ; Pin #37, Unused
+4093      Y:000252 Y:000252                   DC      $2B0000+@CVI((T2_LO+Vmax)/(2*Vmax)*255)
+4094   
+4095   
+4096                                ; DC bias voltages for the LBL CCD chip
+4097                                          VOLTS   VSUB,25.0                         ; Vsub  0.0 140 V
+**** 4102 [engg/engg_48khz.waveforms.reverse 1123]: Setting voltage VSUB 25.0V 12803081472
+4103                                          VOLTS   RAMP,5.0                          ; Vsub  AVG RAMP RATE
+**** 4108 [engg/engg_48khz.waveforms.reverse 1124]: Setting voltage RAMP 5.0V 20483098624
+4109                                          VOLTS   VDDL2,0.0                         ; Vdd  -5.1 -25V
+**** 4114 [engg/engg_48khz.waveforms.reverse 1125]: Setting voltage VDDL2 0.0V 02883584
+4115                                          VOLTS   VDDU2,0.0                         ; Vdd  -5.1 -25V
+**** 4120 [engg/engg_48khz.waveforms.reverse 1126]: Setting voltage VDDU2 0.0V 02899968
+4121                                          VOLTS   VDDL1,-22.0                       ; Vdd  -5.1 -25V
+**** 4126 [engg/engg_48khz.waveforms.reverse 1127]: Setting voltage VDDL1 -22.0V 36042919956
+4127                                          VOLTS   VDDU1,-22.0                       ; Vdd  -5.1 -25V
+**** 4132 [engg/engg_48khz.waveforms.reverse 1128]: Setting voltage VDDU1 -22.0V 36042936340
+4133                                          VOLTS   VRL2,-12.5                        ; Vr   -5.1 -25V
+**** 4138 [engg/engg_48khz.waveforms.reverse 1129]: Setting voltage VRL2 -12.5V 20482951168
+4139                                          VOLTS   VRU2,-12.5                        ; Vr   -5.1 -25V
+**** 4144 [engg/engg_48khz.waveforms.reverse 1130]: Setting voltage VRU2 -12.5V 20482967552
+4145                                          VOLTS   VRL1,-12.5                        ; Vr   -5.1 -25V
+**** 4150 [engg/engg_48khz.waveforms.reverse 1131]: Setting voltage VRL1 -12.5V 20482983936
+4151                                          VOLTS   VRU1,-12.5                        ; Vr   -5.1 -25V
+**** 4156 [engg/engg_48khz.waveforms.reverse 1132]: Setting voltage VRU1 -12.5V 20483000320
+4157                                          VOLTS   VOGL2,2.50                        ; Vopg  -10  10 V
+**** 4162 [engg/engg_48khz.waveforms.reverse 1133]: Setting voltage VOGL2 2.50V 20483016704
+4163                                          VOLTS   VOGU2,2.50                        ; Vopg  -10  10 V
+**** 4168 [engg/engg_48khz.waveforms.reverse 1134]: Setting voltage VOGU2 2.50V 20483033088
+4169                                          VOLTS   VOGL1,2.50                        ; Vopg  -10  10 V
+**** 4174 [engg/engg_48khz.waveforms.reverse 1135]: Setting voltage VOGL1 2.50V 20483049472
+4175                                          VOLTS   VOGU1,2.50                        ; Vopg  -10  10 V
+**** 4180 [engg/engg_48khz.waveforms.reverse 1136]: Setting voltage VOGU1 2.50V 20483065856
+4181   
 4182   
-4183                                ;Initialize the ARC-47 DAC for video offsets, board #0
-4184      Y:000262 Y:000262                   DC      VID0+DAC_ADDR+$000014
-4185      Y:000263 Y:000263                   DC      VID0+DAC_RegD+OFFSET0
-4186      Y:000264 Y:000264                   DC      VID0+DAC_ADDR+$000015
-4187      Y:000265 Y:000265                   DC      VID0+DAC_RegD+OFFSET1
-4188      Y:000266 Y:000266                   DC      VID0+DAC_ADDR+$000016
-4189      Y:000267 Y:000267                   DC      VID0+DAC_RegD+OFFSET2
-4190      Y:000268 Y:000268                   DC      VID0+DAC_ADDR+$000017
-4191      Y:000269 Y:000269                   DC      VID0+DAC_RegD+OFFSET3
-Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:14:56  ngps-sg2-48khz.waveforms  Page 73
+4183                                 GAIN_SETTING
+4184      Y:000261 Y:000261                   DC      VID0+$0D000E                      ; Gain of 0.25 (from 0 to $F,one of 16 possi
+ble values)
+4185   
+4186                                ;Initialize the ARC-47 DAC for video offsets, board #0
+4187      Y:000262 Y:000262                   DC      VID0+DAC_ADDR+$000014
+4188      Y:000263 Y:000263                   DC      VID0+DAC_RegD+OFFSET0
+4189      Y:000264 Y:000264                   DC      VID0+DAC_ADDR+$000015
+4190      Y:000265 Y:000265                   DC      VID0+DAC_RegD+OFFSET1
+4191      Y:000266 Y:000266                   DC      VID0+DAC_ADDR+$000016
+Motorola DSP56300 Assembler  Version 6.3.4   23-11-22  12:11:47  engg/engg_48khz.waveforms.reverse  Page 73
 
 
 
-4192   
-4193   
-4194                                ;  DC   VID0+DAC_ADDR+$00000C           ; Vabg,pin 5
-4195                                ;  DC   VID0+DAC_RegD+DAC_VRSV
-4196                                ;  DC   VID0+DAC_ADDR+$00000D           ; Vrsv1,pin 47
-4197                                ;  DC   VID0+DAC_RegD+DAC_VRSV
-4198                                ;  DC   VID0+DAC_ADDR+$00000E           ; Vrsv2,pin 27
-4199                                ;  DC   VID0+DAC_RegD+DAC_VRSV
-4200                                ;  DC   VID0+DAC_ADDR+$00000F           ; Vrsv3,pin 6
-4201                                ;  DC   VID0+DAC_RegD+DAC_VRSV
-4202   
-4203   
-4204                                END_DACS
+4192      Y:000267 Y:000267                   DC      VID0+DAC_RegD+OFFSET2
+4193      Y:000268 Y:000268                   DC      VID0+DAC_ADDR+$000017
+4194      Y:000269 Y:000269                   DC      VID0+DAC_RegD+OFFSET3
+4195   
+4196   
+4197                                ;  DC   VID0+DAC_ADDR+$00000C           ; Vabg,pin 5
+4198                                ;  DC   VID0+DAC_RegD+DAC_VRSV
+4199                                ;  DC   VID0+DAC_ADDR+$00000D           ; Vrsv1,pin 47
+4200                                ;  DC   VID0+DAC_RegD+DAC_VRSV
+4201                                ;  DC   VID0+DAC_ADDR+$00000E           ; Vrsv2,pin 27
+4202                                ;  DC   VID0+DAC_RegD+DAC_VRSV
+4203                                ;  DC   VID0+DAC_ADDR+$00000F           ; Vrsv3,pin 6
+4204                                ;  DC   VID0+DAC_RegD+DAC_VRSV
 4205   
 4206   
-4207                                ; Pixel table generated in "timCCD.asm"
-4208      Y:00026A Y:00026A         PXL_TBL   DC      0
+4207                                END_DACS
+4208   
 4209   
-4210   
-4211   
-4212      Y:00029D Y:00029D                   ORG     Y:@LCV(L)+50,Y:@LCV(L)+50
+4210                                ; Pixel table generated in "timCCD.asm"
+4211      Y:00026A Y:00026A         PXL_TBL   DC      0
+4212   
 4213   
-4214                                 TMP_PXL_TBL1
-4215      Y:00029D Y:00029D                   DC      0
+4214   
+4215      Y:00029D Y:00029D                   ORG     Y:@LCV(L)+50,Y:@LCV(L)+50
 4216   
-4217      Y:0002D0 Y:0002D0                   ORG     Y:@LCV(L)+50,Y:@LCV(L)+50
-4218   
-4219                                 TMP_PXL_TBL2
-4220      Y:0002D0 Y:0002D0                   DC      0
+4217                                 TMP_PXL_TBL1
+4218      Y:00029D Y:00029D                   DC      0
+4219   
+4220      Y:0002D0 Y:0002D0                   ORG     Y:@LCV(L)+50,Y:@LCV(L)+50
 4221   
-4222      Y:000303 Y:000303                   ORG     Y:@LCV(L)+50,Y:@LCV(L)+50
-4223   
-4224                                 TMP_PXL_TBL3
-4225      Y:000303 Y:000303                   DC      0
+4222                                 TMP_PXL_TBL2
+4223      Y:0002D0 Y:0002D0                   DC      0
+4224   
+4225      Y:000303 Y:000303                   ORG     Y:@LCV(L)+50,Y:@LCV(L)+50
 4226   
-4227                                 END_APPLICATON_Y_MEMORY
-4228      000304                              EQU     @LCV(L)
+4227                                 TMP_PXL_TBL3
+4228      Y:000303 Y:000303                   DC      0
 4229   
-4230   
-4231                                ; End of program
-4232                                          END
+4230                                 END_APPLICATON_Y_MEMORY
+4231      000304                              EQU     @LCV(L)
+4232   
+4233   
+4234                                ; End of program
+4235                                          END
 
 0    Errors
 0    Warnings

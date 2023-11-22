@@ -184,22 +184,53 @@ LPCLR2
 	JSR	<GET_RCV		; Check for FO command
 	RTS
 
-;CLR_FS  DO  #NP_FS,FSCLR2
-;  MOVE  Y:<CLEAR_FS,R0
-;  CLOCK
-;  JCLR  #EF,X:HDR,FSCLR1
-;  MOVE  #COM_BUF,R3
-;  JSR   <GET_RCV
-;  JCC   <FSCLR1
+; Clear the frame store regions into the serial register, and then clear that.
+; Note that this does not use the inherent Frame Store feature of this device.
 ;
-;  MOVE  #FSCLR1,R0
-;  MOVE  R0,X:<IDL_ADR
-;  JMP   <PRC_RCV
-;FSCLR1  NOP
-;FSCLR2
-;  MOVE  #COM_BUF,R3
-;  JSR   <GET_RCV
-;  RTS
+CLR_FS					; this version for calling by external 3-letter command
+	JSR	<DO_CLR_FS
+	JMP	<FINISH
+DO_CLR_FS				; this version for calling internally
+	DO	Y:<NPFS,FSCLR2		; loop over Number of Parallel rows in Frame Store area
+	MOVE	#FS_CLEAR,R0
+	CLOCK
+	DO	Y:<NSCLR,L_CLRSR2	; Loop over number of pixels to skip
+	MOVE	Y:<SERIAL_SKIP,R0
+	CLOCK				; Go clock out the CCD charge
+L_CLRSR2				; Do loop restriction
+	JCLR	#EF,X:HDR,FSCLR1
+	MOVE	#COM_BUF,R3
+	JSR	<GET_RCV
+	JCC	<FSCLR1
+
+	MOVE	#FSCLR1,R0
+	MOVE	R0,X:<IDL_ADR
+	JMP	<PRC_RCV
+FSCLR1	NOP
+FSCLR2
+	MOVE	#COM_BUF,R3
+	JSR	<GET_RCV
+	RTS
+
+; Perform the Frame Transfer.
+; Note that this does not use the inherent Frame Store feature of this device,
+; but instead treats one half or the other as frame store.  A Y:MEM flag is used
+; to indicate its running. This happens so fast it's probably not necessary.
+;
+FRAME_TRANSFER
+	MOVE	#>1,A
+	NOP
+	MOVE	A1,Y:<IN_FT		; set Y:IN_FT=1 to mean FRAME_TRANSFER running
+;	JSR	<DO_CLR_FS		; clearing is TBD, remove it for now
+	JSR	<WAIT_TO_FINISH_CLOCKING
+	DO	Y:<NPFS,END_FT		; transfer all rows of image area to frame store area
+	MOVE	Y:PARALLEL,R0
+	CLOCK
+END_FT	NOP
+	CLR	A
+	NOP
+	MOVE	A1,Y:<IN_FT		; clear Y:IN_FT=0 to mean FRAME_TRANSFER complete
+	JMP	<FINISH
 
 ; Start the exposure timer and monitor its progress
 EXPOSE	JSSET   #ST_SYNC,X:STATUS,SYNCH_CONTROLLER ; Sync up two controllers
@@ -221,12 +252,12 @@ END_EXP	BCLR	#TIM_BIT,X:TCSR0	; Disable the timer
 	JMP	(R7)			; This contains the return address
 
 ; Start the exposure, operate the shutter, and initiate the CCD readout
-START_EXPOSURE
+START_READOUT	; was START_EXPOSURE
 	MOVE	#$020102,B
 	JSR	<XMT_WRD
 	MOVE	#'IIA',B		; Initialize the PCI image address
 	JSR	<XMT_WRD
-	JSCLR	#NOT_CLR,X:STATUS,CLR_CCD ; Jump to clear out routine if bit set 
+;	JSCLR	#NOT_CLR,X:STATUS,CLR_CCD ; Jump to clear out routine if bit set
 	MOVE	#COM_BUF,R3		; The beginning of the command buffer
 	JSR	<GET_RCV		; Check for FO command
 	JCS	<PRC_RCV		; Process the command 
@@ -234,21 +265,22 @@ START_EXPOSURE
 	MOVE	R0,X:<IDL_ADR
 	JSR	<WAIT_TO_FINISH_CLOCKING
 
+; remove shutter operation
 ; Operate the shutter if needed and begin exposure
-	JCLR	#SHUT,X:STATUS,L_SEX0
-	JSR	<OSHUT			; Open the shutter if needed
-L_SEX0	MOVE	#L_SEX1,R7		; Return address at end of exposure
-
+;	JCLR	#SHUT,X:STATUS,L_SEX0
+;	JSR	<OSHUT			; Open the shutter if needed
+;L_SEX0	MOVE	#L_SEX1,R7		; Return address at end of exposure
+;
 ; delay to ensure controllers are synced
-	MOVE	#100000,X0
-	DO	#100,SHUTTER_SYNC0		; Delay by Y:SHDEL milliseconds
-	DO	X0,SHUTTER_SYNC1
-	NOP
-SHUTTER_SYNC1 NOP
-SHUTTER_SYNC0	NOP
-
-	JMP	<EXPOSE			; Delay for specified exposure time
-L_SEX1
+;	MOVE	#100000,X0
+;	DO	#100,SHUTTER_SYNC0		; Delay by Y:SHDEL milliseconds
+;	DO	X0,SHUTTER_SYNC1
+;	NOP
+;SHUTTER_SYNC1 NOP
+;SHUTTER_SYNC0	NOP
+;
+;	JMP	<EXPOSE			; Delay for specified exposure time
+;L_SEX1
 
 ; Now we really start the CCD readout, alerting the PCI board, closing the 
 ;  shutter, waiting for it to close and then reading out
@@ -259,15 +291,15 @@ STR_RDC	JSR	<PCI_READ_IMAGE		; Get the PCI board reading the image
 TST_SYN	JSET	#TST_IMG,X:STATUS,SYNTHETIC_IMAGE
 
 ; Delay readout until the shutter has fully closed
-	MOVE	Y:<SHDEL,A
-	TST	A
-	JLE	<S_DEL0
-	MOVE	#100000,X0
-	DO	A,S_DEL0		; Delay by Y:SHDEL milliseconds
-	DO	X0,S_DEL1
-	NOP
-S_DEL1	NOP
-S_DEL0	NOP
+;	MOVE	Y:<SHDEL,A
+;	TST	A
+;	JLE	<S_DEL0
+;	MOVE	#100000,X0
+;	DO	A,S_DEL0		; Delay by Y:SHDEL milliseconds
+;	DO	X0,S_DEL1
+;	NOP
+;S_DEL1	NOP
+;S_DEL0	NOP
 
 	JMP	<RDCCD			; Finally, go read out the CCD
   
@@ -888,7 +920,7 @@ COMP_1  MOVE    #'__1',A
 COMP_ALL
 	MOVE    #'ALL',A
         CMP     Y0,A
-        JNE     <COMP_TEMP
+        JNE     <COMP_FT2
 
         MOVE    #PARALLEL_SPLIT,X0
         MOVE    X0,Y:PARALLEL
@@ -903,6 +935,50 @@ COMP_ALL
 	BSET    #SPLIT_S,X:STATUS
         BSET    #SPLIT_P,X:STATUS
         RTS
+
+; Frame Transfer 1->2 read split2
+COMP_FT2
+	MOVE	#'FT2',A
+	CMP	Y0,A
+	JNE	<COMP_FT1
+
+	MOVE	#PARALLEL_FRAME_2,X0
+	MOVE	X0,Y:PARALLEL
+	MOVE	#SERIAL_READ_SPLIT_SPECIAL__2,X0
+	MOVE	X0,Y:SERIAL_READ
+	MOVE	#SERIAL_SKIP_SPLIT,X0
+	MOVE	X0,Y:SERIAL_SKIP
+	MOVE	#SERIAL_IDLE_SPLIT,X0
+	MOVE	X0,Y:SERIAL_IDLE
+	MOVE	#PARALLEL_CLEAR_2,X0
+	MOVE	X0,Y:PARALLEL_CLEAR
+	MOVE	#FS_CLEAR_2,X0
+	MOVE	X0,Y:FS_CLEAR
+	BSET	#SPLIT_S,X:STATUS
+	BCLR	#SPLIT_P,X:STATUS
+	RTS
+
+; Frame Transfer 2->1 read split1
+COMP_FT1
+	MOVE	#'FT1',A
+	CMP	Y0,A
+	JNE	<COMP_TEMP
+
+	MOVE	#PARALLEL_FRAME_1,X0
+	MOVE	X0,Y:PARALLEL
+	MOVE	#SERIAL_READ_SPLIT_SPECIAL__1,X0
+	MOVE	X0,Y:SERIAL_READ
+	MOVE	#SERIAL_SKIP_SPLIT,X0
+	MOVE	X0,Y:SERIAL_SKIP
+	MOVE	#SERIAL_IDLE_SPLIT,X0
+	MOVE	X0,Y:SERIAL_IDLE
+	MOVE	#PARALLEL_CLEAR_1,X0
+	MOVE	X0,Y:PARALLEL_CLEAR
+	MOVE	#FS_CLEAR_1,X0
+	MOVE	X0,Y:FS_CLEAR
+	BSET	#SPLIT_S,X:STATUS
+	BCLR	#SPLIT_P,X:STATUS
+	RTS
 
 COMP_TEMP	
 	MOVE	#>5,A
@@ -1343,14 +1419,6 @@ SYNCHED_NOW
 	NOP
 	
 	RTS
-
-TIMS_TEST
-  MOVE #020102,B
-  JSR <XMT_WRD
-  NOP
-  MOVE #0,X0
-  MOVE  X0,Y:NSR
-  JMP <START
 
 ;CHANGE_VSUB
 ;  MOVE  X:(R3)+,Y0 ; put the Vsub voltage into Y0

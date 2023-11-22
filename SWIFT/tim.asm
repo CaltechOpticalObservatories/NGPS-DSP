@@ -244,7 +244,7 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 ; Exposure and readout control routines
 	DC	'SET',SET_EXPOSURE_TIME
 	DC	'RET',READ_EXPOSURE_TIME
-	DC	'SEX',START_EXPOSURE
+;	DC	'SEX',START_EXPOSURE
 	DC	'PEX',PAUSE_EXPOSURE
 	DC	'REX',RESUME_EXPOSURE
 	DC	'AEX',ABORT_EXPOSURE
@@ -252,7 +252,10 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 	DC	'CRD',CONTINUE_READ
         DC      'WSI',SYNTHETIC_IMAGE
         DC      'SSM',SET_SYNC_MODE
-        DC      'STR',STR_RDC
+;	DC	'STR',STR_RDC
+; New commands for NGPS
+	DC	'SRE',START_READOUT
+	DC	'FRT',FRAME_TRANSFER
 
 ; Support routines
 	DC	'SGN',ST_GAIN     
@@ -271,9 +274,9 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
         DC      'CIR',CHANGE_IDLE_READ_DIRECTION
         DC      'CPC',CHANGE_NUMBER_PARALLEL_CLEARS
         DC      'NPS',NO_POLARITY_SHIFT
-        DC      'TST',TIMS_TEST
-        ;  DC  'CVS',CHANGE_VSUB
-        ;  DC  'FSC',FRAME_STORE_CLEAR
+	DC	'CFS',CLR_FS
+;	DC	'CVS',CHANGE_VSUB
+;	DC	'FSC',FRAME_STORE_CLEAR
         DC      'PCK',POWER_CHECK
 
 END_APPLICATION_COMMAND_TABLE	EQU	@LCV(L)
@@ -302,7 +305,7 @@ NSCLR	  DC      NS_CLR  	; To clear the serial register
 NPCLR   DC      NP_CLR          ; To clear the parallel register 
 NSBIN   DC      1       	; Serial binning parameter
 NPBIN   DC      1       	; Parallel binning parameter
-TST_DAT	DC	    0		; Temporary definition for test images
+NPFS	DC	NP_FS		; number of rows in frame store area
 SHDEL	DC	SH_DEL		; Delay in milliseconds between shutter closing 
 				; and image readout
 CONFIG	DC	CC		; Controller configuration
@@ -314,28 +317,30 @@ FIRST_CLOCKS	DC	0	; Address of first clocks waveforms
 CLOCK_LINE	DC	0	; Clock one complete line of charge
 
 ; Readout peculiarity parameters. Default values are selected here.
-SERIAL_READ     DC      SERIAL_READ_SPLIT  ;14  ; Serial readout waveforms
+SERIAL_READ	DC	SERIAL_READ_SPLIT  ;14  ; Serial readout waveforms
 SERIAL_SKIP 	  DC	    SERIAL_SKIP_SPLIT  ;15	; Serial skipping waveforms
 PARALLEL        DC      PARALLEL_2         ;16  ; Parallel shifting waveforms
-PARALLEL_CLEAR  DC      PARALLEL_CLEAR_2   ;17
-PC_1            DC      PARALLEL_CLEAR_1   ;18
-PC_2            DC      PARALLEL_CLEAR_2   ;19
-SERIAL_IDLE     DC      SERIAL_IDLE_SPLIT  ;20
-SI_L            DC      SERIAL_IDLE_LEFT   ;21
-SI_R            DC      SERIAL_IDLE_RIGHT  ;22
-BYTE_1          DC      0                  ;23
-BYTE_2          DC      0                  ;24
-SR_L            DC      SERIAL_READ_LEFT   ;25
-SR_R            DC      SERIAL_READ_RIGHT  ;26
-P_1             DC      PARALLEL_1         ;27
-P_2             DC      PARALLEL_2         ;28
-N_PARALLEL_CLEARS       DC      1          ;29
-SR_S            DC      SERIAL_READ_SPLIT  ;30
-TMP_1           DC      TMP_PXL_TBL1       ;31 stuff where I can load a idle without resetting.
-TMP_2           DC      TMP_PXL_TBL2       ;32
-TMP_3           DC      TMP_PXL_TBL3       ;33
-PC_S            DC      PARALLEL_CLEAR_SPLIT ;34
+PARALLEL_CLEAR  DC      PARALLEL_CLEAR_2	;17
+FS_CLEAR	DC	FS_CLEAR_2		;18 Frame Store clearing waveforms
+PC_1            DC      PARALLEL_CLEAR_1   ;19
+PC_2            DC      PARALLEL_CLEAR_2   ;20
+SERIAL_IDLE     DC      SERIAL_IDLE_SPLIT  ;21
+SI_L            DC      SERIAL_IDLE_LEFT   ;22
+SI_R            DC      SERIAL_IDLE_RIGHT  ;23
+BYTE_1          DC      0                  ;24
+BYTE_2          DC      0                  ;25
+SR_L            DC      SERIAL_READ_LEFT   ;26
+SR_R            DC      SERIAL_READ_RIGHT  ;27
+P_1             DC      PARALLEL_1         ;28
+P_2             DC      PARALLEL_2         ;29
+N_PARALLEL_CLEARS       DC      1          ;30
+SR_S            DC      SERIAL_READ_SPLIT  ;31
+TMP_1           DC      TMP_PXL_TBL1       ;32 stuff where I can load a idle without resetting.
+TMP_2           DC      TMP_PXL_TBL2       ;33
+TMP_3           DC      TMP_PXL_TBL3       ;34
+PC_S            DC      PARALLEL_CLEAR_SPLIT ;35
 NSRI            DC      4200
+IN_FT		DC	0			; 37 (0x25) InFrameTransfer: 0=no, 1=yes, 2=pending
 
 
 INT_TIME        DC      0
