@@ -171,6 +171,16 @@ L_SKP1
 
 ; Finally read some real pixels
 L_READ	DO	Y:<NSERIALS_READ,L_RD
+;L_READ
+;	MOVE	Y:<NSERIAL_BIN,A
+;	SUB	#>1,A
+;	NOP
+;;	DO	A1,SER_BIN_LOOP
+;;	DO	#>1,SER_BIN_LOOP
+;	MOVE	Y:<SERIAL_BIN,R0
+;	CLOCK
+;SER_BIN_LOOP
+;	DO	Y:<NSR,L_RD
         MOVE    Y:<SERIAL_READ,R0
 	CLOCK  				; Go clock out the CCD charge
 L_RD
@@ -207,7 +217,7 @@ RDC_END	JCLR	#IDLMODE,X:<STATUS,NO_IDL ; Don't idle after readout
 	MOVE	#IDLE,R0
 	MOVE	R0,X:<IDL_ADR
 	JMP	<RDC_E
-NO_IDL	MOVE	#TST_RCV,R0
+NO_IDL	MOVE	#NO_PAR_IDLE,R0
 	MOVE	R0,X:<IDL_ADR
 RDC_E	JSR	<WAIT_TO_FINISH_CLOCKING
 	BCLR	#ST_RDC,X:<STATUS	; Set status to not reading out
@@ -256,6 +266,8 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 ; New commands for NGPS
 	DC	'SRE',START_READOUT
 	DC	'FRT',FRAME_TRANSFER
+	DC	'SPC',STOP_PARALLEL_CLOCKING
+	DC	'SBP',SET_BIN_PARAMETERS
 
 ; Support routines
 	DC	'SGN',ST_GAIN     
@@ -341,7 +353,10 @@ TMP_3           DC      TMP_PXL_TBL3       ;34
 PC_S            DC      PARALLEL_CLEAR_SPLIT ;35
 NSRI            DC      4200
 IN_FT		DC	0			; 37 (0x25) InFrameTransfer: 0=no, 1=yes, 2=pending
+PARALLEL_FT	DC	PARALLEL_FRAME_1	; 38 (0x26) parallel frame transfer waveform
 
+NSERIAL_BIN	DC	1
+SERIAL_BIN	DC	SERIAL_BIN_SPLIT
 
 INT_TIME        DC      0
 TIME1   DC     0
@@ -350,6 +365,7 @@ TIME2   DC     0
 ; These three parameters are read from the READ_TABLE when needed by the
 ;   RDCCD routine as it loops through the required number of boxes
 NP_SKIP		DC	0	; Number of rows to skip
+NS_SKIP		DC	0	; Number of cols to skip
 NS_SKP1		DC	0	; Number of serials to clear before read
 NS_SKP2		DC	0	; Number of serials to clear after read
 

@@ -30,7 +30,8 @@ POWER_ON
 	MOVE	#IDLE,R0		; Put controller in IDLE state
 ;	MOVE	#TST_RCV,R0		; Put controller in non-IDLE state
 	MOVE	R0,X:<IDL_ADR
-  BSET    #POWERST,X:<STATUS      ; Set the power state bit in the X: status word
+	BSET	#POWERST,X:<STATUS      ; Set the power state bit in the X: status word
+	BCLR	#IDLMODE,X:<STATUS	; no idle after readout
 
   ; get the gain setting and put it into the appropriate place in Y memory
   MOVE    Y:GAIN_SETTING,A
@@ -138,16 +139,12 @@ SET_SHUTTER_STATE
 	
 ; Open the shutter from the timing board, executed as a command
 OPEN_SHUTTER
-	BSET    #ST_SHUT,X:<STATUS 	; Set status bit to mean shutter open
-	MOVE	#>$10,X0
-	JSR	<SET_SHUTTER_STATE
+	JSR	<OSHUT
 	JMP	<FINISH
 
 ; Close the shutter from the timing board, executed as a command
 CLOSE_SHUTTER
-	BCLR    #ST_SHUT,X:<STATUS 	; Clear status to mean shutter closed
-	MOVE	#0,X0
-	JSR	<SET_SHUTTER_STATE
+	JSR	<CSHUT
 	JMP	<FINISH
 
 ; Shutter subroutines
@@ -221,16 +218,44 @@ FRAME_TRANSFER
 	MOVE	#>1,A
 	NOP
 	MOVE	A1,Y:<IN_FT		; set Y:IN_FT=1 to mean FRAME_TRANSFER running
-;	JSR	<DO_CLR_FS		; clearing is TBD, remove it for now
+;	JSR	<DO_CLR_FS		; clear FS area into serial and clear serial
 	JSR	<WAIT_TO_FINISH_CLOCKING
 	DO	Y:<NPFS,END_FT		; transfer all rows of image area to frame store area
-	MOVE	Y:PARALLEL,R0
+	MOVE	Y:PARALLEL_FT,R0	; parallel waveforms for frame transfer
 	CLOCK
 END_FT	NOP
 	CLR	A
 	NOP
 	MOVE	A1,Y:<IN_FT		; clear Y:IN_FT=0 to mean FRAME_TRANSFER complete
 	JMP	<FINISH
+
+STOP_PARALLEL_CLOCKING
+	MOVE	#NO_PAR_IDLE,R0		; Process commands during the exposure
+	NOP
+	MOVE	R0,X:<IDL_ADR
+	BCLR	#IDLMODE,X:<STATUS	; Idle after readout
+	JMP	<FINISH
+
+; Keep the CCD idling when not reading out
+NO_PAR_IDLE
+	MOVE	Y:<NSRI,A		; NSERIALS_READ = NSR
+	JCLR	#SPLIT_S,X:STATUS,*+3
+	ASR	A			; Split serials requires / 2
+	NOP
+
+	DO	A,NP_IDL1		; Loop over number of pixels per line
+	MOVE	Y:SERIAL_IDLE,R0	; Serial transfer on pixel
+	CLOCK				; Go to it
+	MOVE	#COM_BUF,R3
+	JSR	<GET_RCV		; Check for FO or SSI commands
+	JCC	<NP_NO_COM		; Continue IDLE if no commands received
+	ENDDO
+	JMP	<PRC_RCV		; Go process header and command
+NP_NO_COM  NOP
+NP_IDL1
+	NOP
+NO_PAR
+	JMP	<NO_PAR_IDLE
 
 ; Start the exposure timer and monitor its progress
 EXPOSE	JSSET   #ST_SYNC,X:STATUS,SYNCH_CONTROLLER ; Sync up two controllers
@@ -284,7 +309,7 @@ START_READOUT	; was START_EXPOSURE
 
 ; Now we really start the CCD readout, alerting the PCI board, closing the 
 ;  shutter, waiting for it to close and then reading out
-STR_RDC	JSR	<PCI_READ_IMAGE		; Get the PCI board reading the image
+STR_RDC JSR	<PCI_READ_IMAGE		; Get the PCI board reading the image
 	BSET	#ST_RDC,X:<STATUS 	; Set status to reading out
 	JCLR	#SHUT,X:STATUS,TST_SYN
 	JSR	<CSHUT			; Close the shutter if necessary
@@ -510,6 +535,23 @@ STG_LOOP
 ERR_SGN	MOVE	X:(R3)+,A
 	BCLR	#3,X:PCRD		; Turn the serial clock off
 	JMP	<ERROR
+
+; Set binning parameters NPBIN, NP_SKIP, NSBIN, NS_SKIP
+;
+SET_BIN_PARAMETERS
+	MOVE    X:(R3)+,A	; first arg is NPBIN
+	NOP
+	MOVE	A,Y:<NPBIN	; parallel binning parameter
+	MOVE    X:(R3)+,A	; second arg is NP_SKIP
+	NOP
+	MOVE	A,Y:<NP_SKIP	; number of rows to skip
+	MOVE    X:(R3)+,A	; third arg is NSBIN
+	NOP
+	MOVE	A,Y:<NSBIN	; serial binning parameter
+	MOVE    X:(R3)+,A	; fourth arg is NS_SKIP
+	NOP
+	MOVE	A,Y:<NS_SKIP	; number of columns to skip
+	JMP	<FINISH
 
 ; Set a particular DAC numbers, for setting DC bias voltages, clock driver  
 ;   voltages and video processor offset
@@ -944,8 +986,12 @@ COMP_FT2
 
 	MOVE	#PARALLEL_FRAME_2,X0
 	MOVE	X0,Y:PARALLEL
+	MOVE	#PARALLEL_2,X0
+	MOVE	X0,Y:PARALLEL_FT
 	MOVE	#SERIAL_READ_SPLIT_SPECIAL__2,X0
 	MOVE	X0,Y:SERIAL_READ
+	MOVE	#SERIAL_BIN_SPLIT,X0
+	MOVE	X0,Y:SERIAL_BIN
 	MOVE	#SERIAL_SKIP_SPLIT,X0
 	MOVE	X0,Y:SERIAL_SKIP
 	MOVE	#SERIAL_IDLE_SPLIT,X0
@@ -966,8 +1012,12 @@ COMP_FT1
 
 	MOVE	#PARALLEL_FRAME_1,X0
 	MOVE	X0,Y:PARALLEL
+	MOVE	#PARALLEL_1,X0
+	MOVE	X0,Y:PARALLEL_FT
 	MOVE	#SERIAL_READ_SPLIT_SPECIAL__1,X0
 	MOVE	X0,Y:SERIAL_READ
+	MOVE	#SERIAL_BIN_SPLIT,X0
+	MOVE	X0,Y:SERIAL_BIN
 	MOVE	#SERIAL_SKIP_SPLIT,X0
 	MOVE	X0,Y:SERIAL_SKIP
 	MOVE	#SERIAL_IDLE_SPLIT,X0
