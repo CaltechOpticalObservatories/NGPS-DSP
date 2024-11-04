@@ -740,32 +740,35 @@ SET_SUBARRAY_SIZES
 	MOVE	X0,Y:<NP_READ		; Number of rows in subimage read	
 	JMP	<FINISH
 
-; Call this routine once for every subarray to be added to the table
-SET_SUBARRAY_POSITIONS
+; Call this routine once for every band of interest row to be added to the table
+BAND_OF_INTEREST
 	MOVE	Y:<NBOXES,X0
-	MOVE	X:<THREE,X1
+	MOVE	X:<TWO,X1
 	MPY	X0,X1,A
 	ASR	A
 	MOVE	A0,A1
 	MOVE	#>10,X0
 	CMP	X0,A
 	JGT	<ERROR		; Error if number of boxes > 10
-	MOVE	#READ_TABLE,X0
+	MOVE	#BOI_TABLE,X0
 	ADD	X0,A
 	NOP
 	MOVE	A1,R7
 	MOVE	X:(R3)+,X0
 	NOP
 	NOP
-	MOVE	X0,Y:(R7)+	; Number of rows (parallels) to clear
+	MOVE	X0,Y:(R7)+	; Number of rows to skip
 	MOVE	X:(R3)+,X0
-	MOVE	X0,Y:(R7)+	; Number of columns (serials) clears before
-	MOVE	X:(R3)+,X0	;  the box readout
-	MOVE	X0,Y:(R7)+	; Number of columns (serials) clears after	
+	MOVE	X0,Y:(R7)+	; Number of rows to read
+  MOVE	X:(R3)+,X0	; last arg resets NBOXES when 0
+  MOVE  X0,A
+  TST A
+  JEQ <ZERO_NBOXES
 	MOVE	Y:<NBOXES,A	;  the box readout
 	MOVE	X:<ONE,X0
 	ADD	X0,A
 	NOP
+ZERO_NBOXES
 	MOVE	A,Y:<NBOXES
 	JMP	<FINISH
 

@@ -78,25 +78,13 @@ RDCCD
 	JMP	<WT_CLK
 
 ; Loop over the required number of subimage boxes
-SUB_IMG	MOVE	#READ_TABLE,R7		; Parameter table for subimage readout
+SUB_IMG
+  MOVE	#BOI_TABLE,R7		; Parameter table for subimage readout
 	DO	Y:<NBOXES,L_NBOXES	; Loop over number of boxes
 	MOVE	Y:(R7)+,X0
 	MOVE	X0,Y:<NP_SKIP
 	MOVE	Y:(R7)+,X0
-	MOVE	Y:<NSBIN,X1		; Multiply by serial binning number
-	MPY	X0,X1,A
-	ASR	A	
-	MOVE	A0,Y:<NS_SKP1
-	MOVE	Y:(R7)+,X0
-	MOVE	Y:<NSBIN,X1		; Multiply by serial binning number
-	MPY	X0,X1,A
-	ASR	A
-	MOVE	A0,Y:<NS_SKP2
-	MOVE	Y:<NS_READ,A
-	JCLR	#SPLIT_S,X:STATUS,*+3	; Split serials require / 2
-	ASR	A
-	NOP
-	MOVE	A,Y:<NSERIALS_READ	; Number of columns in each subimage
+	MOVE	X0,Y:<NP_READ
 
 ; Start the loop for parallel shifting desired number of lines
 ;WT_CLK	JSR	<GENERATE_SERIAL_WAVEFORM
@@ -108,15 +96,14 @@ WT_CLK	NOP     ; not using the binning waveform generation at the moment.
 	TST	A
 	JEQ	<CLR_SR
 	DO  Y:<NP_SKIP,L_PSKP	
-	DO	Y:<NPBIN,L_PSKIP
-	MOVE    #<PARALLEL,R0 ; Couldn't this be above the start of the do loop?
+	MOVE    Y:<PARALLEL,R0 ; Couldn't this be above the start of the do loop?
 	CLOCK
-L_PSKIP	NOP
 L_PSKP
 
 ; Clear out the accumulated charge from the serial shift register 
-CLR_SR	DO      Y:<NSCLR,L_CLRSR	; Loop over number of pixels to skip
-        MOVE    Y:<SERIAL_SKIP,R0
+CLR_SR
+  DO      Y:<NSCLR,L_CLRSR	; Loop over number of pixels to skip
+  MOVE    Y:<SERIAL_SKIP,R0
 	CLOCK    		      	            ; Go clock out the CCD charge
 L_CLRSR		                     	  ; Do loop restriction  
 
@@ -268,6 +255,7 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 	DC	'FRT',FRAME_TRANSFER
 	DC	'SPC',STOP_PARALLEL_CLOCKING
 	DC	'SBP',SET_BIN_PARAMETERS
+	DC	'BOI',BAND_OF_INTEREST
 
 ; Support routines
 	DC	'SGN',ST_GAIN     
@@ -276,7 +264,6 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 	DC	'CSW',CLR_SWS
 	DC	'SOS',SELECT_OUTPUT_SOURCE
 	DC	'SSS',SET_SUBARRAY_SIZES
-	DC	'SSP',SET_SUBARRAY_POSITIONS
 	DC	'RCC',READ_CONTROLLER_CONFIGURATION 
         DC      'RAW',RAW_COMMAND ; So I can set voltages as I please
         DC      'ERS',ERASE ;Persistent image erase
@@ -314,7 +301,7 @@ GAIN	DC	END_APPLICATON_Y_MEMORY-@LCV(L)-1
 NSR     DC      4200             ; Number Serial Read, prescan + image + bias
 NPR     DC      2100	     	; Number Parallel Read
 NSCLR	  DC      NS_CLR  	; To clear the serial register
-NPCLR   DC      NP_CLR          ; To clear the parallel register 
+NPCLR   DC      NP_CLR          ; To clear the parallel register
 NSBIN   DC      1       	; Serial binning parameter
 NPBIN   DC      1       	; Parallel binning parameter
 NPFS	DC	NP_FS		; number of rows in frame store area
@@ -355,30 +342,26 @@ NSRI            DC      4200
 IN_FT		DC	0			; 37 (0x25) InFrameTransfer: 0=no, 1=yes, 2=pending
 PARALLEL_FT	DC	PARALLEL_FRAME_1	; 38 (0x26) parallel frame transfer waveform
 
-NSERIAL_BIN	DC	1
+NSERIAL_BIN	DC	1   ; 0x27
 SERIAL_BIN	DC	SERIAL_BIN_SPLIT
 
-INT_TIME        DC      0
+INT_TIME        DC      0  ; 0x29
 TIME1   DC     0
 TIME2   DC     0
 
-; These three parameters are read from the READ_TABLE when needed by the
+; These three parameters are read from the BOI_TABLE when needed by the
 ;   RDCCD routine as it loops through the required number of boxes
-NP_SKIP		DC	0	; Number of rows to skip
+NP_SKIP		DC	0	; Number of rows to skip  0x2c
 NS_SKIP		DC	0	; Number of cols to skip
 NS_SKP1		DC	0	; Number of serials to clear before read
 NS_SKP2		DC	0	; Number of serials to clear after read
 
 ; Subimage readout parameters. Ten subimage boxes maximum.
-NBOXES	DC	0		; Number of boxes to read
-NR_BIAS	DC	0		; Number of bias pixels to read
-NS_READ	DC	0		; Number of columns in subimage read
-NP_READ	DC	0		; Number of rows in subimage read
-READ_TABLE DC	0,0,0		; #1 = Number of rows to clear 
-				; #2 = Number of columns to skip before 
-				;   subimage read 
-				; #3 = Number of columns to clear after 
-				;   subimage clear
+NBOXES	DC	0		; Number of boxes to read                 30
+NR_BIAS	DC	0		; Number of bias pixels to read           31
+NS_READ	DC	0		; Number of columns in subimage read      32
+NP_READ	DC	0		; Number of rows in subimage read         33
+BOI_TABLE DC	0,0		; #1=rows_to_skip, #2=rows_to_read  34,35
 
 ; Include the waveform table for the designated type of CCD
 	INCLUDE "WAVEFORM_FILE" ; Readout and clocking waveform file
