@@ -553,6 +553,23 @@ SET_BIN_PARAMETERS
 	MOVE	A,Y:<NS_SKIP	; number of columns to skip
 	JMP	<FINISH
 
+; Set geometry parameters: GEO <NPR> <NPBIAS> <NSR> <NSBIAS>
+;
+GEOMETRY_PARAMETERS
+	MOVE    X:(R3)+,A	; first arg is NPR
+	NOP
+	MOVE	A,Y:<NPR	  ; number of parallel reads
+	MOVE    X:(R3)+,A	; second arg is NPBIAS
+	NOP
+	MOVE	A,Y:<NPBIAS	; number of parallel bias (overscans)
+	MOVE    X:(R3)+,A	; third arg is NSR
+	NOP
+	MOVE	A,Y:<NSR	  ; number of serial reads
+	MOVE    X:(R3)+,A	; fourth arg is NSBIAS
+	NOP
+	MOVE	A,Y:<NSBIAS	; number of serial bias (overscans)
+	JMP	<FINISH
+
 ; Set a particular DAC numbers, for setting DC bias voltages, clock driver  
 ;   voltages and video processor offset
 ; This is code for the ARC32 clock driver and ARC45 CCD video processor
@@ -858,8 +875,8 @@ SEL_OS	MOVE	Y:<OS,Y0
         MOVE    X0,Y:SERIAL_READ
         MOVE    #SERIAL_BIN_LEFT,X0
         MOVE    X0,Y:SERIAL_BIN
-	MOVE	#SERIAL_SKIP_LEFT,X0
-	MOVE	X0,Y:SERIAL_SKIP
+        MOVE    #SERIAL_SKIP_LEFT,X0
+        MOVE    X0,Y:SERIAL_SKIP
         MOVE    #SERIAL_IDLE_LEFT,X0
         MOVE    X0,Y:SERIAL_IDLE
         MOVE    #PARALLEL_CLEAR_1,X0
@@ -900,8 +917,8 @@ COMP_L1 MOVE    #'_L1',A
         MOVE    X0,Y:PARALLEL
         MOVE    #SERIAL_READ_RIGHT,X0
         MOVE    X0,Y:SERIAL_READ
-	MOVE	#SERIAL_SKIP_RIGHT,X0
-	MOVE	X0,Y:SERIAL_SKIP
+        MOVE    #SERIAL_SKIP_RIGHT,X0
+        MOVE    X0,Y:SERIAL_SKIP
         MOVE    #SERIAL_IDLE_RIGHT,X0
         MOVE    X0,Y:SERIAL_IDLE
         MOVE    #PARALLEL_CLEAR_1,X0
@@ -920,8 +937,8 @@ COMP_L2 MOVE    #'_L2',A
         MOVE    X0,Y:PARALLEL
         MOVE    #SERIAL_READ_LEFT,X0
         MOVE    X0,Y:SERIAL_READ
-	MOVE	#SERIAL_SKIP_LEFT,X0
-	MOVE	X0,Y:SERIAL_SKIP
+        MOVE    #SERIAL_SKIP_LEFT,X0
+        MOVE    X0,Y:SERIAL_SKIP
         MOVE    #SERIAL_IDLE_LEFT,X0
         MOVE    X0,Y:SERIAL_IDLE
         MOVE    #PARALLEL_CLEAR_2,X0

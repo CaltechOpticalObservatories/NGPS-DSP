@@ -62,14 +62,20 @@ PAR
 RDCCD
   JSSET	#ST_SYNC,X:STATUS,SYNCH_CONTROLLER ; Sync up two controllers
 
+; Add user-input to built-in serial skip
+  MOVE  Y:<NS_SKIP,X0
+  MOVE  Y:<NSEXTENDED,A
+  ADD X0,A
+  NOP
+  MOVE  A1,Y:<NS_SKP1 ; total number of serial pre-skips
+  MOVE  A1,Y:<NS_SKP2 ; total number of serial post-skips
+
 ; Calculate some readout parameters
 	MOVE	Y:<NBOXES,A		; NBOXES = 0 => full image readout
         NOP
 	TST	A
 	JNE	<SUB_IMG
 	MOVE	A1,Y:<NP_SKIP		; Zero these all out
-	MOVE	A1,Y:<NS_SKP1
-	MOVE	A1,Y:<NS_SKP2
 	MOVE	Y:<NSR,A		; NSERIALS_READ = NSR
 	JCLR	#SPLIT_S,X:STATUS,*+3
 	ASR	A			; Split serials requires / 2
@@ -157,8 +163,8 @@ CONTINUE_READ
 L_SKP1
 
 ; Finally read some real pixels
-;;;L_READ	DO	Y:<NSERIALS_READ,L_RD
-L_READ	DO	Y:<NSR,L_RD
+L_READ
+  DO	Y:<NSR,L_RD
 	MOVE	Y:<NSBIN,A
 	SUB	#>1,A
 	NOP
@@ -166,8 +172,7 @@ L_READ	DO	Y:<NSR,L_RD
 	MOVE	Y:<SERIAL_BIN,R0
 	CLOCK
 SER_BIN_LOOP
-;	DO	Y:<NSR,L_RD
-        MOVE    Y:<SERIAL_READ,R0
+  MOVE  Y:<SERIAL_READ,R0
 	CLOCK  				; Go clock out the CCD charge
 L_RD
 
@@ -181,7 +186,8 @@ L_RD
 L_SKP2
 
 ; And read the bias pixels if in subimage readout mode
-L_BIAS	MOVE	Y:<NBOXES,A		; NBOXES = 0 => full image readout
+L_BIAS
+  MOVE	Y:<NBOXES,A		; NBOXES = 0 => full image readout
 	TST	A
 	JLE	<END_ROW
 	MOVE	Y:<NR_BIAS,A		; NR_BIAS = 0 => no bias pixels
@@ -254,6 +260,7 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 	DC	'FRT',FRAME_TRANSFER
 	DC	'SPC',STOP_PARALLEL_CLOCKING
 	DC	'SBP',SET_BIN_PARAMETERS
+	DC	'GEO',GEOMETRY_PARAMETERS
 	DC	'BOI',BAND_OF_INTEREST
 
 ; Support routines
@@ -350,10 +357,14 @@ TIME2   DC     0
 
 ; These three parameters are read from the BOI_TABLE when needed by the
 ;   RDCCD routine as it loops through the required number of boxes
-NP_SKIP		DC	0	; Number of rows to skip  0x2c
-NS_SKIP		DC	0	; Number of cols to skip
+NP_SKIP		DC	0	; user-selected number of rows to skip  0x2c
+NS_SKIP		DC	0	; user-selected number of cols to skip
 NS_SKP1		DC	0	; Number of serials to clear before read
 NS_SKP2		DC	0	; Number of serials to clear after read
+NPBIAS    DC  0 ; number of parallel bias (overscan) pixels
+NSBIAS    DC  0 ; number of serial bias (overscan) pixels
+
+NSEXTENDED DC  7 ; built-in number of serial extended pixels
 
 ; Subimage readout parameters. Ten subimage boxes maximum.
 NBOXES	DC	0		; Number of boxes to read                 30
