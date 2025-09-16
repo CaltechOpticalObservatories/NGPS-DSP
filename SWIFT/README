@@ -1,0 +1,3 @@
+48khz	- science slow mode. Gain 0.25, I_DELAY=5800ns. 178s readout time
+87khz	- medium mode. Gain 0.5. I_DELAY=2920ns. 98s readout time
+190khz	- fast mode. Gain 3.75. I_DELAY=400ns. 45s readout time
