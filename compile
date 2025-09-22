@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# Require two args
+
+if [ $# -ne 2 ]; then
+  echo ""
+  echo "usage: "$0" <waveform_file> <destination_file>"
+  echo ""
+fi
+
+# Destination directory
+
+DST_DIR=lod
+
+if [ ! -d "$DST_DIR" ]; then
+  mkdir "$DST_DIR"
+fi
+
+echo ""
+echo "Assembling DSP code ..."
+echo ""
+
+# DOWNLOAD selects application code to be loaded from EEPROM or 
+# downloaded from the host over the fiber optic link
+
+DOWNLOAD=HOST
+WAVEFORM_FILE=$1
+DST_FILE="$DST_DIR"/$2
+
+# Assemble and link
+
+wine /opt/CLAS563/BIN/ASM56300 -b -l"$DST_FILE".ls -d DOWNLOAD $DOWNLOAD -d WAVEFORM_FILE "$WAVEFORM_FILE" tim.asm
+wine /opt/CLAS563/BIN/DSPLNK -btim.cld -v tim.cln
+rm -f "$DST_FILE".lod
+wine /opt/CLAS563/BIN/CLDLOD tim.cld > "$DST_FILE".lod
+rm tim.cln ; rm tim.cld
+dos2unix "$DST_FILE".lod
+
+echo ""
+echo "Created file $DST_FILE.lod for downloading over optical fiber"
+echo ""
