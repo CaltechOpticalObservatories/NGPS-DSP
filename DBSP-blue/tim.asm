@@ -1,101 +1,9 @@
-       COMMENT * 
-	This file is used to generate boot DSP code for 
- 	the 250 MHz fiber optic timing board, SDSU GenII TIMII, 
-	processor = DSP56303.  
+       COMMENT *
 
-Revision History:
---  0.00: 10 Jun 2004 - CRO.
-	Original code from Dani Guzman.
-
---  1.10: 11 Jun 2004 - CRO.
-	a.) Cleanup.  Some spanish-english comment translation.
-	b.) Y:00000B memory location reserved for NPSHF, the number
-	    of rows to parallel shift for the PSH command (which
-	    is new).  This is implimented as part of a focus loop
-	    in which a series of exposures are made at different 
-	    telescope (or spectrograph) focus positions and the CCD 
-	    charge is shifted some number of rows (NPSHF) between
-	    each exposure.  At the end of the loop an image with a
-	    sequence of star images at different telescope focus
-	    positions is read out.
-
---  1.20:  23 Jun 2004 - CRO
-	a.) Added nested do loops in RDCCD for parallel and serial
-	    binning.  Added NSBINM1 to Y: memory.  This is the
-	    serial binning factor minus one, used because he serial
-	    binning and readout is split into two parts, one
-	    for serial shift only and the last for a serial shift
-	    and video processing.  So, the first part is executed
-	    NSBINM1 times; the last part, once.
-
---  1.30:  24 Jun 2004 - CRO
-        a.) Added version number to Y memory so that it is possible
-            to check which version of code is downloaded into
-            the timing board DSP by reading that memory location
-            Y:00000D.
-        b.) Added NPSKP (Y:00000E) and NSSKP (Y:00000F) to Y memory, 
-            the number of parallel and serial skips for ROI readout.
-        c.) Added ROI parallel skipping code just before the start
-            of the binned readout.
-
-            In order to specify the number of parallel skips,
-            the program looks at the NPSKP value.  If it is
-            zero, no skips are performed.  If the NPSKP value
-            is greater than zero, that many parallel skips will
-            be performed before the code will then read out
-            NPR rows.
-
-            So, if it is desired to read out a ROI with ystart=512
-            and ylength=1024, NPSKP should be set to 512 and
-            NPR should be set to 1024 (divided by the binning
-            factor, of course).
-
---  1.40  29 Jun 2004 - CRO
-	a.) Changed serial (binned)read to subroutine called
-	    from main program getting the serial part of the
-	    Region of Interest.
-	b.) Added subroutine for serial skips, SSKIP.
-	c.) To support serial ROI readout, added the following
-	    parameters to Y: memory:
-		NSUND  - Number of pixels in the CCD underscan 
-			 region.
-		NSSKP  - Number of pixels to skip to the ROI 
-			 start pixel.
-		NSRD   - Number of pixels to read in the ROI.
-		NSSKP2 - Number of pixels to skip from the end.
-			 of the ROI to the end of the CCD.
-		NSOCK  - Number of pixels of overscan to read.	
-
-	   In order to read out a region of interest (ROI)
-	   something like the following must be done, for example:
-
-		setroi xstart=512 xlen=1024 ystart=512 ylen=1024
-
-	   Then the ROI parameters in Y memory should be set according to the
-	   following:
-
-	      NPSKP  = ystart
-	      NPR    = ylen/(binning factor)
-	      NSSKP  = xstart 
-	      NSRD   = xlen/(binning factor)
-	      NSSKP2 = (CCD size in X) - (xstart + xlen)
-	  
-	   (Question:  should we just use NSR for NSRD and just get rid
-	    of NSRD?)
-
-	   Also, it one wishes to change the number of post or over-
-	   scan pixels for each row to read, one must update the
-	   NSOCK parameter for a ROI readout to be correct.
-	   (Probably could fix the code so that this is not 
-	   necessary.)
---  1.41  10 Aug 2004 - MB
-	   Added the variable NP2READ (NUmber of Pixels to read), which
-	   replaces the R5 (or R0) register for storing the amount of pixels
-	   to be read inside the SREAD and SSKIP subroutines
---  1.42  16 Jan 2005 - MB
-	   Copied to DBSP directory
-
-	*
+This file is used to generate boot DSP code for the 250 MHz fiber optic
+  timing board using a DSP56303 as its main processor. It supports
+  split serial and frame transfer, but not split parallel nor binning.
+  *
 	PAGE    132     ; Printronix page width - 132 columns
 
 ; Include the boot and header files so addressing is easy
@@ -104,7 +12,7 @@ Revision History:
 
 	ORG	P:,P:
 
-CC	EQU	CCDVIDREV5+TIMREV5+UTILREV3+SHUTTER_CC+TEMP_POLY
+CC	EQU	CCDVIDREV5+TIMREV5+TEMP_POLY+UTILREV3+SPLIT_SERIAL+SUBARRAY+BINNING+SHUTTER_CC
 
 ; Put number of words of application in P: for loading application from EEPROM
 	DC	TIMBOOT_X_MEMORY-@LCV(L)-1
@@ -116,6 +24,7 @@ CC	EQU	CCDVIDREV5+TIMREV5+UTILREV3+SHUTTER_CC+TEMP_POLY
 ; Set software to IDLE mode
 START_IDLE_CLOCKING
 	MOVE	#IDLE,R0		; Exercise clocks when idling
+  NOP
 	MOVE	R0,X:<IDL_ADR
 	BSET	#IDLMODE,X:<STATUS	; Idle after readout
 	JMP     <FINISH			; Need to send header and 'DON'
@@ -207,7 +116,7 @@ LPBIN
 ; Check for a command once per line. Only the ABORT command should be issued.
 	MOVE	#<COM_BUF,R3
 	JSR	<GET_RCV		; Was a command received?
-	JCC	<CONT_RD		; If no, continue reading out
+	JCC	<CONTINUE_READ		; If no, continue reading out
 	JMP	<CHK_ABORT_COMMAND	; If yes, see if its an abort command
 
 ; Abort the readout currently underway
@@ -225,11 +134,7 @@ ABR_RDC	JCLR	#ST_RDC,X:<STATUS,ABORT_EXPOSURE
 ;
 ; First check if this is a serial ROI readout
 ;
-CONT_RD
-;	MOVE	#50,A			; prescan pixels
-;	JSR	<SSKIP			; skip all prescan pixels
-;	NOP
-
+CONTINUE_READ
 	MOVE	Y:<NSSKP,A		; Number of serial skips to A
 	TST	A			; zero?
 	JEQ	NOPRESKP		; No predata skips (prescan)
@@ -388,8 +293,8 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 	DC	'IDL',START_IDLE_CLOCKING
 	DC	'OSH',OPEN_SHUTTER
 	DC	'CSH',CLOSE_SHUTTER
-	DC	'RDC',STR_RDC   
-	DC	'CLR',CLEAR   
+	DC	'RDC',STR_RDC     ; Begin CCD readout
+	DC	'CLR',CLEAR       ; Fast clear the CCD
 	DC	'PSH',P_SHIFT   
 	DC	'BIN',SBINN  
 	DC	'GEO',SET_GEOMETRY  
@@ -398,7 +303,7 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 ; Exposure and readout control routines
 	DC	'SET',SET_EXPOSURE_TIME
 	DC	'RET',READ_EXPOSURE_TIME
-	DC	'SEX',START_EXPOSURE
+;	DC	'SEX',START_EXPOSURE
 	DC	'PEX',PAUSE_EXPOSURE
 	DC	'REX',RESUME_EXPOSURE
 	DC	'AEX',ABORT_EXPOSURE

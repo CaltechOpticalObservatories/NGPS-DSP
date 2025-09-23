@@ -359,7 +359,7 @@ WT_COM	JSR	<GET_RCV		; Get the command
 	JEQ	<ABR_RDC
 RD_CONT	MOVE	#<COM_BUF,R3		; Continue reading out the CCD
 	MOVE	R3,R4
-	JMP	<CONT_RD
+	JMP	<CONTINUE_READ
 
 ; Special ending after abort command to send a 'DON' to the host computer
 RDCCD_END_ABORT
