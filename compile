@@ -6,6 +6,7 @@ if [ $# -ne 2 ]; then
   echo ""
   echo "usage: "$0" <waveform_file> <destination_file>"
   echo ""
+  exit
 fi
 
 # Destination directory
