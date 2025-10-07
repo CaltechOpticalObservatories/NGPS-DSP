@@ -9,17 +9,10 @@
 ; Parallel clocking also needs fixing as shifting to register 1 has 
 ; charge under different phases during integration and clocking
 
-; Change history:
-; 2011-07-25 (GR): Original code from SWIFT.
-;		   VIDEO bits definitions were for ARC-47 (4-ch video board), with single polarity bit (SS3) and no DC Restore
-;		   VIDEO calls change for bits in ARC-45: SS2 (POL-) and SS3 (POL+), DC Restore bit is SS1.
-;		   Due to p-channel CCD, Inv and NonInv are reversed.
-
 ; Miscellaneous definitions
 
 VIDEO     EQU $000000 ; Video processor board select for switching
 VID0      EQU $000000 ; Video processor board select for DAC and A/D - Board 0
-VID1      EQU $100000 ; Video processor board select for DAC and A/D - Board 1
 BIAS      EQU $002000 ; Bias Generator board select = 3
 HVBIAS    EQU $003000 ; Bias Generator board select = 3
 CLK2      EQU $002000 ; Clock driver board select = 2 
@@ -44,21 +37,12 @@ NS_CLR  EQU     1024	; To speed up readout
 ; GenIII: if bit #23=1; 22-16 = # of 320 nanos cycles that bits #15-0 held at
 ;         if bit #23=0; 22-16 = # of  40 nanos cycles that bits #15-0 held at
 
-;I_DELAY         EQU     $980000	; 24*320 + 40 = 7720 ns
-;I_DELAY         EQU     $920000	; 18*320 + 40 = 5800 ns
 I_DELAY         EQU     $4B0000		; 3 usec
-;I_DELAY         EQU     $190000	; 1 usec
 
 ; Delay numbers for clocking
 P_DELAY         EQU     $980000		; 24*320 = 7680 ns
-;P_DELAY         EQU     $180000		; 1000 ns
-;30 KHz waveforms
-;S_DELAY         EQU     $310000 ; Serial register transfer delay (2000 ns)
 S_DELAY         EQU     $080000 ; Serial register transfer delay (360 ns)
-;S_DELAY         EQU     $180000 ; Serial register transfer delay (1000 ns)
 SW_DELAY        EQU     $180000 ; Sum_well  clock delay = 24*40+40 = 1000 ns
-;PRE_SET_DLY     EQU     $310000 ; 49*40 + 40 = 2000 ns
-;POST_SET_DLY    EQU     $310000 ; 49*40 + 40 = 2000 ns
 PRE_SET_DLY     EQU     $C0000 ; 12*40 + 40 = 520 ns
 POST_SET_DLY    EQU     $C0000 ; 12*40 + 40 = 520 ns
 
@@ -170,7 +154,6 @@ FS3_LO   EQU -3.0 ; Vertical Low
 
 T2_HI   EQU  5.0 ; Transfer gate High 
 T2_LO   EQU -3.0 ; Transfer gate Low  
-
 T1_HI   EQU  5.0 ; Transfer gate High 
 T1_LO   EQU -3.0 ; Transfer gate Low  
 
@@ -215,7 +198,10 @@ RL_LO   EQU -0.1 ; Reset INACTIVE
 ; Bit defintions for bottom half of clock driver board, CLK2
 ; Clock FS ando vertical regions together
 ; 1,2,4,8,10,20,40,80,100,200,400,800
-
+;
+; Format is Vx_y[H|L] where x=phase and y=upper(2) or lower(1) half
+; and H|L is level high/low
+;
 V1_1H   EQU   1|8 ; V1: Pin 1 -- FS1: pin 4
 V1_1L   EQU   0
 
