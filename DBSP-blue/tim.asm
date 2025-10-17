@@ -461,6 +461,9 @@ NP2READ	DC	0		; number of overscan (bias) pixels
 NSDATA	DC	2048		; number of data (bias) pixels
 NSTST	DC	0		; number of data (bias) pixels
 NPTST	DC	0		; number of data (bias) pixels
+
+OS		DC	0		; Output Source
+
 ;
 ; Note:  NSR = 2048 + NSUND (default=24) + NSOCK (default=64)
 ;

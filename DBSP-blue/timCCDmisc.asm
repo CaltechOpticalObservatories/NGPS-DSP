@@ -676,3 +676,16 @@ ERR_SM1	MOVE	X:(R3)+,A
 	BCLR	#3,X:PCRD	; Turn the serial clock off
 	JMP	<ERROR
 
+
+; Select which readouts to process
+;   'SOS'  <amplifier_name>
+SELECT_OUTPUT_SOURCE
+	MOVE	X:(R3)+,Y0
+	MOVE	Y0,Y:<OS
+	JSR	<SEL_OS
+	JMP	<FINISH
+
+SEL_OS
+	MOVE	Y:<OS,Y0
+	NOP
+	RTS
