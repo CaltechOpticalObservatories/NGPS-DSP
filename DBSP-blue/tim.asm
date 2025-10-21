@@ -439,30 +439,30 @@ CONTINUE_READING	EQU	CONT_RD 		; Address if reading out
 
 GAIN	DC	END_APPLICATON_Y_MEMORY-@LCV(L)-1
 
-NSR	DC	2136		; number of serial transfers						1
-NPR	DC	2048		; number of parallel transfers						2
+NSR	DC	2136		; number of serial transfers				1
+NPR	DC	2048		; number of parallel transfers				2
 NS_DEL	DC	60		;													3
-NPCLR   DC      NP_CLR    	; To clear the parallels					4
+NPCLR   DC      NP_CLR    	; To clear the parallels				4
 NSCLR	DC      NS_CLR  	; To clear the serial register				5
-NSBIN   DC      1       	; Serial binning parameter					6
+NSBIN   DC      1       	; Serial binning parameter				6
 NPBIN   DC      1       	; Parallel binning parameter				7
 TST_DAT	DC	0		; Temporary definition for test images
 SHDEL	DC	SH_DEL		; Delay in milliseconds between shutter closing 
 				;   and image readout
 CONFIG	DC	CC		; Controller configuration
 NPSHF	DC	64		; default # of parallels to shift w/ PSH command.	$b
-NSBINM1	DC	0		; Serial binning factor minus 1						$c
+NSBINM1	DC	0		; Serial binning factor minus 1				$c
 VERSION DC	$00008C		; Version number of this code. (0x8C==140=>1.4)
-NPSKP	DC	0		; number of lines to skip to get to ROI				$e
-NSUND	DC	24		; number of underscan (prescan) pixels				$f
-NSSKP	DC	0		; number of pixels to skip to get to ROI			$10
+NPSKP	DC	0		; number of lines to skip to get to ROI			$e
+NSUND	DC	24		; number of underscan (prescan) pixels			$f
+NSSKP	DC	0		; number of pixels to skip to get to ROI		$10
 NSRD	DC	2048		; number of pixels to read in the ROI			$11
 NSSKP2	DC	0		; number of pixels to skip to get to overscan		$12
-NSOCK	DC	64		; number of overscan (bias) pixels					$13
-NP2READ	DC	0		; number of overscan (bias) pixels					$14
-NSDATA	DC	2048		; number of data (bias) pixels					$15
-NSTST	DC	0		; number of data (bias) pixels						$16
-NPTST	DC	0		; number of data (bias) pixels						$17
+NSOCK	DC	64		; number of overscan (bias) pixels			$13
+NP2READ	DC	0		; number of overscan (bias) pixels			$14
+NSDATA	DC	2048		; number of data (bias) pixels				$15
+NSTST	DC	0		; number of data (bias) pixels				$16
+NPTST	DC	0		; number of data (bias) pixels				$17
 
 OS		DC	0		; Output Source
 
