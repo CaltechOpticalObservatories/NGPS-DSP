@@ -83,6 +83,19 @@ LSH     NOP                             ; End of parallel shift loop
 ;
 ; End of parallel shift routine
 ;
+
+; test to see if power is on the backplane
+;
+POWER_CHECK
+	JSET	#LVEN,X:HDR,PWR_CHECK_OFF
+	JSET	#HVEN,X:HDR,PWR_CHECK_OFF
+PWR_CHECK_ON
+	MOVE	#1,Y1			; send a 1 back if the power is on
+	JMP	<FINISH1
+PWR_CHECK_OFF
+	MOVE	#0,Y1			; send a 0 back if the power is off
+	JMP	<FINISH1
+
 POWER_OFF
 	JSR	<CLEAR_SWITCHES_AND_DACS	; Clear switches and DACs
 	BSET	#LVEN,X:HDR 
