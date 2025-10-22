@@ -83,6 +83,19 @@ LSH     NOP                             ; End of parallel shift loop
 ;
 ; End of parallel shift routine
 ;
+
+; test to see if power is on the backplane
+;
+POWER_CHECK
+	JSET	#LVEN,X:HDR,PWR_CHECK_OFF
+	JSET	#HVEN,X:HDR,PWR_CHECK_OFF
+PWR_CHECK_ON
+	MOVE	#1,Y1			; send a 1 back if the power is on
+	JMP	<FINISH1
+PWR_CHECK_OFF
+	MOVE	#0,Y1			; send a 0 back if the power is off
+	JMP	<FINISH1
+
 POWER_OFF
 	JSR	<CLEAR_SWITCHES_AND_DACS	; Clear switches and DACs
 	BSET	#LVEN,X:HDR 
@@ -278,43 +291,31 @@ ZERO_EXP
 END_DELAY
 	JMP <END_EXP
 
-; Start the exposure, operate the shutter, and initiate CCD readout
-START_EXPOSURE
+STOP_PARALLEL_CLOCKING
+	MOVE	#TST_RCV,R0
+	MOVE	R0,X:<IDL_ADR
+	BCLR	#IDLMODE,X:<STATUS		; idle after readout
+	JMP	<FINISH
+
+START_READOUT
 	MOVE	#$020102,B
 	JSR	<XMT_WRD
-	MOVE	#'IIA',B
+	MOVE	#'IIA',B				; initialize PCI image address
 	JSR	<XMT_WRD
-	JSR	<CALC_GEOM
-
-; Clear the CCD and process commands from the host
-	JSET    #NOT_CLR,X:STATUS,NOT_CLR_ARRAY ; do not clr array if set
-	JSR	<CLR_CCD		; Clear out the CCD
-NOT_CLR_ARRAY
-; Continue on with exposure
-	MOVE	#TST_RCV,R0		; Process commands, don't idle, 
-	MOVE	R0,X:<IDL_ADR		;    during the exposure
-	MOVE	#L_SEX1,R7		; Return address at end of exposure
-	JMP	<EXPOSE			; Delay for specified exposure time
-L_SEX1
+	MOVE	#COM_BUF,R3				; beginning of command buffer
+	JSR	<GET_RCV					; check for FO command
+	JCS	<PRC_RCV					; process the commands during exposure
+	MOVE	R0,X:<IDL_ADR
+	JSR	<WAIT_TO_FINISH_CLOCKING	; empty FIFO
 
 ; Now we really start the CCD readout, alerting the PCI board, closing the 
 ;  shutter, waiting for it to close and then reading out
 STR_RDC	JSR	<PCI_READ_IMAGE		; Get the PCI board reading the image
 	BSET	#ST_RDC,X:<STATUS 	; Set status to reading out
-	JCLR	#SHUT,X:STATUS,S_DEL0
+	JCLR	#SHUT,X:STATUS,TST_SYN
 	JSR	<CSHUT			; Close the shutter if necessary
+TST_SYN JSET #TST_IMG,X:STATUS,SYNTHETIC_IMAGE
 
-; Delay readout until the shutter has fully closed
-	MOVE	Y:<SHDEL,A
-	TST	A
-	JLE	<S_DEL0
-	MOVE	#100000,X0
-	DO	A,S_DEL0		; Delay by Y:SHDEL milliseconds
-	DO	X0,S_DEL1
-	NOP
-S_DEL1	NOP
-S_DEL0
-	JSET	#TST_IMG,X:STATUS,SYNTHETIC_IMAGE
 	JMP	<RDCCD			; Finally, go read out the CCD
 
 ; Set the desired exposure time
@@ -688,3 +689,16 @@ ERR_SM1	MOVE	X:(R3)+,A
 	BCLR	#3,X:PCRD	; Turn the serial clock off
 	JMP	<ERROR
 
+
+; Select which readouts to process
+;   'SOS'  <amplifier_name>
+SELECT_OUTPUT_SOURCE
+	MOVE	X:(R3)+,Y0
+	MOVE	Y0,Y:<OS
+	JSR	<SEL_OS
+	JMP	<FINISH
+
+SEL_OS
+	MOVE	Y:<OS,Y0
+	NOP
+	RTS
