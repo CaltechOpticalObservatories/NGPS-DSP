@@ -441,7 +441,7 @@ GAIN	DC	END_APPLICATON_Y_MEMORY-@LCV(L)-1
 
 NSR	DC	2136		; number of serial transfers				1
 NPR	DC	2048		; number of parallel transfers				2
-NS_DEL	DC	60		;													3
+NS_DEL	DC	60		;							3
 NPCLR   DC      NP_CLR    	; To clear the parallels				4
 NSCLR	DC      NS_CLR  	; To clear the serial register				5
 NSBIN   DC      1       	; Serial binning parameter				6
