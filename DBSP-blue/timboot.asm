@@ -410,6 +410,7 @@ INIT	MOVEP	#PLL_INIT,X:PCTL	; Initialize PLL to 100 MHz
 
 ; Enable no interrupts
 	MOVEP	#$000000,X:IPRC	; No interrupts allowed
+	MOVEP	#>$80,X:IPRP	; Set interrupt priority (but don't unmask)
 	MOVE	#$300,SR	; Mask all interrupts
 
 ; Initialize the fiber optic serial receiver circuitry

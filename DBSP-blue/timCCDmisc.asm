@@ -305,6 +305,7 @@ START_READOUT
 	MOVE	#COM_BUF,R3				; beginning of command buffer
 	JSR	<GET_RCV					; check for FO command
 	JCS	<PRC_RCV					; process the commands during exposure
+	MOVE	#TST_RCV,R0
 	MOVE	R0,X:<IDL_ADR
 	JSR	<WAIT_TO_FINISH_CLOCKING	; empty FIFO
 
