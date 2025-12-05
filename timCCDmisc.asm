@@ -867,7 +867,7 @@ SEL_OS	MOVE	Y:<OS,Y0
         CMP     Y0,A
         JNE     <COMP_U2
 
-        MOVE    #$F0C3,X0
+        MOVE    Y:SXL_U1,X0
         MOVE    X0,Y:SXL
         MOVE    #PARALLEL_1,X0
         MOVE    X0,Y:PARALLEL
@@ -889,7 +889,7 @@ COMP_U2 MOVE    #'_U2',A
         CMP     Y0,A
         JNE     <COMP_L1
 
-        MOVE    #$F041,X0
+        MOVE    Y:SXR_U2,X0
         MOVE    X0,Y:SXR
         MOVE    #PARALLEL_2,X0
         MOVE    X0,Y:PARALLEL
@@ -911,7 +911,7 @@ COMP_L1 MOVE    #'_L1',A
         CMP     Y0,A
         JNE     <COMP_L2
 
-        MOVE    #$F000,X0
+        MOVE    Y:SXR_L1,X0
         MOVE    X0,Y:SXR
         MOVE    #PARALLEL_1,X0
         MOVE    X0,Y:PARALLEL
@@ -931,7 +931,7 @@ COMP_L2 MOVE    #'_L2',A
         CMP     Y0,A
         JNE     <COMP_2
 
-        MOVE    #$F082,X0
+        MOVE    Y:SXL_L2,X0
         MOVE    X0,Y:SXL
         MOVE    #PARALLEL_2,X0
         MOVE    X0,Y:PARALLEL

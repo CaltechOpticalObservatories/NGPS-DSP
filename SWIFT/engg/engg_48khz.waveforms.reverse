@@ -10,6 +10,13 @@
 ; Parallel clocking also needs fixing as shifting to register 1 has 
 ; charge under different phases during integration and clocking
 
+; magic numbers for each amplifier, specific to SWIFT dewar wiring
+;
+SXR_L1  DC      $F000
+SXL_L2  DC      $F082
+SXL_U1  DC      $F0C3
+SXR_U2  DC      $F041
+
 ; Miscellaneous definitions
 
 VIDEO     EQU $000000 ; Video processor board select
