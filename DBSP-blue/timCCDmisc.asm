@@ -690,6 +690,45 @@ ERR_SM1	MOVE	X:(R3)+,A
 	JMP	<ERROR
 
 
+; Call this routine once for every band of interest column to be added to the table
+BAND_OF_INTEREST
+	; set the band number
+	MOVE	Y:<NBANDS,X0	; X0 = NBANDS
+	MOVE	X:<TWO,X1
+	MPY	X0,X1,A		; A = (X0 * 2) << 1
+	ASR	A		; correct for MPY's extra shift
+	MOVE	A0,A1		; repack A for comparison
+	MOVE	#>10,X0
+	CMP	X0,A
+	; error if number of boxes is > 10
+	JGT	<ERROR
+	; otherwise get the table address
+	MOVE	#BOI_TABLE,X0
+	ADD	X0,A
+	NOP
+	; select the box in the table
+	MOVE	A1,R7
+	MOVE	X:(R3)+,X0
+	NOP
+	NOP
+	; number of cols to skip
+	MOVE	X0,Y:(R7)+
+	MOVE	X:(R3)+,X0
+	; number of cols to read
+	MOVE	X0,Y:(R7)+
+	MOVE	X:(R3)+,X0
+	MOVE	X0,A
+	; when last arg is 0, reset NBANDS
+	TST	A
+	JEQ	<SET_NBANDS
+	; otherwise increment NBANDS
+	MOVE	Y:<NBANDS,A
+	ADD	#>1,A
+	NOP
+SET_NBANDS
+	MOVE	A,Y:<NBANDS
+	JMP	<FINISH
+
 ; Select which readouts to process
 ;   'SOS'  <amplifier_name>
 SELECT_OUTPUT_SOURCE

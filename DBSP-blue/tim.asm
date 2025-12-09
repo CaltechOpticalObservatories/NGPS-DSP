@@ -94,6 +94,8 @@ Revision History:
 	   to be read inside the SREAD and SSKIP subroutines
 --  1.42  16 Jan 2005 - MB
 	   Copied to DBSP directory
+--  2.00  08 Dec 2025 - DH
+	   implement (serial) bands of interest, making ROI obsolete
 
 	*
 	PAGE    132     ; Printronix page width - 132 columns
@@ -162,47 +164,44 @@ RDCCD
 	JSR     <CLOCK          	; Go clock out the CCD charge
 	NOP                     	; Do loop restriction  
 
-
-; For ROI do the parallel skipping
-	MOVE	Y:<NPSKP,A		; Get number of lines to skip for each amp
-	TST	A			; Is it zero?
-	JEQ	<NOSKIP			; Yes, jump around the para. skipping code
-	MOVE	#<PREPARE_DUMP,R0	; 
-	JSR	<CLOCK			; Clock it out
-	DO	A1,LPSKP		; Do loop NPSKP times
-	MOVE	#<PARALLEL_DUMP,R0	; dump line
-	JSR	<CLOCK			; Clock it out
+	; number of bands of interest in the BOI_TABLE
+	MOVE	Y:<NBANDS,A
 	NOP
-LPSKP
-; Clear out the accumulated charge from the serial register again
- 	MOVE    #<CLEAR_READ_REGISTER,R0	; 
- 	JSR     <CLOCK  		
-NOSKIP
-;
-; Now we're ready to read out the ROI
-;
+	TST	A
+	; if NBANDS != 0 then enter loop over NBANDS
+	JNE	<READ_BANDS
+	; if NBANDS==0 then clear NS_SKIP and jump over the loop over NBANDS
+	MOVE	A1,Y:<NS_SKIP
+	JMP	<READ_FULL_IMAGE
+
+; Loop over the NBANDS in the BOI_TABLE
+; Bands are in the serial direction only
+READ_BANDS
+	MOVE	#BOI_TABLE,R7
+	DO	Y:<NBANDS,L_NBANDS
+	; read a row from the BOI table
+	MOVE	Y:(R7)+,X0
+	MOVE	X0,Y:<NS_SKIP		; number of serial skips
+	MOVE	Y:(R7)+,X0
+	MOVE	X0,Y:<NS_READ		; number of serial reads
+
+; jump here to skip BOI table
+READ_FULL_IMAGE
+
+; Clear out accumulated charged from the serial register
+	MOVE	#<CLEAR_READ_REGISTER,R0
+	JSR	<CLOCK
+
 ; Move the number of binned lines to shift into A
-;	MOVE	#0,B			; just for counting the amount of parallele clocks
-;	NOP
-;	MOVE	B,Y:<NPTST
-;	NOP
-;	MOVE	B,Y:<NSTST
-;	NOP
 	MOVE	Y:<NPR,A
 	NOP
-;
 	DO      A1,LPR			; Number of rows to shift 
-;	MOVE	Y:<NPTST,B
-;	ADD	#1,B
-;	NOP
-;	MOVE	B,Y:<NPTST
-;	NOP
 
 	DO	Y:<NPBIN,LPBIN		; Parallel binning factor NBPIN
 	MOVE    #<PARALLEL_SHIFT,R0	; Parallel shift waveform
 	JSR     <CLOCK  		; Clock the parallel transfer
 	NOP
-LPBIN	
+LPBIN
 
 ; Check for a command once per line. Only the ABORT command should be issued.
 	MOVE	#<COM_BUF,R3
@@ -214,73 +213,26 @@ LPBIN
 ABR_RDC	JCLR	#ST_RDC,X:<STATUS,ABORT_EXPOSURE
 	ENDDO				; Properly terminate readout loop
 	JMP	<RDCCD_END_ABORT
-;
-; The following procedure reads out one serial row of pixels
-;    1.  The prescan (underscan) pixels:  shift, read and transmit
-;    2.  NSSKP pixels:  skip.  This gets us to the beginning of ROI
-;    3.  NSRD pixels:  Shift, read and transmit.  This is the ROI
-;    4.  NSSKP2 pixels:  skip.  This gets us to the overscan pixels
-;    5.  NSOCK pixels:  Shift, read and transmit.  This is the overscan.
-;
-;
-; First check if this is a serial ROI readout
-;
-CONT_RD
-;	MOVE	#50,A			; prescan pixels
-;	JSR	<SSKIP			; skip all prescan pixels
-;	NOP
 
-	MOVE	Y:<NSSKP,A		; Number of serial skips to A
-	TST	A			; zero?
-	JEQ	NOPRESKP		; No predata skips (prescan)
-	JMP	ROI			; there is a ROI
-NOPRESKP
-	MOVE	Y:<NSSKP2,A		; number of serial skips to overs
-	TST	A
-	JEQ	NOROI			; no predata skips, no postdataskips
-					; ==> NO ROI
-;
-; This is a serial ROI read so here we go
-; The (binned) pre pixels first
-;
-ROI
-	MOVE	Y:<NSUND,A		; Number of underscan pixels
-	JSR	<SREAD			; Binned read subroutine
+; continue reading out
+CONT_RD
+	; serial skip if needed
+	MOVE	Y:<NS_SKIP,A		; NS_SKIP is loaded from BOI_TABLE
+	JSR	<SSKIP
 	NOP
-	
-;
-; Now Skip to ROI
-;
-	MOVE	Y:<NSSKP,A		; Number of pixels to ROI
-	JSR	<SSKIP			; Skip
-	NOP
-;
-; Now the ROI read
-;
-	MOVE	Y:<NSRD,A		; Number of pixels in ROI
-	JSR	<SREAD			; Binned read sub
-	NOP
-;
-; Now skip to overscan pixels
-;
-	MOVE	Y:<NSSKP2,A		; Number of pixels to end of CCD
-	JSR	<SSKIP			; Skip subroutine	
-	NOP
-;
-; Lastly we read the overscan pixels
-;
-	MOVE	Y:<NSOCK,A		; Number of (binned) overscan pixels
-	JSR	<SREAD
-	NOP
-; Done
-	JMP	ENDLINE			; End of one par-ser cycle 
-;
-NOROI
-	MOVE	Y:<NSR,A		; Number of (binned) serials 
+	; serial read
+	MOVE	Y:<NSR,A		; Number of (binned) serials, full-frame
+	MOVE	Y:<NBANDS,B		; number of bands in BOI table
+	TST	B
+	JEQ	*+2			; uses NSR for serial read
+	MOVE	Y:NS_READ,A		; overwrite A with NS_READ from table for serial read
 	JSR	<SREAD			; serial read subroutine
-ENDLINE
 	NOP
 LPR					; End of parallel loop
+	NOP
+L_NBANDS				; End loop over bands of interest
+	NOP
+
 ;
 ; Restore the controller to non-image data transfer and idling if necessary
 RDC_END	JCLR	#IDLMODE,X:<STATUS,NO_IDL ; Don't idle after readout
@@ -410,6 +362,7 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 	DC	'SPC',STOP_PARALLEL_CLOCKING
 	DC	'SOS',SELECT_OUTPUT_SOURCE
 	DC	'PCK',POWER_CHECK
+	DC	'BOI',BAND_OF_INTEREST
 
 ; Support routines
 	DC	'SGN',ST_GAIN
@@ -455,16 +408,24 @@ NSBINM1	DC	0		; Serial binning factor minus 1				$c
 VERSION DC	$00008C		; Version number of this code. (0x8C==140=>1.4)
 NPSKP	DC	0		; number of lines to skip to get to ROI			$e
 NSUND	DC	24		; number of underscan (prescan) pixels			$f
-NSSKP	DC	0		; number of pixels to skip to get to ROI		$10
-NSRD	DC	2048		; number of pixels to read in the ROI			$11
-NSSKP2	DC	0		; number of pixels to skip to get to overscan		$12
-NSOCK	DC	64		; number of overscan (bias) pixels			$13
+NSSKP	DC	0		; number of pixels to skip to get to ROI		$10 (OBSOLETE)
+NSRD	DC	2048		; number of pixels to read in the ROI			$11 (OBSOLETE)
+NSSKP2	DC	0		; number of pixels to skip to get to overscan		$12 (OBSOLETE)
+NSOCK	DC	64		; number of overscan (bias) pixels			$13 (OBSOLETE)
 NP2READ	DC	0		; number of overscan (bias) pixels			$14
 NSDATA	DC	2048		; number of data (bias) pixels				$15
 NSTST	DC	0		; number of data (bias) pixels				$16
 NPTST	DC	0		; number of data (bias) pixels				$17
+OS	DC	0		; Output Source
 
-OS		DC	0		; Output Source
+DEBUG		DC	$FACE	;		 			$19
+
+; band-of-interest readout parameters, 10 boxes maximum
+;
+NBANDS		DC	0	; number of bands in table		$1A
+NS_SKIP		DC	0	; number of columns to skip		$1B
+NS_READ		DC	0	; number of columsn to read		$1C
+BOI_TABLE	DC	0,0	; #1=cols to skip, #2=cols to read	$1D,1E
 
 ;
 ; Note:  NSR = 2048 + NSUND (default=24) + NSOCK (default=64)
