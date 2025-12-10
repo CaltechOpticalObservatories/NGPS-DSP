@@ -292,10 +292,27 @@ END_DELAY
 	JMP <END_EXP
 
 STOP_PARALLEL_CLOCKING
-	MOVE	#TST_RCV,R0
+	MOVE	#IDLE_SERIAL,R0		; load idle serial clocking address
+	NOP
 	MOVE	R0,X:<IDL_ADR
-	BCLR	#IDLMODE,X:<STATUS		; idle after readout
+	BSET	#IDLMODE,X:<STATUS	; remain idling until told otherwise
 	JMP	<FINISH
+
+; idle the serial clocks only
+IDLE_SERIAL
+	DO	Y:<NSCLR,L_IDLE		; loop over number of serials
+	MOVE	#<SERIAL_SKIP,R0	; load skip waveform
+	JSR	<CLOCK
+	NOP
+	MOVE	#COM_BUF,R3
+	JSR	<GET_RCV		; check for command
+	JCC	<L_IDLECONT		; continue idle if no command
+	ENDDO
+	JMP	<PRC_RCV		; process command
+L_IDLECONT
+	NOP
+L_IDLE
+	JMP	<IDLE_SERIAL
 
 START_READOUT
 	MOVE	#$020102,B
