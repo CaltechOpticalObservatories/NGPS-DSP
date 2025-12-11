@@ -22,6 +22,24 @@ Revision History:
 	Added SET_GEOMETRY, CALC_GEOM, and SET_ROI subroutines
 
 	*
+
+; Set binning parameters NPBIN, NP_SKIP, NSBIN, NS_SKIP
+;
+SET_BIN_PARAMETERS
+	MOVE	X:(R3)+,A		; first arg is NPBIN
+	NOP
+	MOVE	A,Y:<NPBIN
+	MOVE	X:(R3)+,A		; second arg is NP_SKIP
+	NOP
+	MOVE	A,Y:<NPSKP
+	MOVE	X:(R3)+,A		; third arg is NSBIN
+	NOP
+	MOVE	A,Y:<NSBIN
+	MOVE	X:(R3)+,A		; fourth arg is NS_SKIP
+	NOP
+	MOVE	A,Y:<NSSKP
+	JMP	<FINISH
+
 ; we are not using the last two args: ypre and yov, because in this case
 ; we are not using y extra scans (only data)
 SET_GEOMETRY		

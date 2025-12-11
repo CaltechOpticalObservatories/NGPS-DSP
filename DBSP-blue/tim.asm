@@ -164,42 +164,28 @@ RDCCD
 	JSR     <CLOCK          	; Go clock out the CCD charge
 	NOP                     	; Do loop restriction  
 
-	; number of bands of interest in the BOI_TABLE
-	MOVE	Y:<NBANDS,A
-	NOP
+; pre-skips before reading any parallels, binned or not
+	MOVE	Y:<NPSKP,A
 	TST	A
-	; if NBANDS != 0 then enter loop over NBANDS
-	JNE	<READ_BANDS
-	; if NBANDS==0 then clear NS_SKIP and jump over the loop over NBANDS
-	MOVE	A1,Y:<NS_SKIP
-	JMP	<READ_FULL_IMAGE
-
-; Loop over the NBANDS in the BOI_TABLE
-; Bands are in the serial direction only
-READ_BANDS
-	MOVE	#BOI_TABLE,R7
-	DO	Y:<NBANDS,L_NBANDS
-	; read a row from the BOI table
-	MOVE	Y:(R7)+,X0
-	MOVE	X0,Y:<NS_SKIP		; number of serial skips
-	MOVE	Y:(R7)+,X0
-	MOVE	X0,Y:<NS_READ		; number of serial reads
-
-; jump here to skip BOI table
-READ_FULL_IMAGE
-
-; Clear out accumulated charged from the serial register
-	MOVE	#<CLEAR_READ_REGISTER,R0
+	JEQ	<NO_PSKIP
+	DO	A,L_PSKIP
+	MOVE	#<PARALLEL_SHIFT,R0
 	JSR	<CLOCK
+	NOP
+L_PSKIP
+	NOP
+NO_PSKIP
 
 ; Move the number of binned lines to shift into A
 	MOVE	Y:<NPR,A
 	NOP
-	DO      A1,LPR			; Number of rows to shift 
+	; outer loop over parallel rows
+	DO      A1,LPR
 
-	DO	Y:<NPBIN,LPBIN		; Parallel binning factor NBPIN
-	MOVE    #<PARALLEL_SHIFT,R0	; Parallel shift waveform
-	JSR     <CLOCK  		; Clock the parallel transfer
+	; parallel binning
+	DO	Y:<NPBIN,LPBIN
+	MOVE    #<PARALLEL_SHIFT,R0
+	JSR     <CLOCK
 	NOP
 LPBIN
 
@@ -216,22 +202,37 @@ ABR_RDC	JCLR	#ST_RDC,X:<STATUS,ABORT_EXPOSURE
 
 ; continue reading out
 CONT_RD
-	; serial skip if needed
-	MOVE	Y:<NS_SKIP,A		; NS_SKIP is loaded from BOI_TABLE
+	; number of bands of interest in the BOI_TABLE
+	MOVE	Y:<NBANDS,A
+	NOP
+	TST	A
+	JEQ	<READ_FULL_ROW		; if NBANDS==0 then read the full row
+
+	; loop over the NBANDS in BOI_TABLE
+	MOVE	#BOI_TABLE,R7
+	DO	Y:<NBANDS,L_NBANDS
+	; read a row of NS_SKIP,NS_SREAD from the BOI table
+	MOVE	Y:(R7)+,A		; number of serial skips
 	JSR	<SSKIP
-	NOP
-	; serial read
-	MOVE	Y:<NSR,A		; Number of (binned) serials, full-frame
-	MOVE	Y:<NBANDS,B		; number of bands in BOI table
-	TST	B
-	JEQ	*+2			; uses NSR for serial read
-	MOVE	Y:NS_READ,A		; overwrite A with NS_READ from table for serial read
-	JSR	<SREAD			; serial read subroutine
-	NOP
-LPR					; End of parallel loop
+	MOVE	Y:(R7)+,A		; number of serial reads
+	JSR	<SREAD
 	NOP
 L_NBANDS				; End loop over bands of interest
+	; after reading all the BOIs
+	; we're done with this row
+	MOVE	Y:<NSCLR,A
+	MOVE	#<SERIAL_SKIP,R0
+	JSR	<CLOCK
 	NOP
+	JMP	<END_ROW
+READ_FULL_ROW
+	; read full row when NBANDS==0
+	MOVE	Y:<NSR,A		; number of (binned) serials, full-frame
+	JSR	<SREAD
+	NOP
+END_ROW
+	NOP
+LPR					; End of parallel loop
 
 ;
 ; Restore the controller to non-image data transfer and idling if necessary
@@ -362,6 +363,7 @@ TIMBOOT_X_MEMORY	EQU	@LCV(L)
 	DC	'SPC',STOP_PARALLEL_CLOCKING
 	DC	'SOS',SELECT_OUTPUT_SOURCE
 	DC	'PCK',POWER_CHECK
+	DC	'SBP',SET_BIN_PARAMETERS
 	DC	'BOI',BAND_OF_INTEREST
 
 ; Support routines
@@ -406,9 +408,9 @@ CONFIG	DC	CC		; Controller configuration
 NPSHF	DC	64		; default # of parallels to shift w/ PSH command.	$b
 NSBINM1	DC	0		; Serial binning factor minus 1				$c
 VERSION DC	$00008C		; Version number of this code. (0x8C==140=>1.4)
-NPSKP	DC	0		; number of lines to skip to get to ROI			$e
+NPSKP	DC	0		; number of lines to skip to get to readout area	$e
 NSUND	DC	24		; number of underscan (prescan) pixels			$f
-NSSKP	DC	0		; number of pixels to skip to get to ROI		$10 (OBSOLETE)
+NSSKP	DC	0		; number of pixels to skip to get to readout area	$10
 NSRD	DC	2048		; number of pixels to read in the ROI			$11 (OBSOLETE)
 NSSKP2	DC	0		; number of pixels to skip to get to overscan		$12 (OBSOLETE)
 NSOCK	DC	64		; number of overscan (bias) pixels			$13 (OBSOLETE)
