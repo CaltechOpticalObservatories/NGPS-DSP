@@ -212,12 +212,32 @@ CONT_RD
 	MOVE	#BOI_TABLE,R7
 	DO	Y:<NBANDS,L_NBANDS
 	; read a row of NS_SKIP,NS_SREAD from the BOI table
-	MOVE	Y:(R7)+,A		; number of serial skips
-	JSR	<SSKIP
+	MOVE	Y:(R7)+,X0		; number of serial skips
+	MOVE	X0,Y:<NS_SKIP
 	MOVE	Y:(R7)+,A		; number of serial reads
-	JSR	<SREAD
+	MOVE	X0,Y:<NS_READ
+
+	; skip over cols to get to BOI
+	DO	Y:<NS_SKIP,xxx
+	MOVE	Y:<NSBIN,A
+	SUB	#>1,A
 	NOP
+	DO	A1,L_SKIP1
+	MOVE	#<SERIAL_SKIP,R0
+	JSR	<CLOCK
+L_SKIP1
+	MOVE	#<SERIAL_READ,R0
+	JSR	<CLOCK
+
+;;;;;;; old ;;;;;
+;;	MOVE	Y:(R7)+,X0		; number of serial skips
+;;	JSR	<SSKIP	;;;; old way to serial skip
+;;	MOVE	Y:(R7)+,A		; number of serial reads
+;;	JSR	<SREAD	;;;; old way to serial read
+;;	NOP
+;;;;;;; old ;;;;;
 L_NBANDS				; End loop over bands of interest
+
 	; after reading all the BOIs
 	; we're done with this row
 	MOVE	Y:<NSCLR,A
