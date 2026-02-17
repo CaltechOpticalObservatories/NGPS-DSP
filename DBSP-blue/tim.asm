@@ -220,29 +220,30 @@ READ_TABLE
 	MOVE	#<SERIAL_SKIP,R0
 	JSR	<CLOCK
 	NOP
-L_NSSKIP				; Loop over NS_SKIP
+L_NSSKIP
 
 SER_NEXT
+; check if we've read an integral number of bins
+	MOVE	Y:<NS_READ,A		; A = NS_READ
+	MOVE	Y:<NSBIN,B		; B = NSBIN
+	CMP	B,A
+	JLT	SER_DONE		; NS_READ < NSBIN = done with this row
+; serial binning here if NSBIN > 1
 	DO	Y:<NSBINM1,L_NSBIN	; serial binning minus 1
 	MOVE	#<SERIAL_SHIFT,R0	; move charge, not readout
 	JSR	<CLOCK
 	NOP
 L_NSBIN					; Loop over NSBINM1
-
 	MOVE	#<SERIAL_READ,R0	; serial readout
 	JSR	<CLOCK
-	MOVE	Y:<NS_READ,A
-	MOVE	Y:<NSBIN,B
-	CMP	B,A
-	JLT	SER_DONE		; if NS_READ < NSBIN then done with this row
+; decrement NS_READ by the bin size
 	SUB	B,A
 	NOP
 	MOVE	A,Y:<NS_READ		; NS_READ = NS_READ - NSBIN
 	JMP	SER_NEXT		; keep reading serial register
 SER_DONE
 	NOP
-L_NBANDS				; Loop over NBANDS
-
+L_NBANDS				; end loop over NBANDS
 ; Done with bands, clear the remaining pixels in this ros
 	MOVE	Y:<NSCLR,A		; A  = NSCLR
 	MOVE	Y:<NSR,X0		; X0 = NSR
@@ -254,7 +255,6 @@ L_NBANDS				; Loop over NBANDS
 	JSR	<CLOCK
 	NOP
 	JMP	<END_ROW
-
 READ_FULL_ROW
 ; read full row when NBANDS==0
 	MOVE	Y:<NSR,A
@@ -262,7 +262,7 @@ READ_FULL_ROW
 	NOP
 END_ROW
 	NOP
-L_NPR					; Loop over NPR
+L_NPR					; end loop over NPR
 
 ; Restore the controller to non-image data transfer and idling if necessary
 RDC_END	JCLR	#IDLMODE,X:<STATUS,NO_IDL ; Don't idle after readout
