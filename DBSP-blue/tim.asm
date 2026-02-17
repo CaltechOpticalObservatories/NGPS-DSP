@@ -248,7 +248,8 @@ L_NBANDS				; Loop over NBANDS
 	MOVE	Y:<NSR,X0		; X0 = NSR
 	CLR	B			; B  = 0
 	SUB	X0,A			; A = NSCLR - NSR
-	MAX	B,A			; if A<0 then A=0
+	TST	A
+	JLT	END_ROW
 	MOVE	#<SERIAL_SKIP,R0	; clear out remaining pixels, NSCLR-NSR
 	JSR	<CLOCK
 	NOP
