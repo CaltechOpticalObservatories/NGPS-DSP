@@ -777,10 +777,10 @@ BAND_OF_INTEREST
 	MOVE	X0,Y:(R7)+	; Number of rows to skip
 	MOVE	X:(R3)+,X0
 	MOVE	X0,Y:(R7)+	; Number of rows to read
-  MOVE	X:(R3)+,X0	; last arg resets NBOXES when 0
-  MOVE  X0,A
-  TST A
-  JEQ <ZERO_NBOXES
+	MOVE	X:(R3)+,X0	; last arg resets NBOXES when 0
+	MOVE	X0,A
+	TST	A
+	JEQ	<ZERO_NBOXES
 	MOVE	Y:<NBOXES,A	;  the box readout
 	MOVE	X:<ONE,X0
 	ADD	X0,A

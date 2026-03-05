@@ -70,6 +70,12 @@ RDCCD
   MOVE  A1,Y:<NS_SKP1 ; total number of serial pre-skips
   MOVE  A1,Y:<NS_SKP2 ; total number of serial post-skips
 
+; parallel pre-skips before start of readout
+	DO	Y:<NP_PRESKIP,L_NPPRESKIP
+	MOVE	Y:<PARALLEL,R0
+	CLOCK
+L_NPPRESKIP
+
 ; Calculate some readout parameters
 	MOVE	Y:<NBOXES,A		; NBOXES = 0 => full image readout
         NOP
@@ -351,7 +357,7 @@ PARALLEL_FT	DC	PARALLEL_FRAME_1	; 38 (0x26) parallel frame transfer waveform
 NSERIAL_BIN	DC	1   ; 0x27
 SERIAL_BIN	DC	SERIAL_BIN_SPLIT
 
-INT_TIME        DC      0  ; 0x29
+NP_PRESKIP	DC	0	; number of parallel pre-skips before start of readout
 TIME1   DC     0
 TIME2   DC     0
 

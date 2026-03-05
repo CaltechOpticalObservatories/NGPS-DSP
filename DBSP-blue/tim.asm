@@ -201,6 +201,12 @@ ABR_RDC JCLR	#ST_RDC,X:<STATUS,ABORT_EXPOSURE
 
 ; continue reading out
 CONT_RD
+; serial pre-skips before start of readout
+	DO	Y:<NS_PRESKIP,L_NSPRESKIP
+	MOVE	#<SERIAL_SKIP,R0
+	JSR	<CLOCK
+	NOP
+L_NSPRESKIP
 	MOVE	Y:<NBANDS,A		; number of bands in the BOI table
 	NOP
 	TST	A
@@ -450,7 +456,7 @@ NSTST	DC	0		; number of data (bias) pixels				$16
 NPTST	DC	0		; number of data (bias) pixels				$17
 OS	DC	0		; Output Source
 
-DEBUG		DC	$FACE	;		 			$19
+NS_PRESKIP	DC	0	; number of serial pre-skips before start of readout
 
 ; band-of-interest readout parameters, 10 boxes maximum
 ;
