@@ -177,17 +177,16 @@ L_PSKIP
 NO_PSKIP
 
 ; Move the number of binned lines to shift into A
-	MOVE	Y:<NPR,A
+	MOVE	Y:<NPR,A		; total parallel reads
 	NOP
 	; outer loop over parallel rows
-	DO      A1,LPR
-
+	DO	A1,L_NPR
 	; parallel binning
-	DO	Y:<NPBIN,LPBIN
-	MOVE    #<PARALLEL_SHIFT,R0
-	JSR     <CLOCK
+	DO	Y:<NPBIN,L_NPBIN
+	MOVE	#<PARALLEL_SHIFT,R0
+	JSR	<CLOCK
 	NOP
-LPBIN
+L_NPBIN					; Loop over NPBIN
 
 ; Check for a command once per line. Only the ABORT command should be issued.
 	MOVE	#<COM_BUF,R3
@@ -196,45 +195,75 @@ LPBIN
 	JMP	<CHK_ABORT_COMMAND	; If yes, see if its an abort command
 
 ; Abort the readout currently underway
-ABR_RDC	JCLR	#ST_RDC,X:<STATUS,ABORT_EXPOSURE
+ABR_RDC JCLR	#ST_RDC,X:<STATUS,ABORT_EXPOSURE
 	ENDDO				; Properly terminate readout loop
 	JMP	<RDCCD_END_ABORT
 
 ; continue reading out
 CONT_RD
-	; number of bands of interest in the BOI_TABLE
-	MOVE	Y:<NBANDS,A
+	MOVE	Y:<NBANDS,A		; number of bands in the BOI table
 	NOP
 	TST	A
-	JEQ	<READ_FULL_ROW		; if NBANDS==0 then read the full row
+	JEQ	READ_FULL_ROW		; no bands skips table read
 
-	; loop over the NBANDS in BOI_TABLE
-	MOVE	#BOI_TABLE,R7
-	DO	Y:<NBANDS,L_NBANDS
-	; read a row of NS_SKIP,NS_SREAD from the BOI table
-	MOVE	Y:(R7)+,A		; number of serial skips
-	JSR	<SSKIP
-	MOVE	Y:(R7)+,A		; number of serial reads
-	JSR	<SREAD
-	NOP
-L_NBANDS				; End loop over bands of interest
-	; after reading all the BOIs
-	; we're done with this row
-	MOVE	Y:<NSCLR,A
+	MOVE	#BOI_TABLE,R7		; get BOI Table address
+	DO	Y:<NBANDS,L_NBANDS	; loop over BOI table
+READ_TABLE
+; read a row of NS_SKIP,NS_SREAD from the BOI table
+	MOVE	Y:(R7)+,X0		; number of serial skips
+	MOVE	X0,Y:<NS_SKIP
+	MOVE	Y:(R7)+,X0		; number of serial reads
+	MOVE	X0,Y:<NS_READ
+
+; skip cols to get to BOI -- unbinned because BOI defined in unbinned units
+	DO	Y:<NS_SKIP,L_NSSKIP
 	MOVE	#<SERIAL_SKIP,R0
+	JSR	<CLOCK
+	NOP
+L_NSSKIP
+
+SER_NEXT
+; check if we've read an integral number of bins
+	MOVE	Y:<NS_READ,A		; A = NS_READ
+	MOVE	Y:<NSBIN,B		; B = NSBIN
+	CMP	B,A
+	JLT	SER_DONE		; NS_READ < NSBIN = done with this row
+; serial binning here if NSBIN > 1
+	DO	Y:<NSBINM1,L_NSBIN	; serial binning minus 1
+	MOVE	#<SERIAL_SHIFT,R0	; move charge, not readout
+	JSR	<CLOCK
+	NOP
+L_NSBIN					; Loop over NSBINM1
+	MOVE	#<SERIAL_READ,R0	; serial readout
+	JSR	<CLOCK
+; decrement NS_READ by the bin size
+	SUB	B,A
+	NOP
+	MOVE	A,Y:<NS_READ		; NS_READ = NS_READ - NSBIN
+	JMP	SER_NEXT		; keep reading serial register
+SER_DONE
+	NOP
+L_NBANDS				; end loop over NBANDS
+; Done with bands, clear the remaining pixels in this ros
+	MOVE	Y:<NSCLR,A		; A  = NSCLR
+	MOVE	Y:<NSR,X0		; X0 = NSR
+	CLR	B			; B  = 0
+	SUB	X0,A			; A = NSCLR - NSR
+	TST	A
+	JLT	END_ROW
+	MOVE	#<SERIAL_SKIP,R0	; clear out remaining pixels, NSCLR-NSR
 	JSR	<CLOCK
 	NOP
 	JMP	<END_ROW
 READ_FULL_ROW
-	; read full row when NBANDS==0
-	MOVE	Y:<NSR,A		; number of (binned) serials, full-frame
+; read full row when NBANDS==0
+	MOVE	Y:<NSR,A
 	JSR	<SREAD
 	NOP
 END_ROW
 	NOP
-LPR					; End of parallel loop
+L_NPR					; end loop over NPR
 
-;
 ; Restore the controller to non-image data transfer and idling if necessary
 RDC_END	JCLR	#IDLMODE,X:<STATUS,NO_IDL ; Don't idle after readout
 	MOVE	#IDLE,R0
@@ -244,7 +273,8 @@ NO_IDL	MOVE	#TST_RCV,R0
 	MOVE	R0,X:<IDL_ADR
 RDC_E	JSR	<WAIT_TO_FINISH_CLOCKING
 	BCLR	#ST_RDC,X:<STATUS	; Set status to not reading out
-        JMP     <START
+	JMP	<START
+
 ;
 ; Subroutine.
 ; This is where we do the serial binning.  Use the SERIAL_SHIFT
